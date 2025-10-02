@@ -1,6 +1,4 @@
 import adapter from "@sveltejs/adapter-netlify";
-import tailwindcss from "@tailwindcss/vite";
-import { sveltekit } from "@sveltejs/kit/vite";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -73,8 +71,6 @@ const config = {
     // },
     // vite: () => ({})
   },
-
-  plugins: [tailwindcss(), sveltekit()],
 
   // SvelteKit uses vite-plugin-svelte. Its options can be provided directly here.
   // See the available options at https://github.com/sveltejs/vite-plugin-svelte/blob/main/docs/config.md
