@@ -6,6 +6,8 @@
   font-weight: 400;
 }
 
+@import "tailwindcss";
+
 :root {
   /* define colors as colors */
   --red: #a7272d;
