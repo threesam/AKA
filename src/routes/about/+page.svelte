@@ -1,12 +1,13 @@
 <script>
-  export let data;
-  const { aka, author, image } = data.data;
   import { blur } from "svelte/transition";
-
-  import TextBlock from "$lib/components/TextBlock.svelte";
   import SEO from "$lib/components/SEO.svelte";
+  import Cta from "$lib/components/Cta.svelte";
+  import BlockContent from "@movingbrands/svelte-portable-text";
+  import serializers from "$lib/components/serializers";
 
-  let selected = "aka";
+  let { data } = $props();
+  let selected = $state("aka");
+  const { aka, image, author } = data.data;
 </script>
 
 <SEO
@@ -18,27 +19,26 @@
 <section>
   <div class="container">
     <h1>About</h1>
-    <!-- <button
-			class={selected === 'aka' ? 'selected' : ''}
-			on:click={() => (selected = 'aka')}>this site</button
-		>
-		<button
-			class={selected === 'eleanor' ? 'selected' : ''}
-			on:click={() => (selected = 'eleanor')}>eleanor</button
-		> -->
+    <button
+      class={selected === "aka" ? "selected" : ""}
+      on:click={() => (selected = "aka")}>this site</button
+    >
+    <button
+      class={selected === "eleanor" ? "selected" : ""}
+      on:click={() => (selected = "eleanor")}>eleanor</button
+    >
   </div>
 
-  <!-- {#if selected === 'aka'} -->
-  <!-- content here -->
-  <div in:blur class="content">
-    <TextBlock text={aka.excerpt} />
-    <!-- <Cta url="/press" text="Press" /> -->
-  </div>
-  <!-- {:else if selected === 'eleanor'}
-		<div in:blur class="content">
-			<TextBlock text={author.bio} />
-		</div>
-	{/if} -->
+  {#if selected === "aka"}
+    <div in:blur class="content">
+      <BlockContent blocks={aka.excerpt} {serializers} />
+      <Cta url="/press" text="Press" />
+    </div>
+  {:else if selected === "eleanor"}
+    <div in:blur class="content">
+      <BlockContent blocks={author.bio} {serializers} />
+    </div>
+  {/if}
 </section>
 
 <style>
