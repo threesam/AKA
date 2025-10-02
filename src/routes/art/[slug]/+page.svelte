@@ -1,7 +1,6 @@
 <script>
-  export let data;
-  const { post } = data;
-  const { title, image, alt, body, publishedAt, author, cta, tags } = post;
+  let { data } = $props();
+  const { post } = data ?? {};
 
   import { format, parseISO } from "date-fns";
   import BlockContent from "@movingbrands/svelte-portable-text";
@@ -10,42 +9,31 @@
   import Container from "$lib/components/Container.svelte";
   import SEO from "$lib/components/SEO.svelte";
   import Cta from "$lib/components/Cta.svelte";
-
-  function isPoem(tags) {
-    if (tags && tags.includes("poem")) {
-      return "content poem";
-    }
-    return "content";
-  }
-
-  const containerClass = isPoem(tags);
 </script>
 
-<SEO {...post} />
+{#if post}
+  <SEO {...post} />
 
-<Hero data={{ title, image, alt }} />
+  <Hero data={{ title: post.title, image: post.image, alt: post.alt }} />
 
-<Container>
-  <section class={containerClass}>
-    {#if author}
-      <p>
-        {format(parseISO(publishedAt), "yyyy-MM-dd")}<br />by
-        <a href="/about">{author}</a>
-      </p>
-    {/if}
-    <BlockContent blocks={body} {serializers} />
-    {#if cta}
-      <Cta {...cta} />
-    {/if}
-  </section>
-</Container>
+  <Container>
+    <section class="content {post.tags?.includes('poem') ? 'poem' : ''}">
+      {#if post.author}
+        <p>
+          {format(parseISO(post.publishedAt), "yyyy-MM-dd")}<br />by
+          <a href="/about">{post.author}</a>
+        </p>
+      {/if}
+      <BlockContent blocks={post.body} {serializers} />
+      {#if post.cta}
+        <Cta {...post.cta} />
+      {/if}
+    </section>
+  </Container>
+{/if}
 
 <style>
   p {
     font-size: var(--smallText);
-  }
-
-  section ul {
-    padding: 3rem;
   }
 </style>

@@ -21,17 +21,17 @@
 
 {#if type !== "website"}
   <SvelteSeo
-    {title}
-    {description}
+    title={title ?? ""}
+    description={description ?? ""}
     openGraph={{
-      title,
-      description,
+      title: title ?? "",
+      description: description ?? "",
       url: host + $page.url.pathname,
       type: "article",
       article: {
-        publishedTime: publishedAt,
+        publishedTime: publishedAt ?? "",
         authors: ["https://www.artkillingapathy.com/about"],
-        tags,
+        tags: tags ?? [],
       },
       images: image
         ? [
@@ -42,14 +42,14 @@
                 .url(),
               width: SEO_IMAGE_WIDTH,
               height: SEO_IMAGE_HEIGHT,
-              alt,
+              alt: alt ?? "",
             },
           ]
         : [],
     }}
     twitter={{
-      title,
-      description,
+      title: title ?? "",
+      description: description ?? "",
       image: image
         ? urlFor(image)
             .width(SEO_IMAGE_WIDTH)
@@ -61,11 +61,11 @@
   />
 {:else}
   <SvelteSeo
-    {title}
-    {description}
+    title={title ?? ""}
+    description={description ?? ""}
     openGraph={{
-      title,
-      description,
+      title: title ?? "",
+      description: description ?? "",
       url: host + $page.url.pathname,
       type: "website",
       images: image
@@ -77,21 +77,21 @@
                 .url(),
               width: SEO_IMAGE_WIDTH,
               height: SEO_IMAGE_HEIGHT,
-              alt,
+              alt: alt ?? "",
             },
           ]
         : "",
     }}
     twitter={{
-      title,
-      description,
+      title: title ?? "",
+      description: description ?? "",
       image: image
         ? urlFor(image)
             .width(SEO_IMAGE_WIDTH)
             .height(TWITTER_IMAGE_HEIGHT)
             .url()
         : "",
-      imageAlt: alt,
+      imageAlt: alt ?? "",
     }}
   />
 {/if}
