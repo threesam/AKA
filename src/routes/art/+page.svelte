@@ -45,7 +45,7 @@
       <li>
         <button
           class="umami--click--category-all {!$selected.slug ? 'selected' : ''}"
-          on:click={() => {
+          onclick={() => {
             $selected.slug = "";
             $selected.title = "";
             $selected.description = "";
@@ -58,7 +58,7 @@
             class="umami--click--category-{slug} {$selected.slug === slug
               ? 'selected'
               : ''}"
-            on:click={() => {
+            onclick={() => {
               $selected.slug = slug;
               $selected.title = title;
               $selected.description = description;
@@ -92,7 +92,7 @@
     {#if filterPosts(posts).length > 9}
       <button
         class="umami--click--{$visiblePostsLength}-more-{$selected.slug}"
-        on:click={() => ($visiblePostsLength += 10)}>show more</button
+        onclick={() => ($visiblePostsLength += 10)}>show more</button
       >
     {/if}
   </section>

@@ -21,11 +21,11 @@
     <h1>About</h1>
     <button
       class={selected === "aka" ? "selected" : ""}
-      on:click={() => (selected = "aka")}>this site</button
+      onclick={() => (selected = "aka")}>this site</button
     >
     <button
       class={selected === "eleanor" ? "selected" : ""}
-      on:click={() => (selected = "eleanor")}>eleanor</button
+      onclick={() => (selected = "eleanor")}>eleanor</button
     >
   </div>
 
