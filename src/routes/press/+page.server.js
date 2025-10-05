@@ -12,8 +12,9 @@ export async function load() {
   }`;
 
   const data = await client.fetch(query);
+  console.log({ data });
 
   return {
-    data,
+    ...data,
   };
 }

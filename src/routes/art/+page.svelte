@@ -1,34 +1,58 @@
 <script>
-  export let data;
+  let { data } = $props();
   const { settings, posts, categories } = data.data;
 
-  import { slide, fly } from "svelte/transition";
-  import { writable } from "svelte/store";
+  import { slide } from "svelte/transition";
 
   // Components
   import SEO from "$lib/components/SEO.svelte";
   import ListCard from "$lib/components/ListCard.svelte";
 
-  const initializedCategory = {
+  // Using Svelte 5 runes
+  let selected = $state({
     title: "",
     slug: "",
     description: "",
-  };
+  });
 
-  const selected = writable(initializedCategory);
-
-  const visiblePostsLength = writable(10);
+  let visiblePostsLength = $state(10);
 
   const slugs = posts.map((word) => word.slug);
 
-  $: filterPosts = (posts) =>
+  // Derived state for filtered posts
+  let filteredPosts = $derived(
     posts.filter((post) => {
-      if ($selected.slug) {
-        return post.categories.includes($selected.slug);
+      if (selected.slug) {
+        return post.categories.includes(selected.slug);
       } else {
         return post;
       }
-    });
+    })
+  );
+
+  // Derived state for showing more button
+  let showMoreButton = $derived(filteredPosts.length > 9);
+
+  // Functions for handling category selection
+  function selectAll() {
+    selected = {
+      title: "",
+      slug: "",
+      description: "",
+    };
+  }
+
+  function selectCategory(category) {
+    selected = {
+      slug: category.slug,
+      title: category.title,
+      description: category.description,
+    };
+  }
+
+  function loadMore() {
+    visiblePostsLength += 10;
+  }
 </script>
 
 <SEO
@@ -44,55 +68,48 @@
     <ul class="flex">
       <li>
         <button
-          class="umami--click--category-all {!$selected.slug ? 'selected' : ''}"
-          onclick={() => {
-            $selected.slug = "";
-            $selected.title = "";
-            $selected.description = "";
-          }}>all</button
+          class="umami--click--category-all {!selected.slug ? 'selected' : ''}"
+          onclick={selectAll}>all</button
         >
       </li>
       {#each categories.filter((category) => category.slug !== "uncategorized") as { slug, title, description }, i}
         <li>
           <button
-            class="umami--click--category-{slug} {$selected.slug === slug
+            class="umami--click--category-{slug} {selected.slug === slug
               ? 'selected'
               : ''}"
-            onclick={() => {
-              $selected.slug = slug;
-              $selected.title = title;
-              $selected.description = description;
-            }}>{title.toLowerCase()}</button
+            onclick={() => selectCategory({ slug, title, description })}
+            >{title.toLowerCase()}</button
           >
         </li>
       {/each}
     </ul>
 
-    {#if $selected.description && filterPosts(posts).length}
-      <h2>{$selected.title}</h2>
-      <p in:slide><em>{$selected.description}</em></p>
+    {#if selected.description && filteredPosts.length}
+      <h2>{selected.title}</h2>
+      <p in:slide><em>{selected.description}</em></p>
     {/if}
   </section>
 
   <!-- POSTS -->
   <section class="content-section">
     <ul>
-      {#each filterPosts(posts).slice(0, $visiblePostsLength) as post, i (post.id)}
+      {#each filteredPosts.slice(0, visiblePostsLength) as post, i (post.id)}
         <ListCard data={post} {i} />
       {:else}
-        {#if $selected.slug}
+        {#if selected.slug}
           <li>
-            No posts in <em class="primary">{$selected.title.toLowerCase()}</em>
+            No posts in <em class="primary">{selected.title.toLowerCase()}</em>
           </li>
         {:else}
           <li>No posts to display</li>
         {/if}
       {/each}
     </ul>
-    {#if filterPosts(posts).length > 9}
+    {#if showMoreButton}
       <button
-        class="umami--click--{$visiblePostsLength}-more-{$selected.slug}"
-        onclick={() => ($visiblePostsLength += 10)}>show more</button
+        class="umami--click--{visiblePostsLength}-more-{selected.slug}"
+        onclick={loadMore}>show more</button
       >
     {/if}
   </section>
@@ -179,28 +196,6 @@
     border-bottom: 0.125rem solid var(--primary);
     /* border-left: 0.125rem dashed var(--primary);
 		border-right: 0.125rem solid var(--primary); */
-  }
-
-  label {
-    max-width: 40rem;
-    height: 100%;
-    position: relative;
-  }
-
-  input {
-    border: 0.125rem solid var(--textColor);
-    font-size: 1rem;
-    border-radius: 0;
-    background: var(--background);
-    color: var(--textColor);
-    padding: 0.28rem;
-  }
-  /* magic number to match svg search icon */
-
-  input:focus {
-    border: 0.125rem solid transparent;
-    outline: 0.125rem solid var(--primary);
-    outline-style: groove;
   }
 
   .content-section {

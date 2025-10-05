@@ -32,7 +32,6 @@
   {#if selected === "aka"}
     <div in:blur class="content">
       <PortableText value={aka.excerpt} {serializers} />
-      <Cta url="/press" text="Press" />
     </div>
   {:else if selected === "eleanor"}
     <div in:blur class="content">
