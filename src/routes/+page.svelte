@@ -23,7 +23,9 @@
 <main>
   <!-- WordCloud Background -->
   <div class="relative h-screen w-screen">
-    <div class="absolute inset-0 bg-black/15 z-10"></div>
+    <div
+      class="absolute inset-0 {$darkMode ? 'bg-black/15' : 'bg-white/15'} z-10"
+    ></div>
 
     <div class="logo z-20">
       <img
