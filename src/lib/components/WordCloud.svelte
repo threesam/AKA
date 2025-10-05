@@ -1,73 +1,121 @@
 <script>
-  export let words;
-  export let shape = "circle";
-
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { fade } from "svelte/transition";
   import WordCloud from "wordcloud";
   import { darkMode } from "../utils/darkMode";
-  import { getCssCustomProperty } from "../utils/main";
 
-  let w;
-  let h;
+  // Props using Svelte 5 runes
+  let {
+    words = [],
+    shape = "circle",
+    opacity = 0.1,
+    className = "",
+    ...restProps
+  } = $props();
 
-  onMount(() => {
-    const white = getCssCustomProperty("--white");
-    const lightGrey = getCssCustomProperty("--lighterGrey");
-    const darkGrey = getCssCustomProperty("--darkerGrey");
-    const black = getCssCustomProperty("--black");
+  // State using Svelte 5 runes
+  let canvasElement = $state(null);
+  let containerElement = $state(null);
+  let wordCloudInstance = $state(null);
+  let isInitialized = $state(false);
 
-    document.getElementById("my_canvas").width =
-      document.getElementById("canvas_ctn").clientWidth;
-    document.getElementById("my_canvas").height =
-      document.getElementById("canvas_ctn").clientHeight;
+  // Derived state
+  let isDark = $derived($darkMode);
 
-    let gridSize;
-    if (w > h) {
-      gridSize = w / 50;
-    } else {
-      gridSize = h / 50;
+  // Resize observer for responsive behavior
+  let resizeObserver = $state(null);
+
+  // Initialize word cloud
+  function initializeWordCloud() {
+    if (!canvasElement || !containerElement || !words.length) return;
+
+    // Clear existing word cloud
+    if (wordCloudInstance) {
+      wordCloudInstance = null;
     }
 
-    let primary;
-    let background;
-    if ($darkMode) {
-      primary = lightGrey;
-      background = black;
-    } else {
-      primary = darkGrey;
-      background = white;
-    }
+    // Get container dimensions
+    const rect = containerElement.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
 
-    WordCloud(document.getElementById("my_canvas"), {
+    if (width === 0 || height === 0) return;
+
+    // Set canvas dimensions
+    canvasElement.width = width;
+    canvasElement.height = height;
+
+    // Calculate grid size based on container size
+    const gridSize = Math.min(width, height) / 50;
+
+    // Color scheme based on theme
+    const colors = isDark
+      ? { primary: "#e5e7eb", background: "#000000" }
+      : { primary: "#374151", background: "#ffffff" };
+
+    // Create word cloud
+    wordCloudInstance = WordCloud(canvasElement, {
       list: words,
-      color: primary,
-      backgroundColor: background,
-      fontFamily: "mono",
-      gridSize: 3,
+      color: colors.primary,
+      backgroundColor: colors.background,
+      fontFamily: "anton",
+      gridSize: Math.max(3, Math.floor(gridSize)),
       minSize: 1,
       weightFactor: 5,
       shape,
+      ...restProps,
     });
+
+    isInitialized = true;
+  }
+
+  // Handle theme changes
+  $effect(() => {
+    if (isInitialized) {
+      initializeWordCloud();
+    }
+  });
+
+  // Handle words changes
+  $effect(() => {
+    if (words.length > 0) {
+      initializeWordCloud();
+    }
+  });
+
+  onMount(() => {
+    // Set up resize observer
+    resizeObserver = new ResizeObserver(() => {
+      if (isInitialized) {
+        initializeWordCloud();
+      }
+    });
+
+    if (containerElement) {
+      resizeObserver.observe(containerElement);
+    }
+
+    // Initial setup
+    initializeWordCloud();
+  });
+
+  onDestroy(() => {
+    if (resizeObserver) {
+      resizeObserver.disconnect();
+    }
+    if (wordCloudInstance) {
+      wordCloudInstance = null;
+    }
   });
 </script>
 
-<svelte:window bind:innerWidth={w} bind:innerHeight={h} />
-
-<div id="canvas_ctn">
-  <canvas id="my_canvas"></canvas>
+<div
+  bind:this={containerElement}
+  class="relative w-full h-full overflow-hidden {className}"
+>
+  <canvas
+    bind:this={canvasElement}
+    class="absolute inset-0 w-full h-full"
+    style="opacity: {opacity};"
+  ></canvas>
 </div>
-
-<style>
-  div {
-    position: absolute;
-    display: grid;
-    place-content: center;
-    top: var(--headerHeight);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.1;
-    overflow: hidden;
-  }
-</style>

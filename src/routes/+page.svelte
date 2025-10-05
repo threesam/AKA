@@ -21,20 +21,26 @@
 <SEO {...settings} />
 
 <main>
-  <svelte:component
-    this={WordCloud}
-    words={transformedWords}
-    shape={settings.wordCloud.shape}
-  />
-  <section>
-    <div class="logo">
+  <!-- WordCloud Background -->
+  <div class="relative h-screen w-screen">
+    <div class="absolute inset-0 bg-black/15 z-10"></div>
+
+    <div class="logo z-20">
       {#if $darkMode}
         <img src="ArtKill-light.svg" alt="full logo for art killing apathy" />
       {:else if !$darkMode}
         <img src="ArtKilling.svg" alt="full logo for art killing apathy" />
       {/if}
     </div>
-  </section>
+
+    <svelte:component
+      this={WordCloud}
+      words={transformedWords}
+      shape={settings.wordCloud.shape}
+      className="w-full h-full"
+    />
+  </div>
+
   <section class="projects">
     <h2>Featured Art</h2>
     <ul>
