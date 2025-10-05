@@ -12,7 +12,7 @@ export async function load() {
       uselessWords
     }
   }`;
-  const words = /* groq */ `*[_type == "post"]{title, "title": excerpt[0].children[0].text}`;
+  const words = /* groq */ `*[_type == "post"]{title, "title": body[0].children[0].text}`;
   const page = /* groq */ `*[_type == 'page'][0]{
     "content": content[]->{
       title, 
