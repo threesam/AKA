@@ -26,11 +26,10 @@
     <div class="absolute inset-0 bg-black/15 z-10"></div>
 
     <div class="logo z-20">
-      {#if $darkMode}
-        <img src="ArtKill-light.svg" alt="full logo for art killing apathy" />
-      {:else if !$darkMode}
-        <img src="ArtKilling.svg" alt="full logo for art killing apathy" />
-      {/if}
+      <img
+        src={$darkMode ? "ArtKill-light.svg" : "ArtKilling.svg"}
+        alt="full logo for art killing apathy"
+      />
     </div>
 
     <svelte:component
