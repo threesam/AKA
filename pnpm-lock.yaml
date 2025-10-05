@@ -65,12 +65,6 @@ importers:
       svelte-check:
         specifier: 4.3.2
         version: 4.3.2(picomatch@4.0.3)(svelte@5.39.8)(typescript@5.9.3)
-      svelte-forms-lib:
-        specifier: 2.0.1
-        version: 2.0.1
-      svelte-media-query:
-        specifier: 1.1.2
-        version: 1.1.2
       svelte-preprocess:
         specifier: 6.0.3
         version: 6.0.3(postcss@8.5.6)(svelte@5.39.8)(typescript@5.9.3)
@@ -1059,10 +1053,6 @@ packages:
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
-
-  dequal@2.0.3:
-    resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
-    engines: {node: '>=6'}
 
   detect-libc@2.1.1:
     resolution: {integrity: sha512-ecqj/sy1jcK1uWrwpR67UhYrIFQ+5WlGxth34WquCbamhFA6hkkwiu37o6J5xCHdo1oixJRfVRw+ywV+Hq/0Aw==}
@@ -2071,12 +2061,6 @@ packages:
     peerDependencies:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
-
-  svelte-forms-lib@2.0.1:
-    resolution: {integrity: sha512-kwbJ3ynsepsrrJyAMrvSc0Lj/myc9vfI2DL8OKxgArZimrNYsRh1gENYhvrcKEI3BiZrv8q3VFfmGo/GMyk7Zg==}
-
-  svelte-media-query@1.1.2:
-    resolution: {integrity: sha512-wprqLjnTDhHsoCwCobMp06laiBb9sz8FeKQixEm9teS0tbPb2nmlzy3vlbDX5MPwNRyNML1/1SHmshQQnQ77+w==}
 
   svelte-preprocess@6.0.3:
     resolution: {integrity: sha512-PLG2k05qHdhmRG7zR/dyo5qKvakhm8IJ+hD2eFRQmMLHp7X3eJnjeupUtvuRpbNiF31RjVw45W+abDwHEmP5OA==}
@@ -3294,8 +3278,6 @@ snapshots:
 
   delayed-stream@1.0.0: {}
 
-  dequal@2.0.3: {}
-
   detect-libc@2.1.1: {}
 
   detective-amd@6.0.1:
@@ -4282,12 +4264,6 @@ snapshots:
       typescript: 5.9.3
     transitivePeerDependencies:
       - picomatch
-
-  svelte-forms-lib@2.0.1:
-    dependencies:
-      dequal: 2.0.3
-
-  svelte-media-query@1.1.2: {}
 
   svelte-preprocess@6.0.3(postcss@8.5.6)(svelte@5.39.8)(typescript@5.9.3):
     dependencies:
