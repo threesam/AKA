@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "3.0.80",
-    "@movingbrands/svelte-portable-text": "0.0.11",
     "@netlify/functions": "4.2.7",
     "@portabletext/svelte": "3.0.1",
     "@sanity/block-content-to-hyperscript": "3.0.1",

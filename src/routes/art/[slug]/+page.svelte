@@ -3,12 +3,12 @@
   const { post } = data ?? {};
 
   import { format, parseISO } from "date-fns";
-  import BlockContent from "@movingbrands/svelte-portable-text";
   import serializers from "$lib/components/serializers";
   import Hero from "$lib/components/Hero.svelte";
   import Container from "$lib/components/Container.svelte";
   import SEO from "$lib/components/SEO.svelte";
   import Cta from "$lib/components/Cta.svelte";
+  import { PortableText } from "@portabletext/svelte";
 </script>
 
 {#if post}
@@ -24,7 +24,7 @@
           <a href="/about">{post.author}</a>
         </p>
       {/if}
-      <BlockContent blocks={post.body} {serializers} />
+      <PortableText value={post.body} {serializers} />
       {#if post.cta}
         <Cta {...post.cta} />
       {/if}
