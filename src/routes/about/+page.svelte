@@ -2,7 +2,7 @@
   import { blur } from "svelte/transition";
   import SEO from "$lib/components/SEO.svelte";
   import Cta from "$lib/components/Cta.svelte";
-  import { PortableText } from "@portabletext/svelte";
+  import BlockContent from "@movingbrands/svelte-portable-text";
   import serializers from "$lib/components/serializers";
 
   let { data } = $props();
@@ -31,11 +31,11 @@
 
   {#if selected === "aka"}
     <div in:blur class="content">
-      <PortableText value={aka.excerpt} {serializers} />
+      <BlockContent blocks={aka.excerpt} {serializers} />
     </div>
   {:else if selected === "eleanor"}
     <div in:blur class="content">
-      <PortableText value={author.bio} {serializers} />
+      <BlockContent blocks={author.bio} {serializers} />
     </div>
   {/if}
 </section>

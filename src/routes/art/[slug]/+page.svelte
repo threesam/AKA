@@ -8,7 +8,7 @@
   import Container from "$lib/components/Container.svelte";
   import SEO from "$lib/components/SEO.svelte";
   import Cta from "$lib/components/Cta.svelte";
-  import { PortableText } from "@portabletext/svelte";
+  import BlockContent from "@movingbrands/svelte-portable-text";
 </script>
 
 {#if post}
@@ -24,7 +24,7 @@
           <a href="/about">{post.author}</a>
         </p>
       {/if}
-      <PortableText value={post.body} {serializers} />
+      <BlockContent blocks={post.body} {serializers} />
       {#if post.cta}
         <Cta {...post.cta} />
       {/if}

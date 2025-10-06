@@ -11,6 +11,9 @@ importers:
       '@mailchimp/mailchimp_marketing':
         specifier: 3.0.80
         version: 3.0.80
+      '@movingbrands/svelte-portable-text':
+        specifier: 0.0.11
+        version: 0.0.11(svelte@5.39.8)
       '@netlify/functions':
         specifier: 4.2.7
         version: 4.2.7(rollup@4.52.3)
@@ -326,6 +329,11 @@ packages:
     resolution: {integrity: sha512-llMXd39jtP0HpQLVI37Bf1m2ADlEb35GYSh1SDSLsBhR+5iCxiNGlT31yqbNtVHygHAtMy6dWFERpU2JgufhPg==}
     engines: {node: '>=18'}
     hasBin: true
+
+  '@movingbrands/svelte-portable-text@0.0.11':
+    resolution: {integrity: sha512-snexsgm3Fw7JUraUcBprs6J92jTUXygTI6+gjJpLskkQ+JWPieoQUeZMhcCiCPEN0rzjJjS5T3OHS/D4yyFiKQ==}
+    peerDependencies:
+      svelte: ^3.0.0
 
   '@netlify/binary-info@1.0.0':
     resolution: {integrity: sha512-4wMPu9iN3/HL97QblBsBay3E1etIciR84izI3U+4iALY+JHCrI+a2jO0qbAZ/nxKoegypYEaiiqWXylm+/zfrw==}
@@ -2512,6 +2520,10 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+
+  '@movingbrands/svelte-portable-text@0.0.11(svelte@5.39.8)':
+    dependencies:
+      svelte: 5.39.8
 
   '@netlify/binary-info@1.0.0': {}
 
