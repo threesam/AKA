@@ -1,13 +1,49 @@
 <script>
   import { page } from "$app/stores";
+  import { onMount, onDestroy } from "svelte";
 
-  $: segment = $page.url.pathname.substring(1);
+  let segment = $derived($page.url.pathname.substring(1));
   const origin = $page.url.origin;
 
   import Logo from "./icons/Logo.svelte";
+
+  // Scroll behavior state
+  let isVisible = $state(true);
+  let lastScrollY = $state(0);
+  let scrollTimeout = $state(null);
+
+  function handleScroll() {
+    const currentScrollY = window.scrollY;
+
+    // Clear existing timeout
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+
+    // Show header when scrolling up or at top
+    if (currentScrollY < lastScrollY || currentScrollY < 100) {
+      isVisible = true;
+    }
+    // Hide header when scrolling down more than 100px
+    else if (currentScrollY > 100) {
+      isVisible = false;
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  onMount(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+    };
+  });
 </script>
 
-<header>
+<header class:visible={isVisible}>
   <a
     class="logo"
     aria-current={segment === undefined ? "page" : undefined}
@@ -48,6 +84,16 @@
     align-items: center;
     padding: 0 var(--containerPadding);
     z-index: 20;
+    transform: translateY(0);
+    transition:
+      transform 0.3s ease-in-out,
+      opacity 0.3s ease-in-out;
+    opacity: 1;
+  }
+
+  header:not(.visible) {
+    transform: translateY(-100%);
+    opacity: 0;
   }
 
   nav {
