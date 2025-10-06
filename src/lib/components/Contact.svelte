@@ -8,8 +8,8 @@
 
 {#if show}
   <!-- content here -->
-  <div in:fly={{ y: -30, duration: 1000 }} class="border card">
-    <h1>Contact</h1>
+  <div in:fly={{ y: -30, duration: 1000 }} class="card">
+    <h1 class="text-3xl! font-bold uppercase">Contact</h1>
     <SocialLinks />
     <!-- <form in:fade name="contact" method="POST" data-netlify="true" netlify-honeypot=“bot-field”>
       <input type="hidden" name="form-name" value="contact" /> 
@@ -50,12 +50,6 @@
   /* form div {
     margin-bottom: 0.5rem;
   } */
-
-  h1 {
-    color: var(--textColor);
-    /* margin: 0 0 2rem 0; */
-    width: max-content;
-  }
 
   /* button {
     font-weight: 700;

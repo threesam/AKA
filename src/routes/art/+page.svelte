@@ -61,74 +61,69 @@
   {...settings}
 />
 
-<main>
-  <section>
-    <h1>My Art</h1>
-    <!-- CATEGORIES -->
-    <ul class="flex">
+<section>
+  <h1 class="text-4xl! font-bold uppercase">Art</h1>
+  <!-- CATEGORIES -->
+  <ul class="flex">
+    <li>
+      <button
+        class="umami--click--category-all {!selected.slug ? 'selected' : ''}"
+        onclick={selectAll}>all</button
+      >
+    </li>
+    {#each categories.filter((category) => category.slug !== "uncategorized") as { slug, title, description }, i}
       <li>
         <button
-          class="umami--click--category-all {!selected.slug ? 'selected' : ''}"
-          onclick={selectAll}>all</button
+          class="umami--click--category-{slug} {selected.slug === slug
+            ? 'selected'
+            : ''}"
+          onclick={() => selectCategory({ slug, title, description })}
+          >{title.toLowerCase()}</button
         >
       </li>
-      {#each categories.filter((category) => category.slug !== "uncategorized") as { slug, title, description }, i}
+    {/each}
+  </ul>
+
+  {#if selected.description && filteredPosts.length}
+    <h2>{selected.title}</h2>
+    <p in:slide><em>{selected.description}</em></p>
+  {/if}
+</section>
+
+<!-- POSTS -->
+<section class="content-section">
+  <ul>
+    {#each filteredPosts.slice(0, visiblePostsLength) as post, i (post.id)}
+      <ListCard data={post} {i} />
+    {:else}
+      {#if selected.slug}
         <li>
-          <button
-            class="umami--click--category-{slug} {selected.slug === slug
-              ? 'selected'
-              : ''}"
-            onclick={() => selectCategory({ slug, title, description })}
-            >{title.toLowerCase()}</button
-          >
+          No posts in <em class="primary">{selected.title.toLowerCase()}</em>
         </li>
-      {/each}
-    </ul>
-
-    {#if selected.description && filteredPosts.length}
-      <h2>{selected.title}</h2>
-      <p in:slide><em>{selected.description}</em></p>
-    {/if}
-  </section>
-
-  <!-- POSTS -->
-  <section class="content-section">
-    <ul>
-      {#each filteredPosts.slice(0, visiblePostsLength) as post, i (post.id)}
-        <ListCard data={post} {i} />
       {:else}
-        {#if selected.slug}
-          <li>
-            No posts in <em class="primary">{selected.title.toLowerCase()}</em>
-          </li>
-        {:else}
-          <li>No posts to display</li>
-        {/if}
-      {/each}
-    </ul>
-    {#if showMoreButton}
-      <button
-        class="umami--click--{visiblePostsLength}-more-{selected.slug}"
-        onclick={loadMore}>show more</button
-      >
-    {/if}
-  </section>
-  {#each slugs as slug}
-    <a
-      aria-hidden="true"
-      style="position: absolute; visibility: hidden;"
-      href="art/{slug}">{slug}</a
+        <li>No posts to display</li>
+      {/if}
+    {/each}
+  </ul>
+  {#if showMoreButton}
+    <button
+      class="umami--click--{visiblePostsLength}-more-{selected.slug}"
+      onclick={loadMore}>show more</button
     >
-  {/each}
-</main>
+  {/if}
+</section>
+{#each slugs as slug}
+  <a
+    aria-hidden="true"
+    style="position: absolute; visibility: hidden;"
+    href="art/{slug}">{slug}</a
+  >
+{/each}
 
 <style>
-  main {
-    min-height: 100vh;
-    padding: 3rem var(--containerPadding);
-  }
   section {
     max-width: 40rem;
+    padding: 0 var(--containerPadding);
     margin: 0 auto;
   }
 

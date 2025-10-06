@@ -16,9 +16,9 @@
   {image}
 />
 
-<section>
+<section class="">
   <div class="container">
-    <h1>About</h1>
+    <h1 class="text-4xl! font-bold uppercase">About</h1>
     <button
       class={selected === "aka" ? "selected" : ""}
       onclick={() => (selected = "aka")}>this site</button
