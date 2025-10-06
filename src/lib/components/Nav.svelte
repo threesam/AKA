@@ -50,7 +50,7 @@
     href={`${origin}`}><Logo {segment} /></a
   >
 
-  <nav>
+  <nav class="uppercase">
     <a
       class={segment === "art" ? "active" : ""}
       aria-current={segment === "art" ? "page" : undefined}
@@ -107,7 +107,7 @@
   }
 
   header nav a + a {
-    margin-left: 0.75rem;
+    margin-left: 1.25rem;
   }
   a {
     font-weight: normal;

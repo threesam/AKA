@@ -31,7 +31,7 @@
         <p class="excerpt">{excerpt}</p>
       {/if}
       {#if publishedAt}
-        <p class="date">
+        <p class="date text-lg font-bold">
           <em>{format(parseISO(publishedAt), "yyyy-MM-dd")}</em>
         </p>
       {/if}
@@ -52,8 +52,6 @@
 </li>
 
 <style>
-  li {
-  }
   a {
     display: block;
     position: relative;

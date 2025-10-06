@@ -31,9 +31,3 @@
     </section>
   </Container>
 {/if}
-
-<style>
-  p {
-    font-size: var(--smallText);
-  }
-</style>
