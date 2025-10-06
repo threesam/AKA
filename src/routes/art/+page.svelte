@@ -62,7 +62,7 @@
 />
 
 <section>
-  <h1 class="text-4xl! font-bold uppercase">Art</h1>
+  <h1 class="text-4xl! font-bold">Art</h1>
   <!-- CATEGORIES -->
   <ul class="flex">
     <li>

@@ -9,7 +9,7 @@
 {#if show}
   <!-- content here -->
   <div in:fly={{ y: -30, duration: 1000 }} class="card">
-    <h1 class="text-3xl! font-bold uppercase">Contact</h1>
+    <h1 class="text-3xl! font-bold">Contact</h1>
     <SocialLinks />
     <!-- <form in:fade name="contact" method="POST" data-netlify="true" netlify-honeypot=“bot-field”>
       <input type="hidden" name="form-name" value="contact" /> 

@@ -22,7 +22,7 @@
 {#if show && src}
   <section>
     <div>
-      <h1 class="text-4xl! font-bold uppercase" id={title}>{title}</h1>
+      <h1 class="text-4xl! font-bold" id={title}>{title}</h1>
       <slot />
     </div>
     <img
@@ -41,7 +41,7 @@
   </section>
 {:else}
   <div class="title-only">
-    <h1 class="text-4xl! font-bold uppercase" id={title}>{title}</h1>
+    <h1 class="text-4xl! font-bold" id={title}>{title}</h1>
     <slot />
   </div>
 {/if}
