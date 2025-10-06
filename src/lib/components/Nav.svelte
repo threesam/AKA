@@ -50,21 +50,21 @@
     href={`${origin}`}><Logo {segment} /></a
   >
 
-  <nav class="uppercase">
+  <nav class="">
     <a
       class={segment === "art" ? "active" : ""}
       aria-current={segment === "art" ? "page" : undefined}
-      href={`${origin}/art`}>art</a
+      href={`${origin}/art`}>Art</a
     >
     <a
       class={segment === "about" ? "active" : ""}
       aria-current={segment === "about" ? "page" : undefined}
-      href={`${origin}/about`}>about</a
+      href={`${origin}/about`}>About</a
     >
     <a
       class={segment === "contact" ? "active" : ""}
       aria-current={segment === "contact" ? "page" : undefined}
-      href={`${origin}/contact`}>contact</a
+      href={`${origin}/contact`}>Contact</a
     >
   </nav>
 </header>
@@ -113,7 +113,7 @@
     font-weight: normal;
     transition: all 0.3s ease-in-out;
     line-height: 0;
-    font-family: var(--headingFont);
+    font-family: "Anton", var(--headingFont);
   }
   .active {
     color: var(--primary);
