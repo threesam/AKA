@@ -77,7 +77,7 @@
     width: 100%;
     color: var(--headerTextColor);
     height: var(--headerHeight);
-    background: var(--headerBackground);
+    background: transparent;
     box-shadow: var(--level-2);
     display: flex;
     justify-content: space-between;
