@@ -3,25 +3,17 @@
   const { words, settings, page } = data.data;
   const { content } = page;
 
-  import { onMount } from "svelte";
   import Image from "$lib/components/Image.svelte";
   import Cta from "$lib/components/Cta.svelte";
   import SEO from "$lib/components/SEO.svelte";
+  import ParticleCanvas from "$lib/components/ParticleCanvas.svelte";
   import { darkMode } from "$lib/utils/darkMode";
-
-  let WordCloud;
-  onMount(async () => {
-    const mod = await import("$lib/components/WordCloud.svelte");
-    WordCloud = mod.default;
-  });
-  import { transform } from "$lib/utils/transform";
-  const transformedWords = transform(words, settings.wordCloud.uselessWords);
 </script>
 
 <SEO {...settings} />
 
 <main>
-  <!-- WordCloud Background -->
+  <!-- Particle Background -->
   <div class="relative h-screen w-screen">
     <div
       class="absolute inset-0 {$darkMode ? 'bg-black/15' : 'bg-white/15'} z-10"
@@ -34,12 +26,7 @@
       />
     </div>
 
-    <svelte:component
-      this={WordCloud}
-      words={transformedWords}
-      shape={settings.wordCloud.shape}
-      className="w-full h-full"
-    />
+    <ParticleCanvas />
   </div>
 
   <section class="projects">

@@ -1,50 +1,30 @@
 <script>
   import SubscribeForm from "../components/SubscribeForm.svelte";
   import SocialLinks from "../components/SocialLinks.svelte";
-  import WordCloud from "../components/WordCloud.svelte";
+  import { onMount } from "svelte";
 
-  let flatten = false;
-  function setSize(node) {
-    if (node.clientWidth < 767) {
-      flatten = true;
-    }
-  }
+  let { transformedWords = [] } = $props();
 
-  // Words for the footer word cloud
-  const footerWords = [
-    ["justice", 8],
-    ["activism", 7],
-    ["change", 6],
-    ["art", 5],
-    ["truth", 5],
-    ["freedom", 4],
-    ["equality", 4],
-    ["hope", 3],
-    ["courage", 3],
-    ["solidarity", 3],
-    ["resistance", 3],
-    ["voice", 2],
-    ["power", 2],
-    ["community", 2],
-    ["revolution", 2],
-    ["peace", 2],
-    ["love", 2],
-    ["action", 2],
-  ];
+  let WordCloud = $state(null);
+  onMount(async () => {
+    const mod = await import("$lib/components/WordCloud.svelte");
+    WordCloud = mod.default;
+  });
 </script>
 
 <footer
-  use:setSize
-  class="relative w-full bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black border-t border-gray-200 dark:border-gray-800 overflow-hidden"
+  class="relative w-full bg-[var(--footerBackground)] border-t border-gray-200 dark:border-gray-800 overflow-hidden"
 >
   <!-- Word Cloud Background -->
   <div class="absolute inset-0 w-screen h-full z-0">
-    <WordCloud
-      words={footerWords}
-      opacity={0.05}
-      className="w-full h-full"
-      shape="circle"
-    />
+    {#if WordCloud}
+      <WordCloud
+        words={transformedWords}
+        opacity={0.05}
+        className="w-full h-full"
+        shape="circle"
+      />
+    {/if}
   </div>
 
   <!-- Footer Content -->
@@ -68,7 +48,7 @@
 
         <!-- Newsletter Subscription -->
         <div
-          class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
+          class="bg-[var(--cardBg)] p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
         >
           <SubscribeForm />
         </div>
@@ -119,7 +99,7 @@
         <div class="flex flex-col space-y-4">
           <div class="text-gray-600 dark:text-gray-300">
             <p class="text-sm font-medium mb-2">Stay Connected</p>
-            <SocialLinks {flatten} />
+            <SocialLinks />
           </div>
 
           <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
