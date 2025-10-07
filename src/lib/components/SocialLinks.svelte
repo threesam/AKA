@@ -1,109 +1,46 @@
 <script>
   import { page } from "$app/stores";
 
-  import { scale } from "svelte/transition";
   export let flatten;
-  const d = 50;
-
-  export let links = [
-    {
-      title: "Email",
-      href: 'mailto:eleanor@artkillingapathy.com?subject="From Contact"',
-      svg: {
-        code: `<svg viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="${d}" height="${d}"><path d="M.5 2.5A1.5 1.5 0 012 1h12a1.5 1.5 0 011.5 1.5v1.208L8 7.926.5 3.708V2.5z" fill="currentColor"></path><path d="M.5 4.855V12.5A1.5 1.5 0 002 14h12a1.5 1.5 0 001.5-1.5V4.855L8 9.074.5 4.854z" fill="currentColor"></path></svg>`,
-      },
-    },
-    {
-      title: "Twitter",
-      href: "https://twitter.com/radicaleleanor",
-      svg: {
-        code: `<svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="${d}" height="${d}"><path d="M14.977 1.467a.5.5 0 00-.87-.301 2.559 2.559 0 01-1.226.763A3.441 3.441 0 0010.526 1a3.539 3.539 0 00-3.537 3.541v.44C3.998 4.75 2.4 2.477 1.967 1.325a.5.5 0 00-.916-.048C.004 3.373-.157 5.407.604 7.139 1.27 8.656 2.61 9.864 4.51 10.665 3.647 11.276 2.194 12 .5 12a.5.5 0 00-.278.916C1.847 14 3.55 14 5.132 14h.048c4.861 0 8.8-3.946 8.8-8.812v-.479c.363-.37.646-.747.82-1.236.193-.546.232-1.178.177-2.006z" fill="currentColor"></path></svg>`,
-      },
-    },
-    {
-      title: "Instagram",
-      href: "https://instagram.com/radicaleleanor",
-      svg: {
-        code: `<svg
-      viewBox="0 0 15 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="${d}"
-      height="${d}">
-      <path d="M7.5 5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z" fill="currentColor" />
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M4.5 0A4.5 4.5 0 000 4.5v6A4.5 4.5 0 004.5 15h6a4.5 4.5 0
-        004.5-4.5v-6A4.5 4.5 0 0010.5 0h-6zM4 7.5a3.5 3.5 0 117 0 3.5 3.5 0 01-7
-        0zM11 4h1V3h-1v1z"
-        fill="currentColor" />
-    </svg>`,
-      },
-    },
-    {
-      title: "LinkedIn",
-      href: "https://linkedin.com/in/eleanorgoldfield",
-      svg: {
-        code: `<svg
-      viewBox="0 0 15 15"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="${d}"
-      height="${d}">
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M0 1.5A1.5 1.5 0 011.5 0h12A1.5 1.5 0 0115 1.5v12a1.5 1.5 0 01-1.5
-        1.5h-12A1.5 1.5 0 010 13.5v-12zM5 5H4V4h1v1zm-1 6V6h1v5H4zm4.5-4A1.5 1.5
-        0 007 8.5V11H6V6h1v.5a2.5 2.5 0 014 2V11h-1V8.5A1.5 1.5 0 008.5 7z"
-        fill="currentColor" />
-    </svg>`,
-      },
-    },
-  ];
 </script>
 
-<ul class="{flatten ? 'flatten' : ''} gap-y-3">
-  {#each links as { href, title, svg }, i}
-    <li
-      class="umami--click--{$page.url.pathname !== '/'
-        ? `${$page.url.pathname.substring(1).replace(/\//, '-')}`
-        : 'home'}-{title.toLowerCase()}"
-    >
-      <!-- <a in:scale={{delay: ((i + 1) * 100) + 500, start: 0}} {href} aria-label={title}>{@html svg.code}</a> -->
-      <a {href} aria-label={title}>{@html svg.code}</a>
-    </li>
-  {/each}
-</ul>
+<div class="flex flex-row space-x-3">
+  <!-- Twitter -->
+  <a
+    href="https://twitter.com/radicaleleanor"
+    aria-label="Twitter"
+    class="flex items-center justify-center w-12 h-12 text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
+  >
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+      />
+    </svg>
+  </a>
 
-<style>
-  .flatten {
-    display: flex;
-    justify-content: space-between;
-  }
-  ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    align-items: center;
-    margin: 0;
-  }
+  <!-- Instagram -->
+  <a
+    href="https://instagram.com/radicaleleanor"
+    aria-label="Instagram"
+    class="flex items-center justify-center w-12 h-12 text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
+  >
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+      />
+    </svg>
+  </a>
 
-  ul li {
-    margin-left: 0;
-  }
-
-  a {
-    color: var(--textColor);
-    display: grid;
-    place-content: center;
-    transition: all 0.3s;
-    border-bottom: none;
-  }
-
-  a:hover {
-    color: var(--primary);
-    transform: scale(1.2);
-  }
-</style>
+  <!-- LinkedIn -->
+  <a
+    href="https://linkedin.com/in/eleanorgoldfield"
+    aria-label="LinkedIn"
+    class="flex items-center justify-center w-12 h-12 text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
+  >
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+      />
+    </svg>
+  </a>
+</div>
