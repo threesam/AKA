@@ -1,8 +1,22 @@
 <script>
   import "../app.css";
   import Nav from "$lib/components/Nav.svelte";
-  import Theme from "$lib/components/Theme.svelte";
   import Footer from "$lib/components/Footer.svelte";
+  import { darkMode } from "$lib/utils/darkMode";
+
+  // Apply theme to body based on dark mode state
+  $effect(() => {
+    if (typeof document !== "undefined") {
+      const body = document.querySelector("body");
+      if (body) {
+        if ($darkMode) {
+          body.classList.add("dark");
+        } else {
+          body.classList.remove("dark");
+        }
+      }
+    }
+  });
 
   let { children } = $props();
 </script>
@@ -13,20 +27,4 @@
   {@render children()}
 </main>
 
-<div>
-  <Theme />
-</div>
-
 <Footer />
-
-<style>
-  div {
-    position: fixed;
-    z-index: 10;
-    padding: 0.5rem;
-    padding-bottom: 0;
-    bottom: var(--containerPadding);
-    right: var(--containerPadding);
-    opacity: 0.8;
-  }
-</style>
