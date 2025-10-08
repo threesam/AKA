@@ -7,6 +7,12 @@
   import Cta from "$lib/components/Cta.svelte";
   import SEO from "$lib/components/SEO.svelte";
   import MasonryGallery from "$lib/components/MasonryGallery.svelte";
+  import ProductShowcase from "$lib/components/ProductShowcase.svelte";
+
+  // Filter content for items with Gumroad links
+  const gumroadProducts = $derived(
+    content.filter((item) => item.cta?.url && item.cta.url.includes("gumroad"))
+  );
 </script>
 
 <SEO {...settings} />
@@ -26,6 +32,20 @@
         orientation="horizontal"
       />
     </section>
+  {/if}
+
+  <!-- Product Showcase -->
+  {#if gumroadProducts?.length}
+    <ProductShowcase
+      products={gumroadProducts.map((product) => ({
+        title: product.title,
+        description: product.description,
+        image: product.image,
+        alt: product.alt,
+        gumroadUrl: product.cta.url,
+        slug: product.slug,
+      }))}
+    />
   {/if}
 
   <section class="projects">
