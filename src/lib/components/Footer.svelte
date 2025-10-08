@@ -2,6 +2,7 @@
   import SubscribeForm from "../components/SubscribeForm.svelte";
   import SocialLinks from "../components/SocialLinks.svelte";
   import { onMount } from "svelte";
+  import Logo from "./icons/Logo.svelte";
 
   let { transformedWords = [] } = $props();
 
@@ -32,30 +33,19 @@
     <!-- Main Footer Content -->
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
       <!-- Brand & Mission Section -->
-      <div class="lg:col-span-2">
-        <h3
-          class="text-2xl font-bold text-gray-900 dark:text-white mb-4 font-['Anton'] tracking-wide"
-        >
-          Art Killing Apathy
-        </h3>
-        <p
-          class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed max-w-md"
-        >
-          Amplifying voices for social change through art, journalism, and
-          activism. Challenging apathy and inspiring action in the fight for
-          justice.
-        </p>
-
-        <!-- Newsletter Subscription -->
-        <div
-          class="bg-[var(--cardBg)] p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
-        >
-          <SubscribeForm />
-        </div>
-      </div>
 
       <!-- Quick Links -->
       <div>
+        <div class="">
+          <Logo classes="w-auto" />
+          <p
+            class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed max-w-md"
+          >
+            Amplifying voices for social change through art, journalism, and
+            activism. Challenging apathy and inspiring action in the fight for
+            justice.
+          </p>
+        </div>
         <h4
           class="text-lg font-semibold text-gray-900 dark:text-white mb-4 font-['Anton'] tracking-wide"
         >
@@ -80,38 +70,39 @@
           >
             Press & Media
           </a>
-          <a
-            href="/contact"
-            class="block text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-200"
-          >
-            Contact
-          </a>
         </nav>
       </div>
 
       <!-- Social & Contact -->
       <div>
+        <div class="text-gray-600 dark:text-gray-300">
+          <!-- Newsletter Subscription -->
+          <div
+            class="bg-[var(--cardBg)] p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
+          >
+            <SubscribeForm />
+          </div>
+        </div>
         <h4
           class="text-lg font-semibold text-gray-900 dark:text-white mb-4 font-['Anton'] tracking-wide"
         >
           Connect
         </h4>
         <div class="flex flex-col space-y-4">
-          <div class="text-gray-600 dark:text-gray-300">
-            <p class="text-sm font-medium mb-2">Stay Connected</p>
+          <div class="pt-4 border-t border-gray-200 dark:border-gray-700 flex">
             <SocialLinks />
-          </div>
 
-          <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">
-              Direct Contact
-            </p>
-            <a
-              href="mailto:eleanor@artkillingapathy.com?subject=From Website"
-              class="text-red-600 dark:text-red-400 hover:underline text-sm"
-            >
-              eleanor@artkillingapathy.com
-            </a>
+            <div class="flex gap-4 items-center">
+              <span class="text-sm text-gray-500 dark:text-gray-400">
+                Direct Contact
+              </span>
+              <a
+                href="mailto:eleanor@artkillingapathy.com?subject=From Website"
+                class="text-red-600 dark:text-red-400 hover:underline text-sm"
+              >
+                eleanor@artkillingapathy.com
+              </a>
+            </div>
           </div>
         </div>
       </div>
