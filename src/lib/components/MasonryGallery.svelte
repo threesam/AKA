@@ -65,7 +65,7 @@
                     <img
                       src={getImage(item, idx)}
                       alt={item?.alt || item?.title || "Image"}
-                      class="max-h-48 object-contain"
+                      class="max-h-[28vh] object-contain"
                     />
                   {/if}
                   <!-- Hover Overlay -->
