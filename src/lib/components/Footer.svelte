@@ -64,12 +64,12 @@
           >
             About Eleanor
           </a>
-          <a
+          <!-- <a
             href="/press"
             class="block text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-200"
           >
             Press & Media
-          </a>
+          </a> -->
         </nav>
       </div>
 

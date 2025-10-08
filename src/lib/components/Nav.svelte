@@ -61,11 +61,11 @@
       aria-current={segment === "about" ? "page" : undefined}
       href={`${origin}/about`}>About</a
     >
-    <a
+    <!-- <a
       class={segment === "press" ? "active" : ""}
       aria-current={segment === "press" ? "page" : undefined}
       href={`${origin}/press`}>Press</a
-    >
+    > -->
   </nav>
 </header>
 
