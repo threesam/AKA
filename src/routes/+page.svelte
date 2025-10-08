@@ -1,6 +1,6 @@
 <script>
-  export let data;
-  const { words, settings, page } = data.data;
+  let { data } = $props();
+  const { settings, page } = data;
   const { content } = page;
 
   import Image from "$lib/components/Image.svelte";

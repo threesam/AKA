@@ -12,7 +12,7 @@ export async function load() {
       uselessWords
     }
   }`;
-  const words = /* groq */ `*[_type == "post"]{title, "title": body[0].children[0].text}`;
+
   const page = /* groq */ `*[_type == 'page'][0]{
     "content": content[]->{
       title, 
@@ -29,13 +29,12 @@ export async function load() {
 
   const query = `{
     "settings": ${siteSettings},
-    "words": ${words},
     "page": ${page},
   }`;
 
   const data = await client.fetch(query);
 
   return {
-    data,
+    ...data,
   };
 }
