@@ -1,33 +1,32 @@
 <script>
   let { data } = $props();
-  const { settings, page } = data;
+  const { settings, page, photojournalism } = data;
   const { content } = page;
 
   import Image from "$lib/components/Image.svelte";
   import Cta from "$lib/components/Cta.svelte";
   import SEO from "$lib/components/SEO.svelte";
-  import ParticleCanvas from "$lib/components/ParticleCanvas.svelte";
-  import { darkMode } from "$lib/utils/darkMode";
+  import MasonryGallery from "$lib/components/MasonryGallery.svelte";
 </script>
 
 <SEO {...settings} />
 
 <main>
-  <!-- Particle Background -->
-  <div class="relative h-screen w-screen">
-    <div
-      class="absolute inset-0 {$darkMode ? 'bg-black/15' : 'bg-white/15'} z-10"
-    ></div>
-
-    <div class="logo z-20">
-      <img
-        src={$darkMode ? "ArtKill-light.svg" : "ArtKilling.svg"}
-        alt="full logo for art killing apathy"
+  <!-- Photojournalism Masonry Gallery (first section) -->
+  {#if photojournalism?.length}
+    <section>
+      <MasonryGallery
+        items={photojournalism.map((p) => ({
+          image: p.image,
+          alt: p.alt,
+          title: p.title,
+          description: p.description,
+          href: `/art/${p.slug}`,
+        }))}
+        orientation="horizontal"
       />
-    </div>
-
-    <ParticleCanvas />
-  </div>
+    </section>
+  {/if}
 
   <section class="projects">
     <h2>Featured Art</h2>

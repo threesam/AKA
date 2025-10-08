@@ -13,9 +13,20 @@ export async function load() {
     }
   }`;
 
+  // Pull photojournalism-tagged posts for homepage masonry
+  const photojournalism = /* groq */ `*[_type == 'post' && 'photojournalism' in categories[]->slug.current]|order(publishedAt desc)[0...24]{
+    "id": _id,
+    "slug": slug.current,
+    title,
+    "image": featuredMedia.asset->url,
+    "alt": featuredMedia.alt,
+    publishedAt
+  }`;
+
+  // Keep existing page content for Featured Art section
   const page = /* groq */ `*[_type == 'page'][0]{
     "content": content[]->{
-      title, 
+      title,
       "description": excerpt[0].children[0].text,
       cta,
       "slug": slug.current,
@@ -29,7 +40,8 @@ export async function load() {
 
   const query = `{
     "settings": ${siteSettings},
-    "page": ${page},
+    "photojournalism": ${photojournalism},
+    "page": ${page}
   }`;
 
   const data = await client.fetch(query);

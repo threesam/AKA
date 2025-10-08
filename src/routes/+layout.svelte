@@ -30,7 +30,7 @@
 
 <Nav />
 
-<main>
+<main class="pt-12">
   {@render children()}
 </main>
 

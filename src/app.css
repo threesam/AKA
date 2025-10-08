@@ -163,8 +163,7 @@ blockquote a {
   margin-top: calc(var(--containerPadding) / 2);
 }
 
-.content p,
-figure {
+.content p {
   padding: var(--containerPadding);
 }
 
