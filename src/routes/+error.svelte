@@ -1,21 +1,25 @@
 <script>
-  export let status;
-  export let error;
+  import ParticleCanvas from "$lib/components/ParticleCanvas.svelte";
 
-  const dev = process.env.NODE_ENV === "development";
+  let { error, status } = $props();
+
+  const isDevelopment = process.env.NODE_ENV === "development";
 </script>
 
 <svelte:head>
   <title>{status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
+<main class="relative">
+  <ParticleCanvas />
+  <h1>Uh oh</h1>
 
-<p>{error}</p>
+  <p>{status}</p>
 
-{#if dev && error}
-  <pre>{error}</pre>
-{/if}
+  {#if isDevelopment && error}
+    <pre>{error}</pre>
+  {/if}
+</main>
 
 <style>
   h1,
