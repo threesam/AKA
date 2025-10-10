@@ -290,35 +290,6 @@ hr {
   border-top: var(--line);
 }
 
-button {
-  --buttonColor: var(--textColor);
-  appearance: none;
-  color: var(--buttonTextColor);
-  background: var(--buttonColor);
-  border: none;
-  border-radius: 0;
-  padding: 10px 25px 5px 25px;
-  box-shadow: var(--level-1);
-  transition: 0.3s ease-in-out box-shadow;
-}
-
-button:hover {
-  box-shadow: var(--level-4);
-}
-
-button[disabled] {
-  opacity: 0.4;
-}
-
-button.cancel {
-  --buttonColor: var(--danger);
-  --textColor: var(--white);
-}
-
-button.small {
-  font-size: var(--smallText);
-}
-
 .grid {
   --gridCols: 2;
   display: grid;
