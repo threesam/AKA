@@ -290,41 +290,6 @@ hr {
   border-top: var(--line);
 }
 
-.grid {
-  --gridCols: 2;
-  display: grid;
-  grid-template-columns: repeat(var(--gridCols), 1fr);
-}
-
-.grid--split {
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 20px;
-}
-
-.cols-3 {
-  --gridCols: 3;
-}
-
-.cols-4 {
-  --gridCols: 4;
-}
-
-.split {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 20px;
-}
-
-.flex {
-  --justifyContent: space-between;
-  display: flex;
-  justify-content: var(--justifyContent);
-}
-
-.flex-around {
-  --justifyContent: space-around;
-}
-
 .logo {
   margin: 0;
   font-size: var(--baseFontSize);
@@ -332,23 +297,6 @@ hr {
   font-family: "Anton", var(--headingFont);
   text-decoration: none;
   color: inherit;
-}
-
-.card {
-  padding: 2em;
-  background: var(--cardBg);
-  box-shadow: var(--level-3);
-  border-radius: var(--borderRadius);
-}
-
-/* first item will never have a margin top */
-.card > *:first-child {
-  margin-top: 0;
-}
-
-/* last child in card will never have margin bottom */
-.card > *:last-child {
-  margin-bottom: 0;
 }
 
 /* themes */

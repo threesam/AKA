@@ -69,7 +69,7 @@
         </p>
 
         <!-- CTA Buttons -->
-        <div class="space-y-4">
+        <div class="flex justify-center items-center gap-4">
           {#if product?.gumroadUrl}
             <CtaButton
               type="primary"
