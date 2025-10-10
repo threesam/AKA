@@ -1,5 +1,6 @@
 <script>
   import Image from "$lib/components/Image.svelte";
+  import CtaButton from "$lib/components/CtaButton.svelte";
 
   /**
    * product: Object with title, description, image, gumroadUrl, etc.
@@ -70,20 +71,21 @@
         <!-- CTA Buttons -->
         <div class="space-y-4">
           {#if product?.gumroadUrl}
-            <a
+            <CtaButton
+              type="primary"
+              size="lg"
               href={product.gumroadUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="cta-primary"
             >
               {primaryCtaText}
-            </a>
+            </CtaButton>
           {/if}
 
           {#if product?.slug}
-            <a href="/art/{product.slug}" class="cta-secondary">
+            <CtaButton type="secondary" size="lg" href="/art/{product.slug}">
               {secondaryCtaText}
-            </a>
+            </CtaButton>
           {/if}
         </div>
       </div>
@@ -138,20 +140,21 @@
       <!-- CTA Buttons -->
       <div class="space-y-3">
         {#if product?.gumroadUrl}
-          <a
+          <CtaButton
+            type="primary"
+            size="md"
             href={product.gumroadUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="cta-primary-mobile"
           >
             {primaryCtaText}
-          </a>
+          </CtaButton>
         {/if}
 
         {#if product?.slug}
-          <a href="/art/{product.slug}" class="cta-secondary-mobile">
+          <CtaButton type="secondary" size="md" href="/art/{product.slug}">
             {secondaryCtaText}
-          </a>
+          </CtaButton>
         {/if}
       </div>
     </div>
@@ -161,82 +164,5 @@
 <style>
   .card {
     background: var(--background);
-  }
-
-  .cta-primary {
-    display: inline-block;
-    width: 100%;
-    background: var(--primary);
-    color: white;
-    font-family: "Anton", var(--headingFont);
-    font-weight: 400;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    text-align: center;
-    font-size: 1.125rem;
-    text-decoration: none;
-  }
-
-  .cta-primary:hover {
-    background: var(--primaryHover, #dc2626);
-    transform: translateY(-1px);
-  }
-
-  .cta-secondary {
-    display: inline-block;
-    width: 100%;
-    border: 2px solid transparent;
-    color: var(--primary);
-    font-family: "Anton", var(--headingFont);
-    font-weight: 400;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .cta-secondary:hover {
-    border-color: var(--primary);
-    transform: translateY(-1px);
-  }
-
-  .cta-primary-mobile {
-    display: block;
-    width: 100%;
-    background: var(--primary);
-    color: white;
-    font-family: "Anton", var(--headingFont);
-    font-weight: 400;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .cta-primary-mobile:hover {
-    background: var(--primaryHover, #dc2626);
-    transform: translateY(-1px);
-  }
-
-  .cta-secondary-mobile {
-    display: block;
-    width: 100%;
-    border: 2px solid transparent;
-    color: var(--primary);
-    font-family: "Anton", var(--headingFont);
-    font-weight: 400;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .cta-secondary-mobile:hover {
-    border-color: var(--primary);
-    transform: translateY(-1px);
   }
 </style>

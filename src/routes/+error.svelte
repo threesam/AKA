@@ -1,6 +1,7 @@
 <script>
   import ParticleCanvas from "$lib/components/ParticleCanvas.svelte";
   import Banner from "$lib/components/Banner.svelte";
+  import CtaButton from "$lib/components/CtaButton.svelte";
 
   let { error, status } = $props();
 
@@ -67,18 +68,10 @@
 
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/"
-          class="bg-red-600 hover:bg-red-700 text-white font-['Anton'] px-8 py-4 rounded-lg transition-colors duration-200 text-center text-lg"
-        >
-          Go Home
-        </a>
-        <button
-          onclick={() => history.back()}
-          class="border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-['Anton'] px-8 py-4 rounded-lg transition-colors duration-200 text-center text-lg"
-        >
+        <CtaButton type="primary" size="lg" href="/">Go Home</CtaButton>
+        <CtaButton type="secondary" size="lg" onclick={() => history.back()}>
           Go Back
-        </button>
+        </CtaButton>
       </div>
     </div>
 
