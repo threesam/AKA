@@ -65,7 +65,7 @@
               description: noSoloProject.description,
               image: noSoloProject.image,
               alt: noSoloProject.alt,
-              gumroadUrl: noSoloProject.cta.url,
+              url: noSoloProject.cta.url,
               slug: noSoloProject.slug,
             }}
             flipped={false}
@@ -92,7 +92,7 @@
               description: noSoloVinyl.description,
               image: noSoloVinyl.image,
               alt: noSoloVinyl.alt,
-              gumroadUrl: noSoloVinyl.cta.url,
+              url: noSoloVinyl.cta.url,
               slug: noSoloVinyl.slug,
             }}
             flipped={true}
@@ -119,7 +119,7 @@
                 description: hardRoadOfHope.description,
                 image: hardRoadOfHope.image,
                 alt: hardRoadOfHope.alt,
-                gumroadUrl: hardRoadOfHope.cta?.url,
+                url: hardRoadOfHope.cta?.url,
                 slug: hardRoadOfHope.slug,
               }}
               flipped={false}
@@ -138,7 +138,7 @@
                 description: toTheTrees.description,
                 image: toTheTrees.image,
                 alt: toTheTrees.alt,
-                gumroadUrl: toTheTrees.cta?.url,
+                url: toTheTrees.cta?.url,
                 slug: toTheTrees.slug,
               }}
               flipped={true}

@@ -3,7 +3,7 @@
   import CtaButton from "$lib/components/CtaButton.svelte";
 
   /**
-   * product: Object with title, description, image, gumroadUrl, etc.
+   * product: Object with title, description, image, url, etc.
    * flipped: Boolean to determine if image/content sides are flipped
    * primaryCtaText: Custom text for the primary CTA button (defaults to "Purchase Now")
    * secondaryCtaText: Custom text for the secondary CTA button (defaults to "Learn More")
@@ -70,11 +70,11 @@
 
         <!-- CTA Buttons -->
         <div class="flex justify-center items-center gap-4">
-          {#if product?.gumroadUrl}
+          {#if product?.url}
             <CtaButton
               type="primary"
               size="lg"
-              href={product.gumroadUrl}
+              href={product.url}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -139,11 +139,11 @@
 
       <!-- CTA Buttons -->
       <div class="space-y-3">
-        {#if product?.gumroadUrl}
+        {#if product?.url}
           <CtaButton
             type="primary"
             size="md"
-            href={product.gumroadUrl}
+            href={product.url}
             target="_blank"
             rel="noopener noreferrer"
           >
