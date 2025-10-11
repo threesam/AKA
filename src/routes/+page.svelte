@@ -1,15 +1,16 @@
 <script>
   let { data } = $props();
-  const { settings, page, photojournalism, categories } = data;
-  const { content } = page;
+  const { settings, page, photojournalism, categories } = $derived(data);
+  const { content } = $derived(page);
 
-  import Image from "$lib/components/Image.svelte";
-  import Cta from "$lib/components/Cta.svelte";
   import SEO from "$lib/components/SEO.svelte";
   import MasonryGallery from "$lib/components/MasonryGallery.svelte";
   import Card from "$lib/components/Card.svelte";
   import Video from "$lib/components/Video.svelte";
   import Banner from "$lib/components/Banner.svelte";
+  import ThreeAcross from "$lib/components/ThreeAcross.svelte";
+  import Substack from "$lib/components/Substack.svelte";
+  import Book from "$lib/components/Book.svelte";
 
   // Find No Solo project and vinyl
   const noSoloProject = $derived(
@@ -29,6 +30,28 @@
     content.find((item) => item.title === "Hard Road of Hope")
   );
 
+  // Find podcast projects
+  const podcasts = $derived(
+    content.filter((item) =>
+      item.categories.find((cat) => cat.slug.current === "podcasts")
+    )
+  );
+
+  // Find Substack project
+  const substackProject = $derived(
+    content.find(
+      (item) =>
+        item.title.toLowerCase().includes("substack") ||
+        item.description?.toLowerCase().includes("substack") ||
+        item.categories.find((cat) => cat.slug.current === "substack")
+    )
+  );
+
+  // Find Paradigm Lost project
+  const paradigmLost = $derived(
+    content.find((item) => item.title.toLowerCase().includes("paradigm lost"))
+  );
+
   // Find categories for banners
   const photojournalismCategory = $derived(
     categories.find((cat) => cat.slug === "photojournalism")
@@ -39,29 +62,18 @@
   const moviesCategory = $derived(
     categories.find((cat) => cat.slug === "film-video")
   );
-  const featuredArtCategory = $derived(
-    categories.find((cat) => cat.slug === "featured-art")
-  );
-
-  // Filter out projects that are already featured in cards
-  const featuredProjectSlugs = $derived(
-    [
-      noSoloProject?.slug,
-      noSoloVinyl?.slug,
-      hardRoadOfHope?.slug,
-      toTheTrees?.slug,
-    ].filter(Boolean)
-  );
-
-  const filteredContent = $derived(
-    content.filter((item) => !featuredProjectSlugs.includes(item.slug))
+  const podcastCategory = $derived(
+    categories.find((cat) => cat.slug === "podcasts")
   );
 </script>
 
 <SEO {...settings} />
 
 <section id="photojournalism">
-  <Banner category={photojournalismCategory} />
+  <Banner
+    title={photojournalismCategory?.title}
+    description={photojournalismCategory?.description}
+  />
   <!-- Photojournalism Masonry Gallery (first section) -->
   {#if photojournalism?.length}
     <MasonryGallery
@@ -77,10 +89,24 @@
   {/if}
 </section>
 
+<!-- Substack Section -->
+<section id="substack">
+  <Banner
+    title="Newsletter"
+    description="Stay updated with our latest thoughts, insights, and behind-the-scenes content delivered directly to your inbox."
+  />
+  {#if substackProject}
+    <Substack project={substackProject} />
+  {/if}
+</section>
+
 <!-- Music Projects Section -->
 <section id="music-projects">
   <!-- Section Title -->
-  <Banner category={musicCategory} />
+  <Banner
+    title={musicCategory?.title}
+    description={musicCategory?.description}
+  />
 
   <!-- No Solo Project Card -->
   {#if noSoloProject}
@@ -124,7 +150,10 @@
 <!-- Movies Section -->
 <section class="movies-section">
   <!-- Section Title -->
-  <Banner category={moviesCategory} />
+  <Banner
+    title={moviesCategory?.title}
+    description={moviesCategory?.description}
+  />
 
   <!-- Movies Grid -->
 
@@ -167,34 +196,33 @@
   {/if}
 </section>
 
-<section class="w-full">
-  <Banner category={featuredArtCategory} />
-  <ul class="max-w-4xl mx-auto">
-    {#each filteredContent as { title, slug, cta, image, alt, description }}
-      <li
-        class="w-full flex flex-col lg:flex-row justify-start mb-12 lg:odd:flex-row-reverse lg:odd:justify-start lg:odd:text-right"
-      >
-        <div class="w-full lg:w-1/2">
-          <Image rounded url={image} {alt} />
-        </div>
-        <div class="p-4 lg:p-8 lg:w-1/2">
-          <h3 class="text-2xl font-['Anton'] mb-2 mt-0">{title}</h3>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
-          <div
-            class="flex flex-col lg:flex-row gap-4 mb-16 lg:odd:flex-row-reverse lg:odd:justify-start"
-          >
-            {#if cta}
-              <Cta {...cta} />
-            {/if}
-            <Cta
-              secondary="true"
-              url={`art/${slug}`}
-              text="Learn More"
-              {slug}
-            />
-          </div>
-        </div>
-      </li>
-    {/each}
-  </ul>
+<!-- Paradigm Lost Section -->
+<section id="paradigm-lost">
+  <Banner
+    title="Paradigm Lost"
+    description="A deep dive into shifting perspectives and lost paradigms."
+  />
+  {#if paradigmLost}
+    <Book
+      book={{
+        title: paradigmLost.title,
+        description: paradigmLost.description,
+        image: paradigmLost.image,
+        alt: paradigmLost.alt,
+        cta: paradigmLost.cta,
+        slug: paradigmLost.slug,
+      }}
+    />
+  {/if}
+</section>
+
+<!-- Podcasts Section -->
+<section id="podcasts">
+  <Banner
+    title={podcastCategory?.title}
+    description={podcastCategory?.description}
+  />
+  {#if podcasts?.length}
+    <ThreeAcross {podcasts} />
+  {/if}
 </section>
