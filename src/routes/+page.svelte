@@ -125,7 +125,7 @@
   {/if}
 
   <!-- Music Video -->
-  <div class="mx-auto max-lg:px-6 max-lg:py-12">
+  <div class="mx-auto p-6 lg:p-12">
     <Video
       url="https://player.vimeo.com/video/569573712"
       title="No Solo - Music Video"
