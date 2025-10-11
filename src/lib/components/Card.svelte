@@ -19,10 +19,10 @@
   }
 </script>
 
-<div class="card">
+<div class="">
   <!-- Desktop: 50/50 layout with optional flip -->
   <div
-    class="hidden md:flex items-center min-h-[500px] bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] rounded-2xl shadow-2xl overflow-hidden {flipped
+    class="hidden md:flex items-center min-h-[500px] bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] shadow-2xl overflow-hidden {flipped
       ? 'flex-row-reverse'
       : ''}"
   >
@@ -60,7 +60,9 @@
     <!-- Content Section (50%) -->
     <div class="w-1/2 p-12 flex flex-col justify-center">
       <div class="max-w-md mx-auto text-center">
-        <h3 class="text-3xl font-['Anton'] text-gray-900 dark:text-white mb-4">
+        <h3
+          class="text-2xl lg:text-5xl font-display text-gray-900 dark:text-white mb-4"
+        >
           {product?.title || "Card"}
         </h3>
         <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
@@ -94,7 +96,7 @@
 
   <!-- Mobile: Vertical layout -->
   <div
-    class="md:hidden bg-white dark:bg-[var(--headerBackground)] rounded-2xl shadow-lg overflow-hidden"
+    class="md:hidden bg-white dark:bg-[var(--headerBackground)] shadow-lg overflow-hidden"
   >
     <!-- Image -->
     <div class="relative h-64">
@@ -129,7 +131,7 @@
 
     <!-- Content -->
     <div class="p-6">
-      <h3 class="text-2xl font-['Anton'] text-gray-900 dark:text-white mb-3">
+      <h3 class="text-2xl font-display text-gray-900 dark:text-white mb-3">
         {product?.title || "Card"}
       </h3>
       <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">

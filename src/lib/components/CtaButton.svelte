@@ -24,15 +24,14 @@
 
   const typeClasses = {
     primary:
-      "bg-red-600 hover:bg-red-700 text-white border-2 border-red-600 hover:border-red-700",
-    secondary:
-      "border-2 border-transparent text-red-600 hover:border-red-600 hover:text-white",
+      "bg-red-600 hover:bg-red-700 text-white border-2 border-red-600 hover:border-red-700 hover:text-white",
+    secondary: "border-2 border-transparent text-white hover:text-red-600",
   };
 
   const disabledClasses = "opacity-50 cursor-not-allowed hover:text-white";
 
   const baseClasses = `
-    font-['Anton'] font-weight-400 rounded-lg transition-colors duration-200 text-center text-decoration-none
+    font-display font-weight-400 transition-colors duration-200 text-center text-decoration-none rounded-full
     ${sizeClasses[size]}
     ${disabled ? disabledClasses : typeClasses[type]}
   `.trim();

@@ -13,6 +13,8 @@
 @theme {
   --font-sans: "Josefin Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Anton", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 :root {
@@ -118,15 +120,6 @@ body::-webkit-scrollbar-thumb {
   border: 0.25rem solid var(--background);
 }
 
-main {
-  padding-bottom: 3rem;
-}
-
-p {
-  margin-bottom: 1rem;
-  max-width: 40em;
-}
-
 .link,
 p a,
 li a,
@@ -196,43 +189,8 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 3rem 0 1.38rem;
-  font-family: "Anton", var(--headingFont);
+  font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: 0.025em; /* tracking-wide */
-  line-height: 1.3;
-}
-
-h1 {
-  font-size: var(--h1);
-}
-
-h2 {
-  font-size: var(--h2);
-}
-
-h3 {
-  font-size: var(--h3);
-}
-
-h4 {
-  font-size: var(--h4);
-}
-
-h5 {
-  font-size: var(--h5);
-}
-
-h6 {
-  font-size: var(--h6);
-  font-family: "Anton", var(--headingFont);
-  font-weight: 400;
-  letter-spacing: 0.025em;
-}
-
-small,
-.text_small {
-  font-size: var(--smallText);
 }
 
 /* End type-scale */

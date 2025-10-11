@@ -1,22 +1,16 @@
 <script>
-  /**
-   * title: The text to display in the banner
-   * size: Size variant - 'sm', 'md', 'lg' (defaults to 'md')
-   */
-  export let title;
-  export let size = "md";
-
-  const sizeClasses = {
-    sm: "text-2xl md:text-3xl py-4",
-    md: "text-4xl md:text-5xl py-8",
-    lg: "text-4xl md:text-6xl py-8",
-  };
+  let { category } = $props();
 </script>
 
-<h2
-  class="text-center font-['Anton'] w-full mt-0 mb-8 border-t-2 border-b-2 border-red-600 dark:border-red-400 text-red-600 dark:text-red-400 {sizeClasses[
-    size
-  ]}"
+<div
+  class="flex flex-col items-end w-full px-5 py-10 text-right mt-20 border-t"
 >
-  {title}
-</h2>
+  <h2 class="font-display text-7xl">
+    {category?.title || "Category"}
+  </h2>
+  {#if category?.description}
+    <p class="text-gray-600 dark:text-gray-300 max-w-xl text-lg md:text-xl">
+      {category.description}
+    </p>
+  {/if}
+</div>

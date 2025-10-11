@@ -23,7 +23,7 @@
   }
 </script>
 
-<div class="container mx-auto">
+<div class="">
   {#if orientation === "vertical"}
     <!-- Vertical masonry via CSS columns -->
     <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-2">
