@@ -140,7 +140,7 @@
       </p>
 
       <!-- CTA Buttons -->
-      <div class="space-y-3">
+      <div class="flex flex-col gap-3 lg:flex-row">
         {#if product?.url}
           <CtaButton
             type="primary"

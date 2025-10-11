@@ -102,7 +102,7 @@
 </section>
 
 <!-- Music Projects Section -->
-<section id="music-projects">
+<section id="music">
   <!-- Section Title -->
   <Banner
     title={musicCategory?.title}
@@ -125,7 +125,7 @@
   {/if}
 
   <!-- Music Video -->
-  <div class="mx-auto">
+  <div class="mx-auto max-lg:px-6 max-lg:py-12">
     <Video
       url="https://player.vimeo.com/video/569573712"
       title="No Solo - Music Video"
@@ -149,7 +149,7 @@
 </section>
 
 <!-- Movies Section -->
-<section id="movies" class="movies-section">
+<section id="film-video" class="movies-section">
   <!-- Section Title -->
   <Banner
     title={moviesCategory?.title}
@@ -198,7 +198,7 @@
 </section>
 
 <!-- Paradigm Lost Section -->
-<section id="paradigm-lost">
+<section id="book">
   <Banner
     title="Paradigm Lost"
     description="A deep dive into shifting perspectives and lost paradigms."

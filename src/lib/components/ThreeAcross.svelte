@@ -17,10 +17,10 @@
   <div class="three-across w-full">
     <!-- Mobile: Horizontal scroll -->
     <div class="flex lg:hidden overflow-x-auto gap-4 px-4 pb-4">
-      <div class="flex gap-4 min-w-max">
+      <ul class="flex gap-4 min-w-max snap-x snap-mandatory">
         {#each podcasts as podcast}
-          <div
-            class="w-80 flex-shrink-0 bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          <li
+            class="w-80 flex-shrink-0 bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] shadow-lg snap-start overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
             <!-- Image Section -->
             <div class="relative aspect-square">
@@ -70,7 +70,7 @@
               </p>
 
               <!-- CTA Buttons -->
-              <div class="space-y-3">
+              <div class="flex flex-col gap-3 lg:flex-row">
                 {#if podcast.cta?.url}
                   <CtaButton
                     type="primary"
@@ -92,9 +92,9 @@
                 </CtaButton>
               </div>
             </div>
-          </div>
+          </li>
         {/each}
-      </div>
+      </ul>
     </div>
 
     <!-- Desktop: Grid layout -->

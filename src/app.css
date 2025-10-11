@@ -120,15 +120,6 @@ body::-webkit-scrollbar-thumb {
   border: 0.25rem solid var(--background);
 }
 
-.link,
-p a,
-li a,
-blockquote a {
-  color: var(--textColor);
-  text-decoration: none;
-  border-bottom: 2px solid var(--primary);
-}
-
 .content {
   margin-top: 2rem;
   scroll-behavior: smooth;
