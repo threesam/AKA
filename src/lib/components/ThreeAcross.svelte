@@ -101,10 +101,10 @@
     <div class="hidden lg:grid lg:grid-cols-3 gap-8 px-4">
       {#each podcasts as podcast}
         <div
-          class="bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          class="bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
         >
           <!-- Image Section -->
-          <div class="relative aspect-square">
+          <div class="relative aspect-square bg-[var(--textColor)]">
             {#if podcast.image}
               {#if isSanityImage(podcast.image)}
                 <Image url={podcast.image} alt={podcast.alt || podcast.title} />
@@ -137,18 +137,13 @@
           <!-- Content Section -->
           <div class="p-6">
             <h3
-              class="text-xl font-['Anton'] text-gray-900 dark:text-white mb-3 line-clamp-2"
+              class="text-2xl font-display text-gray-900 dark:text-white mb-6 line-clamp-2"
             >
               {podcast.title}
             </h3>
-            <p
-              class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed line-clamp-3"
-            >
-              {podcast.description || "Listen to this podcast episode."}
-            </p>
 
             <!-- CTA Buttons -->
-            <div class="space-y-3">
+            <div class="flex flex-col gap-3 lg:flex-row">
               {#if podcast.cta?.url}
                 <CtaButton
                   type="primary"
