@@ -1,6 +1,7 @@
 <script>
   import "../app.css";
   import HeroGeo from "$lib/components/HeroGeo.svelte";
+  import StickyNav from "$lib/components/StickyNav.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import { darkMode } from "$lib/utils/darkMode";
   import { transform } from "$lib/utils/transform";
@@ -30,6 +31,8 @@
 </script>
 
 <HeroGeo {transformedWords} />
+
+<StickyNav />
 
 <main class="pt-12">
   {@render children()}

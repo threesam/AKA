@@ -149,7 +149,7 @@
 </section>
 
 <!-- Movies Section -->
-<section class="movies-section">
+<section id="movies" class="movies-section">
   <!-- Section Title -->
   <Banner
     title={moviesCategory?.title}
