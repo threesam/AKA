@@ -38,7 +38,10 @@ export async function load() {
     }
   }`;
 
+  const categories = /* groq */ `*[_type == "category"]|order(order asc){"slug": slug.current, title, description, order}`;
+
   const query = `{
+    "categories": ${categories},
     "settings": ${siteSettings},
     "photojournalism": ${photojournalism},
     "page": ${page}

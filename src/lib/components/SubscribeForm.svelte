@@ -57,8 +57,12 @@
   }
 </script>
 
-<div class="subscribe-form">
-  <h3>Follow for Updates</h3>
+<div>
+  <h3
+    class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white mb-4 font-display tracking-wide"
+  >
+    Follow for Updates
+  </h3>
   <form onsubmit={handleSubmit}>
     <label for="email">
       <input
@@ -81,9 +85,6 @@
 </div>
 
 <style>
-  .subscribe-form {
-    max-width: 100%;
-  }
   form {
     display: flex;
   }
@@ -115,16 +116,5 @@
     background-color: var(--primary);
     font-family: var(--headingFont);
     padding: 1rem 1.5rem;
-  }
-
-  h3,
-  h5 {
-    margin-top: 0;
-  }
-
-  @media screen and (max-width: 600px) {
-    h3 {
-      font-size: var(--h4);
-    }
   }
 </style>

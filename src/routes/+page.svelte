@@ -42,6 +42,20 @@
   const featuredArtCategory = $derived(
     categories.find((cat) => cat.slug === "featured-art")
   );
+
+  // Filter out projects that are already featured in cards
+  const featuredProjectSlugs = $derived(
+    [
+      noSoloProject?.slug,
+      noSoloVinyl?.slug,
+      hardRoadOfHope?.slug,
+      toTheTrees?.slug,
+    ].filter(Boolean)
+  );
+
+  const filteredContent = $derived(
+    content.filter((item) => !featuredProjectSlugs.includes(item.slug))
+  );
 </script>
 
 <SEO {...settings} />
@@ -156,7 +170,7 @@
 <section class="w-full">
   <Banner category={featuredArtCategory} />
   <ul class="max-w-4xl mx-auto">
-    {#each content as { title, slug, cta, image, alt, description }}
+    {#each filteredContent as { title, slug, cta, image, alt, description }}
       <li
         class="w-full flex flex-col lg:flex-row justify-start mb-12 lg:odd:flex-row-reverse lg:odd:justify-start lg:odd:text-right"
       >
