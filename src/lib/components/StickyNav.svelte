@@ -99,10 +99,3 @@
     </div>
   </div>
 </nav>
-
-<style>
-  /* Smooth scrolling for browsers that don't support it natively */
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
