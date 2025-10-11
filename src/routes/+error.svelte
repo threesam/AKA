@@ -47,12 +47,12 @@
     <!-- Error Status -->
     <div class="mb-8">
       <h1
-        class="text-8xl md:text-9xl font-['Anton'] text-red-600 dark:text-red-400 mb-4"
+        class="text-8xl lg:text-9xl font-['Anton'] text-red-600 dark:text-red-400 mb-4"
       >
         {status}
       </h1>
       <h2
-        class="text-3xl md:text-4xl font-['Anton'] text-gray-900 dark:text-white mb-6"
+        class="text-3xl lg:text-4xl font-['Anton'] text-gray-900 dark:text-white mb-6"
       >
         {getErrorTitle(status)}
       </h2>
@@ -61,7 +61,7 @@
     <!-- Error Message -->
     <div class="mb-12">
       <p
-        class="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8"
+        class="text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8"
       >
         {getErrorMessage(status)}
       </p>

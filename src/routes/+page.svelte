@@ -158,16 +158,16 @@
   <ul class="max-w-4xl mx-auto">
     {#each content as { title, slug, cta, image, alt, description }}
       <li
-        class="w-full flex flex-col md:flex-row justify-start mb-12 md:odd:flex-row-reverse md:odd:justify-start md:odd:text-right"
+        class="w-full flex flex-col lg:flex-row justify-start mb-12 lg:odd:flex-row-reverse lg:odd:justify-start lg:odd:text-right"
       >
-        <div class="w-full md:w-1/2">
+        <div class="w-full lg:w-1/2">
           <Image rounded url={image} {alt} />
         </div>
-        <div class="p-4 md:p-8 md:w-1/2">
+        <div class="p-4 lg:p-8 lg:w-1/2">
           <h3 class="text-2xl font-['Anton'] mb-2 mt-0">{title}</h3>
           <p class="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
           <div
-            class="flex flex-col md:flex-row gap-4 mb-16 md:odd:flex-row-reverse md:odd:justify-start"
+            class="flex flex-col lg:flex-row gap-4 mb-16 lg:odd:flex-row-reverse lg:odd:justify-start"
           >
             {#if cta}
               <Cta {...cta} />

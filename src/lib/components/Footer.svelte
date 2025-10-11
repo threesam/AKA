@@ -111,7 +111,7 @@
     <!-- Bottom Bar -->
     <div class="pt-8 border-t border-gray-200 dark:border-gray-700">
       <div
-        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+        class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0"
       >
         <div class="text-sm text-gray-500 dark:text-gray-400">
           © 2014-{new Date().getFullYear()} Art Killing Apathy. All rights reserved.

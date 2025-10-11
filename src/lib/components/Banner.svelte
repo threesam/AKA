@@ -5,11 +5,11 @@
 <div
   class="flex flex-col items-end w-full px-5 py-10 text-right mt-20 border-t"
 >
-  <h2 class="font-display text-7xl">
+  <h2 class="font-display text-5xl lg:text-7xl">
     {category?.title || "Category"}
   </h2>
   {#if category?.description}
-    <p class="text-gray-600 dark:text-gray-300 max-w-xl text-lg md:text-xl">
+    <p class="text-gray-600 dark:text-gray-300 max-w-xl text-lg lg:text-xl">
       {category.description}
     </p>
   {/if}

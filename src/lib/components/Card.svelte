@@ -22,7 +22,7 @@
 <div class="">
   <!-- Desktop: 50/50 layout with optional flip -->
   <div
-    class="hidden md:flex items-center min-h-[500px] bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] shadow-2xl overflow-hidden {flipped
+    class="hidden lg:flex items-center min-h-[500px] bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] shadow-2xl overflow-hidden {flipped
       ? 'flex-row-reverse'
       : ''}"
   >
@@ -96,7 +96,7 @@
 
   <!-- Mobile: Vertical layout -->
   <div
-    class="md:hidden bg-white dark:bg-[var(--headerBackground)] shadow-lg overflow-hidden"
+    class="lg:hidden bg-white dark:bg-[var(--headerBackground)] shadow-lg overflow-hidden"
   >
     <!-- Image -->
     <div class="relative h-64">

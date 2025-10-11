@@ -26,7 +26,7 @@
 <div class="">
   {#if orientation === "vertical"}
     <!-- Vertical masonry via CSS columns -->
-    <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-2">
+    <div class="columns-1 sm:columns-2 lg:columns-3 lg:columns-4 gap-2">
       {#each items as item, idx}
         <a href={item?.href || "#"} class="mb-4 break-inside-avoid block group">
           {#if isSanityImage(getImage(item, idx))}
