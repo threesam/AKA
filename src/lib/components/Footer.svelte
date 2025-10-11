@@ -14,7 +14,7 @@
 </script>
 
 <footer
-  class="relative w-full bg-[var(--footerBackground)] border-t border-gray-200 dark:border-gray-800 overflow-hidden"
+  class="relative w-full bg-[var(--footerBackground)] border-t border-gray-200 dark:border-gray-800 overflow-hidden mt-32"
 >
   <!-- Word Cloud Background -->
   <div class="absolute inset-0 w-screen h-full z-0">

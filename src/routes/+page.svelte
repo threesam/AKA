@@ -11,6 +11,7 @@
   import ThreeAcross from "$lib/components/ThreeAcross.svelte";
   import Substack from "$lib/components/Substack.svelte";
   import Book from "$lib/components/Book.svelte";
+  import HeroGeo from "$lib/components/HeroGeo.svelte";
 
   // Find No Solo project and vinyl
   const noSoloProject = $derived(

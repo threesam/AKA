@@ -1,10 +1,11 @@
 <script>
   import "../app.css";
-  import Nav from "$lib/components/Nav.svelte";
+  import HeroGeo from "$lib/components/HeroGeo.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import { darkMode } from "$lib/utils/darkMode";
   import { transform } from "$lib/utils/transform";
-
+  import Nav from "$lib/components/Nav.svelte";
+  import Logo from "$lib/components/icons/Logo.svelte";
   // Apply theme to body based on dark mode state
   $effect(() => {
     if (typeof document !== "undefined") {
@@ -28,7 +29,7 @@
       : [];
 </script>
 
-<Nav />
+<HeroGeo {transformedWords} />
 
 <main class="pt-12">
   {@render children()}
