@@ -1,6 +1,5 @@
 <script>
-  let { data } = $props();
-  const { settings, posts, categories } = data.data;
+  let { settings, posts, categories } = $props();
 
   import { slide } from "svelte/transition";
 

@@ -12,7 +12,7 @@
 
   // GEO-optimized description
   const description =
-    "Art Killing Apathy is radical creativity - traditional and modern art mediums with political messaging for liberation and justice. Explore music, articles, podcasts, film, and video content that challenges systemic programming and builds community through creative connections.";
+    "Art Killing Apathy is radical creativity - traditional and modern art mediums with political messaging for liberation and justice.";
 </script>
 
 <section class="relative w-full bg-[var(--footerBackground)] overflow-hidden">
@@ -30,7 +30,7 @@
 
   <!-- Content Overlay -->
   <div
-    class="relative z-10 flex flex-col items-center justify-center px-4 py-24"
+    class="relative z-10 flex flex-col items-center justify-center px-4 py-12 lg:py-24"
   >
     <div class="max-w-5xl mx-auto text-center">
       <!-- Logo -->

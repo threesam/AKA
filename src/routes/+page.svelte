@@ -1,6 +1,6 @@
 <script>
   let { data } = $props();
-  const { settings, page, photojournalism, categories } = $derived(data);
+  const { settings, page, photojournalism, categories, words } = $derived(data);
   const { content } = $derived(page);
 
   import SEO from "$lib/components/SEO.svelte";
@@ -12,7 +12,8 @@
   import Substack from "$lib/components/Substack.svelte";
   import Book from "$lib/components/Book.svelte";
   import HeroGeo from "$lib/components/HeroGeo.svelte";
-
+  import StickyNav from "$lib/components/StickyNav.svelte";
+  import { transform } from "$lib/utils/transform";
   // Find No Solo project and vinyl
   const noSoloProject = $derived(
     content.find((item) => item.title === "No Solo")
@@ -69,6 +70,10 @@
 </script>
 
 <SEO {...settings} />
+
+<HeroGeo transformedWords={data.words} />
+
+<StickyNav />
 
 <section id="photojournalism">
   <Banner

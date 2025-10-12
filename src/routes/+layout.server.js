@@ -1,4 +1,5 @@
 import { client } from "$lib/utils/sanity";
+import { transform } from "$lib/utils/transform";
 
 export const prerender = true;
 
@@ -26,15 +27,17 @@ export async function load() {
     const data = await client.fetch(query);
 
     return {
-      data: data || {
-        settings: { wordCloud: { uselessWords: [] } },
-        words: [],
-      },
+      settings: data.settings,
+      words:
+        data.words && data.settings?.wordCloud?.uselessWords
+          ? transform(data.words, data.settings.wordCloud.uselessWords)
+          : [],
     };
   } catch (error) {
     console.error("Error loading layout data:", error);
     return {
-      data: { settings: { wordCloud: { uselessWords: [] } }, words: [] },
+      settings: { wordCloud: { uselessWords: [] } },
+      words: [],
     };
   }
 }

@@ -22,20 +22,10 @@
   });
 
   let { children, data } = $props();
-
-  // Transform words for WordCloud (same as homepage)
-  const transformedWords =
-    data?.data?.words && data?.data?.settings?.wordCloud?.uselessWords
-      ? transform(data.data.words, data.data.settings.wordCloud.uselessWords)
-      : [];
 </script>
 
-<HeroGeo {transformedWords} />
-
-<StickyNav />
-
-<main class="pt-12">
+<main>
   {@render children()}
 </main>
 
-<Footer {transformedWords} />
+<Footer transformedWords={data.words} />

@@ -40,9 +40,10 @@ export async function load() {
 
   const categories = /* groq */ `*[_type == "category"]|order(order asc){"slug": slug.current, title, description, order}`;
 
+  const words = /* groq */ `*[_type == "post"]{title, "title": body[0].children[0].text}`;
+
   const query = `{
     "categories": ${categories},
-    "settings": ${siteSettings},
     "photojournalism": ${photojournalism},
     "page": ${page}
   }`;

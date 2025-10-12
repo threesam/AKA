@@ -86,7 +86,7 @@
             </p>
 
             <!-- CTA Buttons -->
-            <div class="space-y-4">
+            <div class="flex flex-col gap-4 lg:flex-row">
               {#if book.cta?.url}
                 <CtaButton
                   type="primary"

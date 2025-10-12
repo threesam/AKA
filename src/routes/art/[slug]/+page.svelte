@@ -1,6 +1,6 @@
 <script>
   let { data } = $props();
-  const { post } = data ?? {};
+  const { post } = $derived(data);
 
   import { format, parseISO } from "date-fns";
   import serializers from "$lib/components/serializers";

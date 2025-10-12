@@ -24,6 +24,6 @@ export async function load() {
   const data = await client.fetch(query);
 
   return {
-    data,
+    ...data,
   };
 }
