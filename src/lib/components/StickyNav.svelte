@@ -80,7 +80,7 @@
 
 <nav
   bind:this={navElement}
-  class="sticky top-0 left-0 z-50 bg-[var(--headerBackground)]/50 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm overflow-x-scroll lg:overflow-x-auto"
+  class="sticky top-0 left-0 z-50 bg-[var(--headerBackground)]/50 backdrop-blur-md border-b border-t border-gray-200 dark:border-gray-700 shadow-sm overflow-x-scroll lg:overflow-x-auto"
 >
   <div class="max-w-7xl lg:mx-auto px-4 py-3">
     <div class="flex items-center justify-start lg:justify-center space-x-1">
