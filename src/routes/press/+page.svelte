@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   let { data } = $props();
   const { settings, press } = data;
 
@@ -679,4 +679,4 @@
   .press-content > iframe:first-of-type {
     margin-top: 0;
   }
-</style>
+</style> -->
