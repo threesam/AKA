@@ -29,11 +29,11 @@
       <Banner title={post.title} position="center" />
     </div>
 
+    <!-- Go back button -->
+    <BackButton class="lg:max-w-[42rem] mx-auto" />
+
     <!-- Content section -->
     <section class="content max-w-4xl mx-auto px-6 py-8">
-      <!-- Go back button -->
-      <BackButton />
-
       <div class="prose prose-lg max-w-none {isPoem ? 'prose-poem' : ''}">
         {#if post.author}
           <div class="mb-8 text-gray-600 dark:text-gray-300">
