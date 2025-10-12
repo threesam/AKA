@@ -22,6 +22,7 @@
         month: 'long',
         day: 'numeric',
       })}"
+      position="left"
     />
     <div class="prose prose-lg max-w-none">
       <div class="mb-8">

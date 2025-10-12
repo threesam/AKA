@@ -21,6 +21,7 @@
       month: 'long',
       day: 'numeric',
     })}"
+    position="left"
   />
 
   <section class="max-w-4xl mx-auto px-6 py-8">

@@ -97,13 +97,8 @@
   const resizeCanvas = () => {
     if (!browser || !canvas) return;
 
-    const headerVar = readCSSVar("--headerHeight");
-    const headerOffset = toPx(headerVar);
-
     width = window.innerWidth;
-    height = window.innerHeight - headerOffset;
-
-    if (height < 0) height = window.innerHeight;
+    height = window.innerHeight;
 
     dpr = window.devicePixelRatio || 1;
 
@@ -205,12 +200,11 @@
 
 <style>
   .particle-canvas {
-    position: absolute;
+    position: fixed;
     inset: 0;
-    top: var(--headerHeight);
     z-index: -1;
-    width: 100%;
-    height: calc(100vh - var(--headerHeight));
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
   }
 </style>

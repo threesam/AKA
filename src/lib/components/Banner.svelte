@@ -1,14 +1,28 @@
 <script>
-  let { title, description } = $props();
+  let { title, description, position = "center" } = $props();
+
+  const positionClasses = {
+    left: "items-start text-left",
+    center: "items-center text-center",
+    right: "items-end text-right",
+  };
+
+  const textAlignment = {
+    left: "text-left",
+    center: "text-center",
+    right: "text-right",
+  };
 </script>
 
-<div class="flex flex-col items-center w-full px-5 py-10 mt-32 text-center">
+<div class="flex flex-col w-full py-10 {positionClasses[position]}">
   <h2 class="font-display text-5xl lg:text-7xl">
     {title || "Section"}
   </h2>
   {#if description}
     <p
-      class="text-gray-600 dark:text-gray-300 max-w-xl text-lg lg:text-xl text-center"
+      class="text-gray-600 dark:text-gray-300 max-w-xl text-lg lg:text-xl {textAlignment[
+        position
+      ]}"
     >
       {description}
     </p>
