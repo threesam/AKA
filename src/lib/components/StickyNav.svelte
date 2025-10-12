@@ -8,6 +8,7 @@
     { id: "film-video", label: "Film" },
     { id: "book", label: "Book" },
     { id: "podcasts", label: "Podcasts" },
+    { id: "articles", label: "Articles" },
   ];
 
   let activeSection = $state("");

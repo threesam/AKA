@@ -1,18 +1,6 @@
 import { client } from "$lib/utils/sanity";
 
 export async function load() {
-  const siteSettings = /* groq */ `*[_type == "siteSettings"][0]{
-    title,
-    description,
-    tags,
-    "image": image.asset->url, 
-    "alt": image.alt, 
-    wordCloud{
-      "shape": shape[0],
-      uselessWords
-    }
-  }`;
-
   // Pull photojournalism-tagged posts for homepage masonry
   const photojournalism = /* groq */ `*[_type == 'post' && 'photojournalism' in categories[]->slug.current]|order(publishedAt desc)[0...24]{
     "id": _id,
@@ -40,11 +28,20 @@ export async function load() {
 
   const categories = /* groq */ `*[_type == "category"]|order(order asc){"slug": slug.current, title, description, order}`;
 
-  const words = /* groq */ `*[_type == "post"]{title, "title": body[0].children[0].text}`;
+  // Pull uncategorized articles for slider
+  const articles = /* groq */ `*[_type == 'post' && ('articles' in categories[]->slug.current)]|order(publishedAt desc)[0...10]{
+    "id": _id,
+    "slug": slug.current,
+    title,
+    "image": featuredMedia.asset->url,
+    "alt": featuredMedia.alt,
+    publishedAt
+  }`;
 
   const query = `{
     "categories": ${categories},
     "photojournalism": ${photojournalism},
+    "articles": ${articles},
     "page": ${page}
   }`;
 

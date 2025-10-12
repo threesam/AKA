@@ -1,6 +1,7 @@
 <script>
   let { data } = $props();
-  const { settings, page, photojournalism, categories, words } = $derived(data);
+  const { settings, page, photojournalism, categories, articles } =
+    $derived(data);
   const { content } = $derived(page);
 
   import SEO from "$lib/components/SEO.svelte";
@@ -13,7 +14,8 @@
   import Book from "$lib/components/Book.svelte";
   import HeroGeo from "$lib/components/HeroGeo.svelte";
   import StickyNav from "$lib/components/StickyNav.svelte";
-  import { transform } from "$lib/utils/transform";
+  import ArticleSlider from "$lib/components/ArticleSlider.svelte";
+
   // Find No Solo project and vinyl
   const noSoloProject = $derived(
     content.find((item) => item.title === "No Solo")
@@ -67,6 +69,9 @@
   const podcastCategory = $derived(
     categories.find((cat) => cat.slug === "podcasts")
   );
+  const articleCategory = $derived(
+    categories.find((cat) => cat.slug === "articles")
+  );
 </script>
 
 <SEO {...settings} />
@@ -92,6 +97,17 @@
       }))}
       orientation="horizontal"
     />
+  {/if}
+</section>
+
+<!-- Articles Section -->
+<section id="articles">
+  <Banner
+    title={articleCategory?.title}
+    description={articleCategory?.description}
+  />
+  {#if articles?.length}
+    <ArticleSlider {articles} />
   {/if}
 </section>
 
