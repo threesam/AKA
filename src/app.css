@@ -3,6 +3,18 @@
 
 @import "tailwindcss";
 
+/* Poem-specific prose styling */
+.prose-poem p,
+.prose-poem blockquote {
+  padding: 0 1.5rem;
+  margin-top: 0;
+  min-height: 1rem;
+}
+
+.prose-poem p:first-child {
+  padding-bottom: 1.5rem;
+}
+
 @theme {
   --font-sans: "Josefin Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
