@@ -1,12 +1,7 @@
 <script>
   import Image from "$lib/components/Image.svelte";
 
-  /**
-   * items: Array of { image?: any, alt?: string, href?: string, title?: string, description?: string }
-   * orientation: 'vertical' | 'horizontal' - vertical uses CSS columns; horizontal uses horizontal scroll cards
-   */
-  export let items = [];
-  export let orientation = "horizontal";
+  let { items = [] } = $props();
 
   const fallbackImages = [
     "/ArtKilling.svg",
