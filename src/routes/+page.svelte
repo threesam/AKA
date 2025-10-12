@@ -259,7 +259,7 @@
 </section>
 
 <!-- Podcasts Section -->
-<section id="podcasts">
+<section id="podcasts" class="pb-32">
   <Banner
     title={podcastCategory?.title}
     description={podcastCategory?.description}

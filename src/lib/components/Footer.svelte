@@ -14,7 +14,7 @@
 </script>
 
 <footer
-  class="relative w-full bg-[var(--footerBackground)] border-t border-gray-200 dark:border-gray-800 overflow-hidden mt-32"
+  class="relative w-full bg-[var(--footerBackground)] border-t border-gray-200 dark:border-gray-800 overflow-hidden"
 >
   <!-- Word Cloud Background -->
   <div class="absolute inset-0 w-screen h-full z-0">
@@ -29,7 +29,9 @@
   </div>
 
   <!-- Footer Content -->
-  <div class="relative z-10 max-w-7xl mx-auto px-6 py-4 lg:py-60">
+  <div
+    class="relative z-10 max-w-7xl mx-auto px-6 py-4 min-h-screen grid place-content-center"
+  >
     <!-- Main Footer Content -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
       <!-- Brand & Mission Section -->
@@ -105,11 +107,11 @@
           >
             Terms of Use
           </a>
-          <span class="text-gray-400 dark:text-gray-600">
+          <span class="text-[var(--textColor)]">
             Site by <a
-              href="https://threesam.com"
-              class="hover:text-red-600 dark:hover:text-red-400 transition-colors"
-              >Sam</a
+              href="https://sixtom.com"
+              class="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
+              >SIXTOM</a
             >
           </span>
         </div>
