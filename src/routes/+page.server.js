@@ -28,8 +28,18 @@ export async function load() {
 
   const categories = /* groq */ `*[_type == "category"]|order(order asc){"slug": slug.current, title, description, order}`;
 
-  // Pull uncategorized articles for slider
-  const articles = /* groq */ `*[_type == 'post' && ('articles' in categories[]->slug.current)]|order(publishedAt desc)[0...10]{
+  // Pull articles for slider
+  const articles = /* groq */ `*[_type == 'post' && ('articles' in categories[]->slug.current)]|order(publishedAt desc){
+    "id": _id,
+    "slug": slug.current,
+    title,
+    "image": featuredMedia.asset->url,
+    "alt": featuredMedia.alt,
+    publishedAt
+  }`;
+
+  // Pull poetry and spoken word for slider
+  const poetryAndSpokenWord = /* groq */ `*[_type == 'post' && ('poetry-and-spoken-word' in categories[]->slug.current)]|order(publishedAt desc){
     "id": _id,
     "slug": slug.current,
     title,
@@ -42,6 +52,7 @@ export async function load() {
     "categories": ${categories},
     "photojournalism": ${photojournalism},
     "articles": ${articles},
+    "poetryAndSpokenWord": ${poetryAndSpokenWord},
     "page": ${page}
   }`;
 

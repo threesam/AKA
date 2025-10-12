@@ -37,7 +37,10 @@
             <div class="relative aspect-square">
               {#if item.image}
                 {#if isSanityImage(item.image)}
-                  <Image url={item.image} alt={item.alt || item.title} />
+                  <Image
+                    url={item.image}
+                    alt={item.alt || item.title}
+                  />
                 {:else}
                   <img
                     src={item.image}

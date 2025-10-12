@@ -5,6 +5,7 @@
     { id: "photojournalism", label: "Photojournalism" },
     { id: "substack", label: "Newsletter" },
     { id: "music", label: "Music" },
+    { id: "poetry-and-spoken-word", label: "Poetry" },
     { id: "film-video", label: "Film" },
     { id: "book", label: "Book" },
     { id: "podcasts", label: "Podcasts" },

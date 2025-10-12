@@ -1,7 +1,13 @@
 <script>
   let { data } = $props();
-  const { settings, page, photojournalism, categories, articles } =
-    $derived(data);
+  const {
+    settings,
+    page,
+    photojournalism,
+    categories,
+    articles,
+    poetryAndSpokenWord,
+  } = $derived(data);
   const { content } = $derived(page);
 
   import SEO from "$lib/components/SEO.svelte";
@@ -14,7 +20,7 @@
   import Book from "$lib/components/Book.svelte";
   import HeroGeo from "$lib/components/HeroGeo.svelte";
   import StickyNav from "$lib/components/StickyNav.svelte";
-  import ArticleSlider from "$lib/components/ArticleSlider.svelte";
+  import Slider from "$lib/components/Slider.svelte";
 
   // Find No Solo project and vinyl
   const noSoloProject = $derived(
@@ -72,6 +78,9 @@
   const articleCategory = $derived(
     categories.find((cat) => cat.slug === "articles")
   );
+  const poetryCategory = $derived(
+    categories.find((cat) => cat.slug === "poetry-and-spoken-word")
+  );
 </script>
 
 <SEO {...settings} />
@@ -107,7 +116,7 @@
     description={articleCategory?.description}
   />
   {#if articles?.length}
-    <ArticleSlider {articles} />
+    <Slider items={articles} />
   {/if}
 </section>
 
@@ -166,6 +175,17 @@
       }}
       flipped={true}
     />
+  {/if}
+</section>
+
+<!-- Poetry and Spoken Word Section -->
+<section id="poetry-and-spoken-word">
+  <Banner
+    title={poetryCategory?.title}
+    description={poetryCategory?.description}
+  />
+  {#if poetryAndSpokenWord?.length}
+    <Slider items={poetryAndSpokenWord} />
   {/if}
 </section>
 
