@@ -24,14 +24,15 @@
 
   const typeClasses = {
     primary:
-      "bg-red-600 hover:bg-red-700 text-white border-2 border-red-600 hover:border-red-700 hover:text-white",
-    secondary: "border-2 border-transparent text-white hover:text-red-600",
+      "text-white border-2 bg-[var(--primary)] border-[var(--primary)] hover:text-[var(--primary)] hover:border-[var(--primary)] hover:bg-transparent",
+    secondary:
+      "border-2 border-transparent text-white hover:text-[var(--primary)]",
   };
 
   const disabledClasses = "opacity-50 cursor-not-allowed hover:text-white";
 
   const baseClasses = `
-    font-display font-weight-400 transition-colors duration-200 text-center text-decoration-none rounded-full
+    font-display font-weight-400 transition-colors duration-300 text-center text-decoration-none rounded-full
     ${sizeClasses[size]}
     ${disabled ? disabledClasses : typeClasses[type]}
   `.trim();

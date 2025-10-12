@@ -18,7 +18,7 @@
     const element = document.getElementById(sectionId);
     if (element) {
       const navHeight = navElement?.offsetHeight || 0;
-      const elementPosition = element.offsetTop - navHeight - 20;
+      const elementPosition = element.offsetTop - navHeight;
 
       window.scrollTo({
         top: elementPosition,
@@ -90,7 +90,7 @@
           onclick={() => scrollToSection(link.id)}
           class="font-display px-4 py-2 rounded-full text-lg font-medium transition-all duration-200 {activeSection ===
           link.id
-            ? 'bg-[var(--primary)] text-white shadow-md'
+            ? 'text-[var(--primary)] border-2 border-[var(--primary)] shadow-md'
             : 'text-gray-600 dark:text-gray-300 hover:text-[var(--primary)]'}"
         >
           {link.label}
