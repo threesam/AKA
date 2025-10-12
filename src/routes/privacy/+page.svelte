@@ -15,6 +15,29 @@
   </div>
 
   <section class="max-w-4xl mx-auto px-6 py-8 bg-[var(--background)]/50">
+    <!-- Home Button -->
+    <div class="mb-8">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-[var(--primary)] transition-colors duration-200 font-medium"
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+
     <Banner
       title="Privacy Policy"
       description="Last updated: {new Date().toLocaleDateString('en-US', {

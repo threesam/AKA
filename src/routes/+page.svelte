@@ -89,7 +89,7 @@
 
 <StickyNav />
 
-<section id="photojournalism">
+<section id="photojournalism" class="py-32">
   <Banner
     title={photojournalismCategory?.title}
     description={photojournalismCategory?.description}
@@ -110,7 +110,7 @@
 </section>
 
 <!-- Articles Section -->
-<section id="articles">
+<section id="articles" class="pb-32">
   <Banner
     title={articleCategory?.title}
     description={articleCategory?.description}
@@ -121,7 +121,7 @@
 </section>
 
 <!-- Substack Section -->
-<section id="substack">
+<section id="substack" class="pb-32">
   <Banner
     title="Newsletter"
     description="Stay updated with our latest thoughts, insights, and behind-the-scenes content delivered directly to your inbox."
@@ -132,7 +132,7 @@
 </section>
 
 <!-- Music Projects Section -->
-<section id="music">
+<section id="music" class="pb-32">
   <!-- Section Title -->
   <Banner
     title={musicCategory?.title}
@@ -179,7 +179,7 @@
 </section>
 
 <!-- Poetry and Spoken Word Section -->
-<section id="poetry-and-spoken-word">
+<section id="poetry-and-spoken-word" class="pb-32">
   <Banner
     title={poetryCategory?.title}
     description={poetryCategory?.description}
@@ -239,7 +239,7 @@
 </section>
 
 <!-- Paradigm Lost Section -->
-<section id="book">
+<section id="book" class="pb-32">
   <Banner
     title="Paradigm Lost"
     description="A deep dive into shifting perspectives and lost paradigms."
