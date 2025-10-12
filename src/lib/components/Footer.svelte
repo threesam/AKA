@@ -36,41 +36,26 @@
 
       <!-- Quick Links -->
       <div>
+        <Logo classes="w-auto" />
+        <p
+          class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed max-w-md"
+        >
+          Amplifying voices for social change through art, journalism, and
+          activism. Challenging apathy and inspiring action in the fight for
+          justice.
+        </p>
         <div class="">
-          <Logo classes="w-auto" />
-          <p
-            class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed max-w-md"
-          >
-            Amplifying voices for social change through art, journalism, and
-            activism. Challenging apathy and inspiring action in the fight for
-            justice.
+          <h4 class="text-xl">Want to work together?</h4>
+          <p>
+            message me at:
+            <a
+              href="mailto:eleanor@artkillingapathy.com?subject=From Website"
+              class="text-red-600 dark:text-red-400 hover:underline text-sm"
+            >
+              eleanor@artkillingapathy.com
+            </a>
           </p>
         </div>
-        <h4
-          class="text-lg font-semibold text-gray-900 dark:text-white mb-4 font-display tracking-wide"
-        >
-          Explore
-        </h4>
-        <nav class="space-y-3">
-          <a
-            href="/art"
-            class="block text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-200"
-          >
-            Art & Activism
-          </a>
-          <a
-            href="/about"
-            class="block text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-200"
-          >
-            About Eleanor
-          </a>
-          <!-- <a
-            href="/press"
-            class="block text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors duration-200"
-          >
-            Press & Media
-          </a> -->
-        </nav>
       </div>
 
       <!-- Social & Contact -->
@@ -91,18 +76,6 @@
         <div class="flex flex-col space-y-4">
           <div class="pt-4 border-t border-gray-200 dark:border-gray-700 flex">
             <SocialLinks />
-
-            <div class="flex gap-4 items-center">
-              <span class="text-sm text-gray-500 dark:text-gray-400">
-                Direct Contact
-              </span>
-              <a
-                href="mailto:eleanor@artkillingapathy.com?subject=From Website"
-                class="text-red-600 dark:text-red-400 hover:underline text-sm"
-              >
-                eleanor@artkillingapathy.com
-              </a>
-            </div>
           </div>
         </div>
       </div>

@@ -3,13 +3,13 @@
 
   let navLinks = [
     { id: "photojournalism", label: "Photojournalism" },
+    { id: "articles", label: "Articles" },
     { id: "substack", label: "Newsletter" },
     { id: "music", label: "Music" },
     { id: "poetry-and-spoken-word", label: "Poetry" },
     { id: "film-video", label: "Film" },
     { id: "book", label: "Book" },
     { id: "podcasts", label: "Podcasts" },
-    { id: "articles", label: "Articles" },
   ];
 
   let activeSection = $state("");
