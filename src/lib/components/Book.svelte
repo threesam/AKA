@@ -16,7 +16,7 @@
 {#if book}
   <div class="book-section w-full max-w-6xl mx-auto px-4">
     <div
-      class="bg-gradient-to-br bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] rounded-3xl shadow-xl overflow-hidden border-4"
+      class="bg-gradient-to-br bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] rounded-3xl shadow-xl overflow-hidden"
     >
       <div class="flex flex-col lg:flex-row min-h-[500px]">
         <!-- Image Section -->
