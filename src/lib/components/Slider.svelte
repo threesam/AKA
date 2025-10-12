@@ -26,14 +26,16 @@
 {#if items.length > 0}
   <div class="article-slider w-full">
     <!-- Horizontal scroll container -->
-    <div class="flex overflow-x-auto gap-4 px-4 pb-4">
-      <div class="flex gap-4 min-w-max">
+    <div class="flex overflow-x-auto gap-4 px-4 pb-4 snap-x snap-mandatory">
+      <ul class="flex min-w-max">
         {#each Array.from( { length: Math.ceil(items.length / 2) }, (_, pairIndex) => {
             const startIndex = pairIndex * 2;
             const pair = items.slice(startIndex, startIndex + 2);
             return { pair, pairIndex };
           } ) as { pair, pairIndex }}
-          <div class="w-80 flex-shrink-0 flex flex-col gap-4">
+          <li
+            class="w-80 flex-shrink-0 flex flex-col snap-start snap-always gap-4 pl-4 last:pr-4"
+          >
             {#each pair as item}
               <a
                 href="/art/{item.slug}"
@@ -85,9 +87,9 @@
                 </div>
               </a>
             {/each}
-          </div>
+          </li>
         {/each}
-      </div>
+      </ul>
     </div>
   </div>
 {/if}

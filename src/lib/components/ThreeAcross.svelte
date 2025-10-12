@@ -16,14 +16,16 @@
 {#if podcasts.length > 0}
   <div class="three-across w-full">
     <!-- Mobile: Horizontal scroll -->
-    <div class="flex lg:hidden overflow-x-auto gap-4 px-4 pb-4">
-      <ul class="flex gap-4 min-w-max snap-x snap-mandatory">
+    <div
+      class="flex lg:hidden overflow-x-auto gap-4 pb-4 snap-x snap-mandatory"
+    >
+      <ul class="flex min-w-max">
         {#each podcasts as podcast}
           <li
-            class="w-80 flex-shrink-0 bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] shadow-lg snap-start overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            class="w-80 border pl-4 last:pr-4 shadow-lg rounded-3xl snap-start snap-always overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
             <!-- Image Section -->
-            <div class="relative aspect-square">
+            <div class="relative aspect-square bg-[var(--headerBackground)]">
               {#if podcast.image}
                 {#if isSanityImage(podcast.image)}
                   <Image
@@ -39,7 +41,7 @@
                 {/if}
               {:else}
                 <div
-                  class="w-full h-full bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] flex items-center justify-center"
+                  class="w-full h-full bg-[var(--headerBackground)] flex items-center justify-center"
                 >
                   <svg
                     class="w-16 h-16 text-gray-400"
@@ -57,7 +59,7 @@
             </div>
 
             <!-- Content Section -->
-            <div class="p-6">
+            <div class="p-6 bg-[var(--headerBackground)]">
               <h3
                 class="text-xl font-display text-gray-900 dark:text-white mb-3 line-clamp-2"
               >

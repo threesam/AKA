@@ -14,7 +14,7 @@
   };
 </script>
 
-<div class="flex flex-col w-full py-10 {positionClasses[position]}">
+<div class="flex flex-col w-full gap-4 px-4 py-12 {positionClasses[position]}">
   <h2 class="font-display text-5xl lg:text-7xl">
     {title || "Section"}
   </h2>
