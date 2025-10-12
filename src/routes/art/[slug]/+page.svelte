@@ -6,8 +6,10 @@
   import serializers from "$lib/components/serializers";
   import SEO from "$lib/components/SEO.svelte";
   import Cta from "$lib/components/Cta.svelte";
+  import Banner from "$lib/components/Banner.svelte";
+  import ArticleHero from "$lib/components/ArticleHero.svelte";
+  import BackButton from "$lib/components/BackButton.svelte";
   import BlockContent from "@movingbrands/svelte-portable-text";
-  import { urlFor } from "$lib/utils/sanity";
 
   // Check if post has poem tag for special styling
   const isPoem = $derived(post?.tags?.includes("poem"));
@@ -19,44 +21,19 @@
   <main>
     <!-- Full bleed hero image -->
     {#if post.image}
-      <section class="relative h-[50vh] w-full overflow-hidden">
-        <img
-          src={urlFor(post.image)
-            .width(1920)
-            .height(1080)
-            .fit("crop")
-            .crop("entropy")
-            .auto("format")
-            .url()}
-          alt={post.alt || post.title}
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div
-          class="relative h-full flex items-center justify-center text-center px-6"
-        >
-          <h1
-            class="text-4xl md:text-6xl lg:text-7xl font-display text-white max-w-4xl leading-tight"
-          >
-            {post.title}
-          </h1>
-        </div>
-      </section>
-    {:else}
-      <!-- Title only section -->
-      <section class="py-24 px-6">
-        <div class="max-w-4xl mx-auto">
-          <h1
-            class="text-4xl md:text-6xl lg:text-7xl font-display text-gray-900 dark:text-white leading-tight"
-          >
-            {post.title}
-          </h1>
-        </div>
-      </section>
+      <ArticleHero data={{ image: post.image, alt: post.alt || post.title }} />
     {/if}
+
+    <!-- Title banner -->
+    <div class="border-b border-[var(--lineColor)] px-6">
+      <Banner title={post.title} position="center" />
+    </div>
 
     <!-- Content section -->
     <section class="content max-w-4xl mx-auto px-6 py-8">
+      <!-- Go back button -->
+      <BackButton />
+
       <div class="prose prose-lg max-w-none {isPoem ? 'prose-poem' : ''}">
         {#if post.author}
           <div class="mb-8 text-gray-600 dark:text-gray-300">

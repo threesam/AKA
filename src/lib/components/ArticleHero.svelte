@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import { scale } from "svelte/transition";
-  import SplashFilter from "./SplashFilter.svelte";
 
   import { urlFor } from "$lib/utils/sanity";
 
@@ -33,7 +32,6 @@
         .url()}
       {alt}
     />
-    <SplashFilter opacity="0.8" />
   </section>
 {/if}
 
