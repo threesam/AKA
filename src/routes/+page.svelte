@@ -89,7 +89,7 @@
 
 <StickyNav />
 
-<section id="photojournalism" class="py-32">
+<section id="photojournalism" class="py-16">
   <Banner
     title={photojournalismCategory?.title}
     description={photojournalismCategory?.description}
@@ -107,6 +107,42 @@
       orientation="horizontal"
     />
   {/if}
+  <div class="py-16 bg-[var(--headerBackground)] mt-2">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl lg:text-5xl font-bold mb-6">Let's Create Together</h2>
+      <p
+        class="text-lg lg:text-xl mb-8 text-[var(--textSecondary)] max-w-3xl mx-auto"
+      >
+        Art thrives in collaboration. Whether you're a fellow artist,
+        storyteller, activist, or creative soul with a vision that challenges
+        the status quo, I'm always interested in exploring meaningful
+        partnerships that push boundaries and spark conversations.
+      </p>
+      <p
+        class="text-base lg:text-lg mb-10 text-[var(--textSecondary)] max-w-2xl mx-auto"
+      >
+        From multimedia projects that blend photography with poetry, to
+        documentary work that amplifies unheard voices, to creative campaigns
+        that challenge apathy—let's discuss how we can make art that matters
+        together.
+      </p>
+      <div
+        class="max-w-max mx-auto bg-[var(--background)] p-8 rounded-lg border border-[var(--primary)] text-[var(--textColor)]"
+      >
+        <p class="text-lg font-medium mb-4">Ready to collaborate?</p>
+        <a
+          href="mailto:eleanor@artkillingpathy.com?subject=Collaboration Inquiry"
+          class="inline-block py-4 text-[var(--primary)] rounded-lg font-semibold text-lg hover:underline transition-all duration-300"
+        >
+          eleanor@artkillingpathy.com
+        </a>
+        <p class="text-sm mt-4">
+          Include your project idea, timeline, and how you envision our
+          collaboration
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Articles Section -->
@@ -190,7 +226,7 @@
 </section>
 
 <!-- Movies Section -->
-<section id="film-video" class="movies-section">
+<section id="film-video" class="pb-32">
   <!-- Section Title -->
   <Banner
     title={moviesCategory?.title}
