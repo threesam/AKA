@@ -1,5 +1,5 @@
 <script>
-  import Image from "$lib/components/Image.svelte";
+  import LazyImage from "$lib/components/LazyImage.svelte";
 
   let { items = [] } = $props();
 
@@ -29,9 +29,11 @@
           >
             <div class="relative">
               {#if isSanityImage(getImage(item, idx))}
-                <Image
+                <LazyImage
                   url={getImage(item, idx)}
                   alt={item?.alt || item?.title || "Image"}
+                  size="small"
+                  aspectRatio="auto"
                 />
               {:else}
                 <img

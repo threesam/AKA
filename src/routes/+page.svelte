@@ -129,10 +129,12 @@
       <div
         class="max-w-max mx-auto bg-[var(--background)] p-8 rounded-lg border border-[var(--primary)] text-[var(--textColor)]"
       >
-        <p class="text-lg font-medium mb-4">Ready to collaborate?</p>
+        <p class="font-display text-lg font-medium mb-4">
+          Ready to collaborate?
+        </p>
         <a
           href="mailto:eleanor@artkillingpathy.com?subject=Collaboration Inquiry"
-          class="inline-block py-4 text-[var(--primary)] rounded-lg font-semibold text-lg hover:underline transition-all duration-300"
+          class="inline-block py-4 text-[var(--primary)] rounded-lg font-light text-lg hover:underline transition-all duration-300"
         >
           eleanor@artkillingpathy.com
         </a>

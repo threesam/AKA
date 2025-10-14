@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import { onMount } from "svelte";
   import { urlFor } from "$lib/utils/sanity";
 

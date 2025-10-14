@@ -1,5 +1,5 @@
 <script>
-  import Image from "$lib/components/Image.svelte";
+  import LazyImage from "$lib/components/LazyImage.svelte";
 
   /**
    * items: Array of objects with title, slug, image, publishedAt, etc.
@@ -45,7 +45,12 @@
                 <div class="relative aspect-square">
                   {#if item.image}
                     {#if isSanityImage(item.image)}
-                      <Image url={item.image} alt={item.alt || item.title} />
+                      <LazyImage
+                        url={item.image}
+                        alt={item.alt || item.title}
+                        size="small"
+                        aspectRatio="square"
+                      />
                     {:else}
                       <img
                         src={item.image}

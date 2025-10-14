@@ -1,5 +1,5 @@
 <script>
-  import Image from "$lib/components/Image.svelte";
+  import LazyImage from "$lib/components/LazyImage.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
 
   /**
@@ -31,9 +31,11 @@
               >
                 {#if podcast.image}
                   {#if isSanityImage(podcast.image)}
-                    <Image
+                    <LazyImage
                       url={podcast.image}
                       alt={podcast.alt || podcast.title}
+                      size="small"
+                      aspectRatio="square"
                     />
                   {:else}
                     <img

@@ -1,5 +1,5 @@
 <script>
-  import Image from "$lib/components/Image.svelte";
+  import LazyImage from "$lib/components/LazyImage.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
 
   /**
@@ -30,7 +30,13 @@
     <div class="w-1/2 h-full relative">
       {#if product?.image}
         {#if isSanityImage(product.image)}
-          <Image url={product.image} alt={product.alt || product.title} />
+          <LazyImage
+            url={product.image}
+            alt={product.alt || product.title}
+            size="large"
+            aspectRatio="auto"
+            priority={true}
+          />
         {:else}
           <img
             src={product.image}
@@ -102,7 +108,12 @@
     <div class="relative h-64">
       {#if product?.image}
         {#if isSanityImage(product.image)}
-          <Image url={product.image} alt={product.alt || product.title} />
+          <LazyImage
+            url={product.image}
+            alt={product.alt || product.title}
+            size="medium"
+            aspectRatio="auto"
+          />
         {:else}
           <img
             src={product.image}
@@ -162,9 +173,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .card {
-    background: var(--background);
-  }
-</style>

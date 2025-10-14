@@ -1,5 +1,5 @@
 <script>
-  import Image from "$lib/components/Image.svelte";
+  import LazyImage from "$lib/components/LazyImage.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
 
   /**
@@ -23,7 +23,13 @@
         <div class="w-full lg:w-1/2 relative">
           {#if book.image}
             {#if isSanityImage(book.image)}
-              <Image url={book.image} alt={book.alt || book.title} />
+              <LazyImage
+                url={book.image}
+                alt={book.alt || book.title}
+                size="large"
+                aspectRatio="auto"
+                priority={true}
+              />
             {:else}
               <img
                 src={book.image}
