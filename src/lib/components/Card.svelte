@@ -97,7 +97,7 @@
     class="lg:hidden bg-white dark:bg-[var(--headerBackground)] shadow-lg overflow-hidden"
   >
     <!-- Image -->
-    <div class="relative h-64 aspect-square">
+    <div class="relative aspect-square">
       {#if product?.image}
         <img
           src={product.image +
