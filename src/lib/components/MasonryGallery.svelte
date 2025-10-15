@@ -25,7 +25,7 @@
           >
             <div class="relative">
               <img
-                src={getImage(item, idx) + "?auto=format&quality=90&h=500"}
+                src={getImage(item, idx) + "?auto=format&quality=90&h=450"}
                 alt={item?.alt || item?.title || "Image"}
                 class="max-h-[28vh] object-contain"
                 loading="lazy"

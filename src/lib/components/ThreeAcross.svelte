@@ -25,10 +25,12 @@
               >
                 {#if podcast.image}
                   <img
-                    src={podcast.image + "?auto=format&quality=90&h=500"}
+                    src={podcast.image +
+                      "?auto=format&quality=90&h=500&w=500&crop=entropy"}
                     alt={podcast.alt || podcast.title}
                     class="w-full h-full object-contain"
                     loading="lazy"
+                    decoding="async"
                   />
                 {:else}
                   <div

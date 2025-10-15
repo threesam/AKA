@@ -26,13 +26,15 @@
       : ''}"
   >
     <!-- Image Section (50%) -->
-    <div class="w-1/2 h-full relative">
+    <div class="w-1/2 h-full relative aspect-square">
       {#if product?.image}
         <img
-          src={product.image + "?auto=format&quality=90&h=750"}
+          src={product.image +
+            "?auto=format&quality=90&h=750&w=750&crop=entropy"}
           alt={product.alt || product.title}
           loading="lazy"
           class="w-full h-full object-cover"
+          decoding="async"
         />
       {:else}
         <div
@@ -95,13 +97,15 @@
     class="lg:hidden bg-white dark:bg-[var(--headerBackground)] shadow-lg overflow-hidden"
   >
     <!-- Image -->
-    <div class="relative h-64">
+    <div class="relative h-64 aspect-square">
       {#if product?.image}
         <img
-          src={product.image + "?auto=format&quality=90&h=500"}
+          src={product.image +
+            "?auto=format&quality=90&h=350&w=350&crop=entropy"}
           alt={product.alt || product.title}
           class="w-full h-full object-cover"
           loading="lazy"
+          decoding="async"
         />
       {:else}
         <div

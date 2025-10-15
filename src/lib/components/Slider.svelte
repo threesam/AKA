@@ -43,7 +43,8 @@
                 <div class="relative aspect-square">
                   {#if item.image}
                     <img
-                      src={item.image + "?auto=format&quality=90&h=500"}
+                      src={item.image +
+                        "?auto=format&quality=90&h=350&w=350&crop=entropy"}
                       alt={item.alt || item.title}
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"

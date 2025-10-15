@@ -22,10 +22,12 @@
         <div class="w-full lg:w-1/2 relative">
           {#if book.image}
             <img
-              src={book.image + "?auto=format&quality=90&h=750"}
+              src={book.image +
+                "?auto=format&quality=90&h=750&w=750&crop=entropy"}
               alt={book.alt || book.title}
               class="w-full h-full object-cover"
               loading="lazy"
+              decoding="async"
             />
           {:else}
             <div
