@@ -29,6 +29,7 @@
                 alt={item?.alt || item?.title || "Image"}
                 class="max-h-[28vh] object-contain"
                 loading="lazy"
+                decoding="async"
               />
               <!-- Hover Overlay -->
               <div

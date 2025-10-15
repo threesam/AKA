@@ -30,6 +30,8 @@
                   src={podcast.image}
                   alt={podcast.alt || podcast.title}
                   class="w-full h-full object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               {/if}
             {:else}

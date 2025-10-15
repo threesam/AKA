@@ -29,6 +29,8 @@
                 src={project.image}
                 alt={project.alt || project.title}
                 class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             {/if}
           {:else}

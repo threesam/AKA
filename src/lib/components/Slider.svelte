@@ -46,6 +46,8 @@
                       src={item.image + "?auto=format&quality=90&h=500"}
                       alt={item.alt || item.title}
                       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
                     />
                   {:else}
                     <div
