@@ -25,7 +25,7 @@
               >
                 {#if podcast.image}
                   <img
-                    src={podcast.image + "?auto=format&h=500"}
+                    src={podcast.image + "?auto=format&quality=90&h=500"}
                     alt={podcast.alt || podcast.title}
                     class="w-full h-full object-contain"
                     loading="lazy"

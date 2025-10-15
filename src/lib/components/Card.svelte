@@ -29,7 +29,7 @@
     <div class="w-1/2 h-full relative">
       {#if product?.image}
         <img
-          src={product.image + "?auto=format&h=750"}
+          src={product.image + "?auto=format&quality=90&h=750"}
           alt={product.alt || product.title}
           loading="lazy"
           class="w-full h-full object-cover"
@@ -98,7 +98,7 @@
     <div class="relative h-64">
       {#if product?.image}
         <img
-          src={product.image + "?auto=format&h=500"}
+          src={product.image + "?auto=format&quality=90&h=500"}
           alt={product.alt || product.title}
           class="w-full h-full object-cover"
           loading="lazy"

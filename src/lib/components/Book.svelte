@@ -22,7 +22,7 @@
         <div class="w-full lg:w-1/2 relative">
           {#if book.image}
             <img
-              src={book.image + "?auto=format&h=750"}
+              src={book.image + "?auto=format&quality=90&h=750"}
               alt={book.alt || book.title}
               class="w-full h-full object-cover"
               loading="lazy"
