@@ -1,16 +1,10 @@
 <script>
-  import LazyImage from "$lib/components/LazyImage.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
 
   /**
    * podcasts: Array of podcast objects with title, description, image, etc.
    */
   let { podcasts = [] } = $props();
-
-  // Helper function to check if image is Sanity image object
-  function isSanityImage(image) {
-    return image && typeof image === "object" && image._type;
-  }
 </script>
 
 {#if podcasts.length > 0}
@@ -30,20 +24,12 @@
                 class="relative aspect-square bg-[var(--textColor)] overflow-hidden"
               >
                 {#if podcast.image}
-                  {#if isSanityImage(podcast.image)}
-                    <LazyImage
-                      url={podcast.image}
-                      alt={podcast.alt || podcast.title}
-                      size="small"
-                      aspectRatio="square"
-                    />
-                  {:else}
-                    <img
-                      src={podcast.image}
-                      alt={podcast.alt || podcast.title}
-                      class="w-full h-full object-contain"
-                    />
-                  {/if}
+                  <img
+                    src={podcast.image + "?auto=format&h=500"}
+                    alt={podcast.alt || podcast.title}
+                    class="w-full h-full object-contain"
+                    loading="lazy"
+                  />
                 {:else}
                   <div
                     class="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center"

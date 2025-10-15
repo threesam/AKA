@@ -1,5 +1,4 @@
 <script>
-  import LazyImage from "$lib/components/LazyImage.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
 
   /**
@@ -29,21 +28,12 @@
     <!-- Image Section (50%) -->
     <div class="w-1/2 h-full relative">
       {#if product?.image}
-        {#if isSanityImage(product.image)}
-          <LazyImage
-            url={product.image}
-            alt={product.alt || product.title}
-            size="large"
-            aspectRatio="auto"
-            priority={true}
-          />
-        {:else}
-          <img
-            src={product.image}
-            alt={product.alt || product.title}
-            class="w-full h-full object-cover"
-          />
-        {/if}
+        <img
+          src={product.image + "?auto=format&h=750"}
+          alt={product.alt || product.title}
+          loading="lazy"
+          class="w-full h-full object-cover"
+        />
       {:else}
         <div
           class="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center"
@@ -107,20 +97,12 @@
     <!-- Image -->
     <div class="relative h-64">
       {#if product?.image}
-        {#if isSanityImage(product.image)}
-          <LazyImage
-            url={product.image}
-            alt={product.alt || product.title}
-            size="medium"
-            aspectRatio="auto"
-          />
-        {:else}
-          <img
-            src={product.image}
-            alt={product.alt || product.title}
-            class="w-full h-full object-cover"
-          />
-        {/if}
+        <img
+          src={product.image + "?auto=format&h=500"}
+          alt={product.alt || product.title}
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
       {:else}
         <div
           class="w-full h-full bg-gray-200 dark:bg-[var(--headerBackground)] flex items-center justify-center"

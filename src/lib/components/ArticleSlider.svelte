@@ -6,11 +6,6 @@
    */
   let { items = [] } = $props();
 
-  // Helper function to check if image is Sanity image object
-  function isSanityImage(image) {
-    return image && typeof image === "object" && image._type;
-  }
-
   // Format date for display
   function formatDate(dateString) {
     if (!dateString) return "";
@@ -36,15 +31,12 @@
             <!-- Image Section -->
             <div class="relative aspect-square">
               {#if item.image}
-                {#if isSanityImage(item.image)}
-                  <Image url={item.image} alt={item.alt || item.title} />
-                {:else}
-                  <img
-                    src={item.image}
-                    alt={item.alt || item.title}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                {/if}
+                <img
+                  src={item.image + "?auto=format&h=500"}
+                  alt={item.alt || item.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
               {:else}
                 <div
                   class="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center"

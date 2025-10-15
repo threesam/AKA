@@ -1,5 +1,4 @@
 <script>
-  import LazyImage from "$lib/components/LazyImage.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
 
   /**
@@ -22,21 +21,12 @@
         <!-- Image Section -->
         <div class="w-full lg:w-1/2 relative">
           {#if book.image}
-            {#if isSanityImage(book.image)}
-              <LazyImage
-                url={book.image}
-                alt={book.alt || book.title}
-                size="large"
-                aspectRatio="auto"
-                priority={true}
-              />
-            {:else}
-              <img
-                src={book.image}
-                alt={book.alt || book.title}
-                class="w-full h-full object-cover"
-              />
-            {/if}
+            <img
+              src={book.image + "?auto=format&h=750"}
+              alt={book.alt || book.title}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
           {:else}
             <div
               class="w-full h-full bg-gradient-to-br bg-[var(--headerBackground)] dark:bg-[var(--headerBackground)] flex items-center justify-center"

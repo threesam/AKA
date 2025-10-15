@@ -1,5 +1,5 @@
 <script>
-  import LazyImage from "$lib/components/LazyImage.svelte";
+  import Image from "$lib/components/Image.svelte";
 
   let { items = [] } = $props();
 
@@ -11,10 +11,6 @@
 
   function getImage(item, idx) {
     return item?.image || fallbackImages[idx % fallbackImages.length];
-  }
-
-  function isSanityImage(image) {
-    return image && typeof image === "object" && image._type;
   }
 </script>
 
@@ -28,20 +24,12 @@
             class="flex-none group relative snap-start snap-always"
           >
             <div class="relative">
-              {#if isSanityImage(getImage(item, idx))}
-                <LazyImage
-                  url={getImage(item, idx)}
-                  alt={item?.alt || item?.title || "Image"}
-                  size="small"
-                  aspectRatio="auto"
-                />
-              {:else}
-                <img
-                  src={getImage(item, idx)}
-                  alt={item?.alt || item?.title || "Image"}
-                  class="max-h-[28vh] object-contain"
-                />
-              {/if}
+              <img
+                src={getImage(item, idx) + "?auto=format&h=500"}
+                alt={item?.alt || item?.title || "Image"}
+                class="max-h-[28vh] object-contain"
+                loading="lazy"
+              />
               <!-- Hover Overlay -->
               <div
                 class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"

@@ -1,6 +1,4 @@
 <script>
-  import LazyImage from "$lib/components/LazyImage.svelte";
-
   /**
    * items: Array of objects with title, slug, image, publishedAt, etc.
    */
@@ -44,20 +42,11 @@
                 <!-- Image Section -->
                 <div class="relative aspect-square">
                   {#if item.image}
-                    {#if isSanityImage(item.image)}
-                      <LazyImage
-                        url={item.image}
-                        alt={item.alt || item.title}
-                        size="small"
-                        aspectRatio="square"
-                      />
-                    {:else}
-                      <img
-                        src={item.image}
-                        alt={item.alt || item.title}
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    {/if}
+                    <img
+                      src={item.image + "?auto=format&h=500"}
+                      alt={item.alt || item.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   {:else}
                     <div
                       class="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center"
