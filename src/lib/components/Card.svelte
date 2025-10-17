@@ -7,15 +7,12 @@
    * primaryCtaText: Custom text for the primary CTA button (defaults to "Purchase Now")
    * secondaryCtaText: Custom text for the secondary CTA button (defaults to "Learn More")
    */
-  export let product = {};
-  export let flipped = false;
-  export let primaryCtaText = "Purchase Now";
-  export let secondaryCtaText = "Learn More";
-
-  // Helper function to check if image is Sanity image object
-  function isSanityImage(image) {
-    return image && typeof image === "object" && image._type;
-  }
+  let {
+    product = {},
+    flipped = false,
+    primaryCtaText = "Purchase Now",
+    secondaryCtaText = "Learn More",
+  } = $props();
 </script>
 
 <div class="">
