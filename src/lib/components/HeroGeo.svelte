@@ -48,7 +48,7 @@
       <!-- Key Features Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         <div
-          class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 border border-gray-200/20 dark:border-gray-700/20"
+          class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 border border-[var(--lineColor)]/20"
         >
           <h3 class="text-xl font-['Anton'] text-gray-900 dark:text-white mb-3">
             Radical Art
@@ -60,7 +60,7 @@
         </div>
 
         <div
-          class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 border border-gray-200/20 dark:border-gray-700/20"
+          class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 border border-[var(--lineColor)]/20"
         >
           <h3 class="text-xl font-['Anton'] text-gray-900 dark:text-white mb-3">
             Creative Community
@@ -72,7 +72,7 @@
         </div>
 
         <div
-          class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 border border-gray-200/20 dark:border-gray-700/20"
+          class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 border border-[var(--lineColor)]/20"
         >
           <h3 class="text-xl font-['Anton'] text-gray-900 dark:text-white mb-3">
             Tactical Creativity

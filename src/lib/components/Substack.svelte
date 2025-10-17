@@ -98,9 +98,7 @@
             </div>
 
             <!-- Substack Features -->
-            <div
-              class="mt-8 pt-6 border-t border-orange-200 dark:border-gray-700"
-            >
+            <div class="mt-8 pt-6 border-t border-[var(--lineColor)]">
               <div
                 class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-500 dark:text-gray-400"
               >

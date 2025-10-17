@@ -3,7 +3,7 @@
 </script>
 
 {#if type === "line"}
-  <hr class="max-w-2xl mx-auto border-gray-300 dark:border-gray-600" />
+  <hr class="max-w-2xl mx-auto border-[var(--lineColor)]" />
 {:else if type === "break"}
   <br />
 {/if}

@@ -55,7 +55,7 @@
         <BlockContent blocks={post.body} {serializers} />
       </div>
     </section>
-    <div class="mt-8 py-8 border-t border-gray-200 dark:border-gray-700">
+    <div class="mt-8 py-8 border-t border-[var(--lineColor)]">
       {#if post.cta}
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center items-center"

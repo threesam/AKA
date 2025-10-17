@@ -73,7 +73,7 @@
         bind:value={email}
         disabled={isLoading}
         required
-        class="w-full h-full border-2 border-gray-900 dark:border-gray-100 text-base rounded-none bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        class="w-full h-full border-2 border-[var(--lineColor)] text-base rounded-none bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
       />
     </label>
     <button

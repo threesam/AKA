@@ -14,7 +14,7 @@
 </script>
 
 <footer
-  class="relative w-full bg-[var(--footerBackground)] border-t border-gray-200 dark:border-gray-800 overflow-hidden"
+  class="relative w-full bg-[var(--footerBackground)] border-t border-[var(--lineColor)] overflow-hidden"
 >
   <!-- Word Cloud Background -->
   <div class="absolute inset-0 w-screen h-full z-0">
@@ -65,7 +65,7 @@
         <div class="text-gray-600 dark:text-gray-300">
           <!-- Newsletter Subscription -->
           <div
-            class="bg-[var(--cardBg)] p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 mb-8"
+            class="bg-[var(--cardBg)] p-6 rounded-lg shadow-sm border border-[var(--lineColor)] mb-8"
           >
             <SubscribeForm />
           </div>
@@ -76,7 +76,7 @@
           Connect
         </h4>
         <div class="flex flex-col space-y-4">
-          <div class="pt-4 border-t border-gray-200 dark:border-gray-700 flex">
+          <div class="pt-4 border-t border-[var(--lineColor)] flex">
             <SocialLinks />
           </div>
         </div>
@@ -84,7 +84,7 @@
     </div>
 
     <!-- Bottom Bar -->
-    <div class="pt-8 border-t border-gray-200 dark:border-gray-700">
+    <div class="pt-8 border-t border-[var(--lineColor)]">
       <div
         class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0"
       >
