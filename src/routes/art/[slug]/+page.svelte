@@ -21,11 +21,16 @@
   <main>
     <!-- Full bleed hero image -->
     {#if post.image}
-      <ArticleHero data={{ image: post.image, alt: post.alt || post.title }} />
+      <ArticleHero
+        data={{
+          image: post.image + "?auto=format&crop=entropy",
+          alt: post.alt || post.title,
+        }}
+      />
     {/if}
 
     <!-- Title banner -->
-    <div class="border-b border-[var(--lineColor)] px-6">
+    <div class="border-b border-t border-[var(--lineColor)] px-6">
       <Banner title={post.title} position="center" />
     </div>
 
