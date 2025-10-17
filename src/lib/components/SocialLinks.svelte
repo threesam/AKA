@@ -1,14 +1,8 @@
-<script>
-  import { page } from "$app/stores";
-
-  export let flatten;
-</script>
-
 <div class="flex flex-row space-x-3">
-  <!-- Twitter -->
+  <!-- X -->
   <a
-    href="https://twitter.com/radicaleleanor"
-    aria-label="Twitter"
+    href="https://x.com/radicaleleanor"
+    aria-label="x"
     class="flex items-center justify-center w-12 h-12 text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
   >
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

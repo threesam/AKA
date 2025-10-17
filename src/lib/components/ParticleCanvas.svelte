@@ -1,47 +1,29 @@
 <script>
   import { browser } from "$app/environment";
-  import { onMount, onDestroy } from "svelte";
 
   const MAX_PARTICLES = 120;
   const MIN_PARTICLES = 100;
   const LINE_THRESHOLD_BASE = 400;
   const PARTICLE_SPEED = 0.25;
 
-  let canvas;
-  let ctx;
-  let frameId;
+  let canvas = $state(null);
+  let ctx = $state(null);
+  let frameId = $state(null);
 
-  let width = 0;
-  let height = 0;
-  let dpr = 1;
+  let width = $state(0);
+  let height = $state(0);
+  let dpr = $state(1);
 
-  let particles = [];
+  let particles = $state([]);
 
-  const toPx = (value) => {
-    if (!browser) return 0;
-    if (!value) return 0;
-    const trimmed = value.toString().trim().toLowerCase();
-    if (trimmed.endsWith("rem")) {
-      const numeric = parseFloat(trimmed.replace("rem", ""));
-      const rootFontSize = parseFloat(
-        getComputedStyle(document.documentElement).fontSize || "16"
-      );
-      return numeric * rootFontSize;
-    }
-    if (trimmed.endsWith("px")) {
-      return parseFloat(trimmed.replace("px", ""));
-    }
-    return parseFloat(trimmed) || 0;
-  };
-
-  const readCSSVar = (name, target) => {
+  function readCSSVar(name, target) {
     if (!browser) return "";
     const el = target ?? document.body;
     if (!el) return "";
     return getComputedStyle(el).getPropertyValue(name).trim();
-  };
+  }
 
-  const hexToRgb = (hex) => {
+  function hexToRgb(hex) {
     if (!hex) return [0, 0, 0];
     const sanitized = hex.replace("#", "");
     if (sanitized.length === 3) {
@@ -55,7 +37,7 @@
       parseInt(sanitized.substring(2, 4), 16),
       parseInt(sanitized.substring(4, 6), 16),
     ];
-  };
+  }
 
   class Particle {
     constructor() {
@@ -85,16 +67,16 @@
     }
   }
 
-  const initParticles = () => {
+  function initParticles() {
     const target = Math.max(
       MIN_PARTICLES,
       Math.min(MAX_PARTICLES, Math.round((width * height) / 32000))
     );
 
     particles = Array.from({ length: target }, () => new Particle());
-  };
+  }
 
-  const resizeCanvas = () => {
+  function resizeCanvas() {
     if (!browser || !canvas) return;
 
     width = window.innerWidth;
@@ -111,9 +93,9 @@
     ctx.scale(dpr, dpr);
 
     initParticles();
-  };
+  }
 
-  const draw = () => {
+  function draw() {
     if (!browser || !ctx) return;
 
     const background = readCSSVar("--background") || "#000";
@@ -161,23 +143,23 @@
         }
       }
     }
-  };
+  }
 
-  const animate = () => {
+  function animate() {
     draw();
     frameId = requestAnimationFrame(animate);
-  };
+  }
 
-  const handleVisibility = () => {
+  function handleVisibility() {
     if (!browser) return;
     if (document.hidden) {
       cancelAnimationFrame(frameId);
     } else {
       frameId = requestAnimationFrame(animate);
     }
-  };
+  }
 
-  onMount(() => {
+  $effect(() => {
     if (!browser) return;
 
     resizeCanvas();
@@ -185,26 +167,16 @@
 
     window.addEventListener("resize", resizeCanvas, { passive: true });
     document.addEventListener("visibilitychange", handleVisibility);
-  });
 
-  onDestroy(() => {
-    if (!browser) return;
-
-    cancelAnimationFrame(frameId);
-    window.removeEventListener("resize", resizeCanvas);
-    document.removeEventListener("visibilitychange", handleVisibility);
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("resize", resizeCanvas);
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   });
 </script>
 
-<canvas bind:this={canvas} class="particle-canvas" />
-
-<style>
-  .particle-canvas {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-  }
-</style>
+<canvas
+  bind:this={canvas}
+  class="fixed inset-0 -z-10 w-screen h-screen pointer-events-none"
+></canvas>

@@ -4,11 +4,6 @@
    */
   let { items = [] } = $props();
 
-  // Helper function to check if image is Sanity image object
-  function isSanityImage(image) {
-    return image && typeof image === "object" && image._type;
-  }
-
   // Format date for display
   function formatDate(dateString) {
     if (!dateString) return "";
