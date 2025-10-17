@@ -5,7 +5,7 @@
   import { format, parseISO } from "date-fns";
   import serializers from "$lib/components/serializers";
   import SEO from "$lib/components/SEO.svelte";
-  import Cta from "$lib/components/Cta.svelte";
+  import CtaButton from "$lib/components/CtaButton.svelte";
   import Banner from "$lib/components/Banner.svelte";
   import ArticleHero from "$lib/components/ArticleHero.svelte";
   import BackButton from "$lib/components/BackButton.svelte";
@@ -18,7 +18,7 @@
 {#if post}
   <SEO {...post} />
 
-  <main>
+  <div>
     <!-- Full bleed hero image -->
     {#if post.image}
       <ArticleHero
@@ -53,13 +53,30 @@
         {/if}
 
         <BlockContent blocks={post.body} {serializers} />
-
-        {#if post.cta}
-          <div class="mt-8">
-            <Cta {...post.cta} />
-          </div>
-        {/if}
       </div>
     </section>
-  </main>
+    {#if post.cta}
+      <div class="mt-8 py-8 border-t border-gray-200 dark:border-gray-700">
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <CtaButton
+            type={post.cta.secondary ? "secondary" : "primary"}
+            size="lg"
+            href={post.cta.url}
+            target={post.cta.external ? "_blank" : null}
+            rel={post.cta.external ? "noopener noreferrer" : null}
+          >
+            {post.cta.text}
+          </CtaButton>
+
+          {#if post.cta.secondary && post.slug}
+            <CtaButton type="secondary" size="lg" href="/art/{post.slug}">
+              Learn More
+            </CtaButton>
+          {/if}
+        </div>
+      </div>
+    {/if}
+  </div>
 {/if}
