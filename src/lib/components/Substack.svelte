@@ -1,16 +1,10 @@
 <script>
-  import Image from "$lib/components/Image.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
 
   /**
    * project: Substack project object with title, description, image, etc.
    */
   let { project } = $props();
-
-  // Helper function to check if image is Sanity image object
-  function isSanityImage(image) {
-    return image && typeof image === "object" && image._type;
-  }
 </script>
 
 {#if project}
@@ -22,17 +16,14 @@
         <!-- Image Section -->
         <div class="w-full lg:w-1/2 relative">
           {#if project.image}
-            {#if isSanityImage(project.image)}
-              <Image url={project.image} alt={project.alt || project.title} />
-            {:else}
-              <img
-                src={project.image}
-                alt={project.alt || project.title}
-                class="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            {/if}
+            <img
+              src={project.image +
+                "?auto=format&quality=90&h=750&w=750&crop=entropy"}
+              alt={project.alt || project.title}
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
           {:else}
             <div
               class="w-full h-full bg-gradient-to-br from-orange-100 to-yellow-100 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center"

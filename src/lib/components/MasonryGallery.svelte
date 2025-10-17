@@ -1,6 +1,4 @@
 <script>
-  import Image from "$lib/components/Image.svelte";
-
   let { items = [] } = $props();
 
   const fallbackImages = [
