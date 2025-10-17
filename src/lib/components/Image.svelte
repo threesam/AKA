@@ -1,78 +1,43 @@
 <script>
-  import { onMount } from "svelte";
   import { urlFor } from "$lib/utils/sanity";
 
-  export let url;
-  export let alt = "";
-  export let caption;
-  export let rounded = false;
+  let { url, alt = "", caption, rounded = false } = $props();
 
-  let width;
+  let width = $state(0);
+  let loaded = $state(false);
+  let thisImage = $state(null);
 
   function parentWidth(node) {
     width = node.parentElement.clientWidth;
   }
 
-  // function convertRemToPixels(rem) {
-  //   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-  // }
-
-  let loaded = false;
-  let thisImage;
-
-  onMount(() => {
-    // overflow container
-    // const rem = convertRemToPixels(6)
-    // width = width + rem
-
-    // mount when image loads
-    thisImage.onload = () => {
-      loaded = true;
-    };
+  $effect(() => {
+    if (thisImage) {
+      thisImage.onload = () => {
+        loaded = true;
+      };
+    }
   });
 </script>
 
-<figure class:rounded use:parentWidth {width}>
+<figure
+  class="m-0 relative {rounded ? 'overflow-hidden' : ''}"
+  use:parentWidth
+  {width}
+>
   <img
     {width}
-    class:loaded
     src={urlFor(url).width(width).auto("format").url()}
     bind:this={thisImage}
     {alt}
     loading="lazy"
+    decoding="async"
+    data-loaded={loaded}
+    class="brightness-90 relative transition-opacity duration-[1200ms] ease-out w-full h-full data-[loaded=true]:opacity-100"
   />
   {#if caption}
-    <figcaption><em>{caption}</em></figcaption>
+    <figcaption class="m-0 mx-auto text-sm max-w-2xl px-6 pb-6 pt-0">
+      <em>{caption}</em>
+    </figcaption>
   {/if}
 </figure>
-
-<style>
-  figure {
-    margin: 0;
-    position: relative;
-  }
-
-  .rounded {
-    overflow: hidden;
-  }
-  img {
-    filter: brightness(90%);
-    position: relative;
-    opacity: 0;
-    transition: opacity 1200ms ease-out;
-    width: 100%;
-    height: 100%;
-  }
-
-  img.loaded {
-    opacity: 1;
-  }
-
-  figcaption {
-    margin: 0 auto;
-    font-size: var(--smallText);
-    max-width: 40rem;
-    padding: 0 var(--containerPadding) var(--containerPadding)
-      var(--containerPadding);
-  }
-</style>
