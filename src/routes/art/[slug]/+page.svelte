@@ -38,7 +38,7 @@
     <BackButton class="lg:max-w-[42rem] mx-auto" />
 
     <!-- Content section -->
-    <section class="content max-w-4xl mx-auto px-6 py-8">
+    <section class="content max-w-4xl mx-auto px-6 pt-8 pb-8">
       <div class="prose prose-lg max-w-none {isPoem ? 'prose-poem' : ''}">
         {#if post.author}
           <div class="mb-8 text-gray-600 dark:text-gray-300">
@@ -55,8 +55,8 @@
         <BlockContent blocks={post.body} {serializers} />
       </div>
     </section>
-    {#if post.cta}
-      <div class="mt-8 py-8 border-t border-gray-200 dark:border-gray-700">
+    <div class="mt-8 py-8 border-t border-gray-200 dark:border-gray-700">
+      {#if post.cta}
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
@@ -76,7 +76,14 @@
             </CtaButton>
           {/if}
         </div>
-      </div>
-    {/if}
+      {:else}
+        <!-- If no CTA, show a "finished" message -->
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <h2 class="text-2xl font-bold">färdig</h2>
+        </div>
+      {/if}
+    </div>
   </div>
 {/if}
