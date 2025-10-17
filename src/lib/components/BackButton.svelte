@@ -1,5 +1,6 @@
 <script>
   import { goto } from "$app/navigation";
+  import Link from "$lib/components/Link.svelte";
 
   let { class: classNames } = $props();
 
@@ -19,7 +20,7 @@
   <div class="flex justify-start">
     <button
       onclick={goBack}
-      class="p-3 inline-flex items-center font-light gap-2 text-[var(--textColor)] hover:text-[var(--primary)] transition-colors duration-300 bg-[var(--background)]/50 backdrop-blur-md rounded-3xl"
+      class="p-3 inline-flex items-center font-light gap-2 bg-[var(--background)]/50 backdrop-blur-md rounded-3xl"
     >
       <svg
         class="w-5 h-5"
@@ -34,7 +35,7 @@
           d="M10 19l-7-7m0 0l7-7m-7 7h18"
         />
       </svg>
-      <span class="hover:underline">Want to go back?</span>
+      <Link href="#" onclick={goBack} variant="default">Want to go back?</Link>
     </button>
   </div>
 </div>
