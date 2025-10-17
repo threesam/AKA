@@ -57,10 +57,14 @@
   }
 </script>
 
-<div class="subscribe-form">
-  <h3>Follow for Updates</h3>
-  <form onsubmit={handleSubmit}>
-    <label for="email">
+<div>
+  <h3
+    class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white mb-4 font-['Anton'] tracking-wide"
+  >
+    Follow for Updates
+  </h3>
+  <form onsubmit={handleSubmit} class="flex">
+    <label for="email" class="flex-1">
       <input
         type="email"
         name="email"
@@ -69,62 +73,20 @@
         bind:value={email}
         disabled={isLoading}
         required
+        class="w-full h-full border-2 border-[var(--lineColor)] text-base rounded-none bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 px-3 py-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
       />
     </label>
-    <button type="submit" disabled={!isFormValid}>
+    <button
+      type="submit"
+      disabled={!isFormValid}
+      class="bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white font-['Anton'] px-6 py-2 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[var(--primary)]"
+    >
       {isLoading ? "Subscribing..." : "Subscribe"}
     </button>
   </form>
   {#if isSubmitted}
-    <h5 transition:slide>{message}</h5>
+    <h5 transition:slide class="text-sm text-gray-600 dark:text-gray-300 mt-2">
+      {message}
+    </h5>
   {/if}
 </div>
-
-<style>
-  .subscribe-form {
-    max-width: 100%;
-  }
-  form {
-    display: flex;
-  }
-
-  label {
-    flex: 1;
-    align-self: stretch;
-    padding: 1px 0;
-  }
-
-  input {
-    height: 100%;
-    border: 0.125rem solid var(--textColor);
-    font-size: 1rem;
-    border-radius: 0;
-    background: var(--background);
-    color: var(--textColor);
-    padding: 0.28rem;
-  }
-  /* magic number to match svg search icon */
-
-  input:focus {
-    border: 0.125rem solid transparent;
-    outline: 0.125rem solid var(--primary);
-    outline-style: groove;
-  }
-
-  button {
-    background-color: var(--primary);
-    font-family: var(--headingFont);
-    padding: 1rem 1.5rem;
-  }
-
-  h3,
-  h5 {
-    margin-top: 0;
-  }
-
-  @media screen and (max-width: 600px) {
-    h3 {
-      font-size: var(--h4);
-    }
-  }
-</style>

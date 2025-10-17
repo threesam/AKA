@@ -3,7 +3,7 @@ import Author from "./Author.svelte";
 import Video from "./Video.svelte";
 import Link from "./Link.svelte";
 import Line from "./Line.svelte";
-import Cta from "./Cta.svelte";
+import CtaButton from "./CtaButton.svelte";
 
 export default {
   marks: {
@@ -37,13 +37,13 @@ export default {
       },
     }),
     cta: ({ node, children }) => ({
-      component: Cta,
-      childNodes: children,
+      component: CtaButton,
+      childNodes: node.text || node.title || children,
       props: {
-        url: node.url,
-        text: node.text,
-        secondary: node.secondary,
-        external: node.external,
+        href: node.url,
+        type: node.secondary ? "secondary" : "primary",
+        target: node.external ? "_blank" : node.target,
+        rel: node.external ? "noopener noreferrer" : null,
       },
     }),
     authorReference: ({ children, node: { author } }) => ({

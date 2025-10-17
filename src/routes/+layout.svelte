@@ -1,8 +1,8 @@
 <script>
   import "../app.css";
-  import Nav from "$lib/components/Nav.svelte";
-  import Footer from "$lib/components/Footer.svelte";
+
   import { darkMode } from "$lib/utils/darkMode";
+  import Footer from "$lib/components/Footer.svelte";
 
   // Apply theme to body based on dark mode state
   $effect(() => {
@@ -18,13 +18,11 @@
     }
   });
 
-  let { children } = $props();
+  let { children, data } = $props();
 </script>
-
-<Nav />
 
 <main>
   {@render children()}
 </main>
 
-<Footer />
+<Footer transformedWords={data.words} />

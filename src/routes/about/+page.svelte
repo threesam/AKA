@@ -1,7 +1,6 @@
 <script>
   import { blur } from "svelte/transition";
   import SEO from "$lib/components/SEO.svelte";
-  import Cta from "$lib/components/Cta.svelte";
   import BlockContent from "@movingbrands/svelte-portable-text";
   import serializers from "$lib/components/serializers";
 

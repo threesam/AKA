@@ -1,8 +1,7 @@
-<script>
+<!-- <script>
   let { data } = $props();
   const { settings, press } = data;
 
-  import Container from "$lib/components/Container.svelte";
   import SEO from "$lib/components/SEO.svelte";
 </script>
 
@@ -679,4 +678,4 @@
   .press-content > iframe:first-of-type {
     margin-top: 0;
   }
-</style>
+</style> -->
