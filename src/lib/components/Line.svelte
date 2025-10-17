@@ -1,15 +1,9 @@
 <script>
-    export let type;
+  let { type = "line" } = $props();
 </script>
 
 {#if type === "line"}
-    <hr />
+  <hr class="max-w-2xl mx-auto border-gray-300 dark:border-gray-600" />
 {:else if type === "break"}
-    <br />
+  <br />
 {/if}
-
-<style>
-    hr {
-        max-width: 40rem;
-    }
-</style>
