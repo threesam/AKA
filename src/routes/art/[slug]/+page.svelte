@@ -9,7 +9,7 @@
   import Banner from "$lib/components/Banner.svelte";
   import ArticleHero from "$lib/components/ArticleHero.svelte";
   import BackButton from "$lib/components/BackButton.svelte";
-  import BlockContent from "@movingbrands/svelte-portable-text";
+  import { PortableText } from "@portabletext/svelte";
 
   // Check if post has poem tag for special styling
   const isPoem = $derived(post?.tags?.includes("poem"));
@@ -52,7 +52,7 @@
           </div>
         {/if}
 
-        <BlockContent blocks={post.body} {serializers} />
+        <PortableText value={post.body} />
       </div>
     </section>
     <div class="mt-8 py-8 border-t border-[var(--lineColor)]">
