@@ -5,13 +5,46 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="theme-color" content="#333333" />
 
+    <!-- Critical CSS for immediate rendering -->
+    <style>
+      body {
+        font-family: "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
+        font-weight: 100;
+        line-height: 1.75;
+        background: #f2f4f6;
+        color: #0d0907;
+        margin: 0;
+        padding: 0;
+      }
+      .dark {
+        background: #0d0907;
+        color: #f2f4f6;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Anton", ui-sans-serif, system-ui, sans-serif;
+        font-weight: 400;
+      }
+    </style>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- favicon -->
     <link
