@@ -1,18 +1,17 @@
 <script>
-  let { data } = $props();
-  const { post, articles, poetryAndSpokenWord } = $derived(data);
-
   import { format, parseISO } from "date-fns";
-  import SEO from "$lib/components/SEO.svelte";
-  import Slider from "$lib/components/Slider.svelte";
+  import BackButton from "$lib/components/BackButton.svelte";
+  import Banner from "$lib/components/Banner.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
   import { generateStructuredDataHTML } from "$lib/utils/structuredData";
-  import Banner from "$lib/components/Banner.svelte";
-  import ArticleHero from "$lib/components/ArticleHero.svelte";
-  import BackButton from "$lib/components/BackButton.svelte";
   import PortableText from "$lib/components/PortableText.svelte";
   import { randomSort } from "$lib/utils";
-  // Check if post has poem tag for special styling
+  import { scale } from "svelte/transition";
+  import SEO from "$lib/components/SEO.svelte";
+  import Slider from "$lib/components/Slider.svelte";
+
+  let { data } = $props();
+  const { post, articles, poetryAndSpokenWord } = $derived(data);
   const isPoem = $derived(post?.tags?.includes("poem"));
 </script>
 
@@ -38,12 +37,20 @@
   <div>
     <!-- Full bleed hero image -->
     {#if post.image}
-      <ArticleHero
-        data={{
-          image: post.image + "?auto=format&crop=entropy",
-          alt: post.alt || post.title,
-        }}
-      />
+      {#key post.image && post.alt && post.title}
+        <section
+          class="relative h-[50vh] w-full overflow-hidden shadow-lg bg-[var(--background)]"
+        >
+          <img
+            in:scale={{ duration: 2000, start: 1.1, opacity: 0.2 }}
+            src={post.image + "?auto=format&quality=90&h=600"}
+            alt={post.alt || post.title || "Image"}
+            class="absolute top-0 left-0 object-cover w-full h-full"
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+      {/key}
     {/if}
 
     <!-- Title banner -->
