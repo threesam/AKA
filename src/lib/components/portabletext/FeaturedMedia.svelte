@@ -6,5 +6,7 @@
 </script>
 
 {#if value?.asset}
-  <Image url={value.asset} alt={value.alt || ""} />
+  <div class="py-8">
+    <Image url={value.asset} alt={value.alt || ""} />
+  </div>
 {/if}
