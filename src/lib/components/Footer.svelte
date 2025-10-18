@@ -44,7 +44,11 @@
         >
           Amplifying voices for social change through art, journalism, and
           activism. Challenging apathy and inspiring action in the fight for
-          justice.
+          justice. Learn more about <a
+            href="/about"
+            class="text-[var(--primary)] hover:underline"
+            >Art Killing Apathy and Eleanor Goldfield</a
+          >.
         </p>
         <div class="">
           <h4 class="text-xl">Want to work together?</h4>
@@ -52,7 +56,7 @@
             message me at:
             <a
               href="mailto:eleanor@artkillingapathy.com?subject=From Website"
-              class="text-red-600 dark:text-red-400 hover:underline text-sm"
+              class="text-[var(--primary)] hover:underline text-sm"
             >
               eleanor@artkillingapathy.com
             </a>

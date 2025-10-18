@@ -32,7 +32,7 @@
 </div>
 
 <section class="py-8 bg-[var(--background)]/40 backdrop-blur-sm">
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-2xl mx-auto">
     <!-- Go back button -->
     <BackButton />
 
