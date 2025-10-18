@@ -86,22 +86,21 @@
       {/if}
     </div>
   </div>
-{/if}
-
-{#if isPoem && poetryAndSpokenWord.length > 0}
-  <div class="mt-16">
-    <Banner title="Other Poetry and Spoken Word" />
-    <Slider
-      items={randomSort(
-        poetryAndSpokenWord.filter((item) => item.slug !== post.slug)
-      )}
-    />
-  </div>
-{:else if articles.length > 0}
-  <div class="mt-16">
-    <Banner title="Other Articles" />
-    <Slider
-      items={randomSort(articles.filter((item) => item.slug !== post.slug))}
-    />
-  </div>
+  {#if isPoem && poetryAndSpokenWord.length > 0}
+    <div class="mt-16">
+      <Banner title="Other Poetry and Spoken Word" />
+      <Slider
+        items={randomSort(
+          poetryAndSpokenWord.filter((item) => item.slug !== post.slug)
+        )}
+      />
+    </div>
+  {:else if articles.length > 0}
+    <div class="mt-16">
+      <Banner title="Other Articles" />
+      <Slider
+        items={randomSort(articles.filter((item) => item.slug !== post.slug))}
+      />
+    </div>
+  {/if}
 {/if}
