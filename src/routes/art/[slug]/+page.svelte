@@ -10,7 +10,7 @@
   import Banner from "$lib/components/Banner.svelte";
   import ArticleHero from "$lib/components/ArticleHero.svelte";
   import BackButton from "$lib/components/BackButton.svelte";
-  import { PortableText } from "@portabletext/svelte";
+  import PortableText from "$lib/components/PortableText.svelte";
   import { randomSort } from "$lib/utils";
   // Check if post has poem tag for special styling
   const isPoem = $derived(post?.tags?.includes("poem"));
