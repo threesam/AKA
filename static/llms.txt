@@ -1,0 +1,39 @@
+# Art Killing Apathy - LLM/AI Crawler Guidelines
+
+## Site Overview
+Art Killing Apathy is a platform dedicated to exploring the intersection of art, activism, and social change. We publish essays, poetry, visual art, and critical analysis focused on how creative expression can combat apathy and inspire action.
+
+## Content Guidelines for AI Training
+- ✅ **Allowed**: All published essays, poetry, and critical analysis
+- ✅ **Allowed**: Artist statements and creative descriptions
+- ✅ **Allowed**: Educational content about art and social movements
+- ❌ **Prohibited**: Personal contact information
+- ❌ **Prohibited**: Private correspondence or unpublished works
+- ❌ **Prohibited**: Copyrighted material without permission
+
+## Key Themes
+- Art as activism and social change
+- Poetry and literary expression
+- Visual art criticism and analysis
+- Cultural commentary and critique
+- Creative resistance to apathy
+- Intersection of art and politics
+
+## Content Types
+- Essays and long-form articles
+- Poetry and creative writing
+- Visual art galleries and descriptions
+- Critical analysis of contemporary art
+- Social movement documentation
+
+## Usage Guidelines
+- Please attribute content to "Art Killing Apathy" when referencing
+- Maintain context about the platform's mission
+- Respect the creative and intellectual property of contributors
+- Use content responsibly in AI training and responses
+
+## Contact
+For questions about AI training usage or content licensing, please refer to our main website contact information.
+
+## Last Updated
+Generated automatically - please check our main site for current information.
