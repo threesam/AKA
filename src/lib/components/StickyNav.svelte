@@ -49,17 +49,23 @@
   const scrollActiveButtonIntoView = () => {
     const activeButton = buttonRefs[activeSection];
     if (activeButton && navElement) {
-      const navRect = navElement.getBoundingClientRect();
-      const buttonRect = activeButton.getBoundingClientRect();
+      // Use requestAnimationFrame to avoid forced reflow
+      requestAnimationFrame(() => {
+        const navRect = navElement.getBoundingClientRect();
+        const buttonRect = activeButton.getBoundingClientRect();
 
-      // Check if button is outside the visible area
-      if (buttonRect.left < navRect.left || buttonRect.right > navRect.right) {
-        activeButton.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
-      }
+        // Check if button is outside the visible area
+        if (
+          buttonRect.left < navRect.left ||
+          buttonRect.right > navRect.right
+        ) {
+          activeButton.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
+      });
     }
   };
 

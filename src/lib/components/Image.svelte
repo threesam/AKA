@@ -8,7 +8,10 @@
   let thisImage = $state(null);
 
   function parentWidth(node) {
-    width = node.parentElement.clientWidth;
+    // Use requestAnimationFrame to avoid forced reflow
+    requestAnimationFrame(() => {
+      width = node.parentElement.clientWidth;
+    });
   }
 
   $effect(() => {

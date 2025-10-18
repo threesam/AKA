@@ -34,39 +34,42 @@
       wordCloudInstance = null;
     }
 
-    // Get container dimensions
-    const rect = containerElement.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
+    // Use requestAnimationFrame to avoid forced reflow
+    requestAnimationFrame(() => {
+      // Get container dimensions
+      const rect = containerElement.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
 
-    if (width === 0 || height === 0) return;
+      if (width === 0 || height === 0) return;
 
-    // Set canvas dimensions
-    canvasElement.width = width;
-    canvasElement.height = height;
+      // Set canvas dimensions
+      canvasElement.width = width;
+      canvasElement.height = height;
 
-    // Calculate grid size based on container size
-    const gridSize = Math.min(width, height) / 50;
+      // Calculate grid size based on container size
+      const gridSize = Math.min(width, height) / 50;
 
-    // Color scheme based on theme
-    const colors = isDark
-      ? { primary: "#e5e7eb", background: "#000000" }
-      : { primary: "#374151", background: "#ffffff" };
+      // Color scheme based on theme
+      const colors = isDark
+        ? { primary: "#e5e7eb", background: "#000000" }
+        : { primary: "#374151", background: "#ffffff" };
 
-    // Create word cloud
-    wordCloudInstance = WordCloud(canvasElement, {
-      list: words,
-      color: colors.primary,
-      backgroundColor: colors.background,
-      fontFamily: "anton",
-      gridSize: Math.max(3, Math.floor(gridSize)),
-      minSize: 1,
-      weightFactor: 5,
-      shape,
-      ...restProps,
+      // Create word cloud
+      wordCloudInstance = WordCloud(canvasElement, {
+        list: words,
+        color: colors.primary,
+        backgroundColor: colors.background,
+        fontFamily: "anton",
+        gridSize: Math.max(3, Math.floor(gridSize)),
+        minSize: 1,
+        weightFactor: 5,
+        shape,
+        ...restProps,
+      });
+
+      isInitialized = true;
     });
-
-    isInitialized = true;
   }
 
   // Handle theme changes
