@@ -40,7 +40,7 @@
 
       <!-- GEO-optimized Description -->
       <p
-        class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto"
+        class="text-lg md:text-xl text=[var(--textColor)] mb-12 leading-relaxed max-w-3xl mx-auto"
       >
         {description}
       </p>
@@ -48,36 +48,36 @@
       <!-- Key Features Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         <div
-          class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 border border-[var(--lineColor)]/20"
+          class="bg-[var(--headerBackground)] backdrop-blur-sm rounded-lg p-6 border border-[var(--lineColor)]/20"
         >
-          <h3 class="text-xl font-['Anton'] text-gray-900 dark:text-white mb-3">
+          <h3 class="text-xl font-display text-[var(--textColor)] mb-3">
             Radical Art
           </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
+          <p class="text=[var(--textColor)] text-sm">
             Traditional and modern mediums with political messaging for
             liberation and justice
           </p>
         </div>
 
         <div
-          class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 border border-[var(--lineColor)]/20"
+          class="bg-[var(--headerBackground)] backdrop-blur-sm rounded-lg p-6 border border-[var(--lineColor)]/20"
         >
-          <h3 class="text-xl font-['Anton'] text-gray-900 dark:text-white mb-3">
+          <h3 class="text-xl font-display text-[var(--textColor)] mb-3">
             Creative Community
           </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
+          <p class="text=[var(--textColor)] text-sm">
             Building connections through creative storytelling that challenges
             official narratives
           </p>
         </div>
 
         <div
-          class="bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm rounded-lg p-6 border border-[var(--lineColor)]/20"
+          class="bg-[var(--headerBackground)] backdrop-blur-sm rounded-lg p-6 border border-[var(--lineColor)]/20"
         >
-          <h3 class="text-xl font-['Anton'] text-gray-900 dark:text-white mb-3">
+          <h3 class="text-xl font-display text-[var(--textColor)] mb-3">
             Tactical Creativity
           </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
+          <p class="text=[var(--textColor)] text-sm">
             Questioning systemic programming through joyful, creative, and
             radical expression
           </p>

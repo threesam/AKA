@@ -47,12 +47,12 @@
     <!-- Error Status -->
     <div class="mb-8">
       <h1
-        class="text-8xl lg:text-9xl font-['Anton'] text-red-600 dark:text-red-400 mb-4"
+        class="text-8xl lg:text-9xl font-display text-red-600 dark:text-red-400 mb-4"
       >
         {status}
       </h1>
       <h2
-        class="text-3xl lg:text-4xl font-['Anton'] text-gray-900 dark:text-white mb-6"
+        class="text-3xl lg:text-4xl font-display text-gray-900 dark:text-white mb-6"
       >
         {getErrorTitle(status)}
       </h2>
@@ -79,7 +79,7 @@
     {#if isDevelopment && error}
       <details class="mt-8 text-left">
         <summary
-          class="cursor-pointer text-red-600 dark:text-red-400 font-['Anton'] text-lg mb-4"
+          class="cursor-pointer text-red-600 dark:text-red-400 font-display text-lg mb-4"
         >
           Technical Details (Development Only)
         </summary>

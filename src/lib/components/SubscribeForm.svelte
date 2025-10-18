@@ -59,7 +59,7 @@
 
 <div>
   <h3
-    class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white mb-4 font-['Anton'] tracking-wide"
+    class="text-lg lg:text-2xl font-semibold text-gray-900 dark:text-white mb-4 font-display tracking-wide"
   >
     Follow for Updates
   </h3>
@@ -79,7 +79,7 @@
     <button
       type="submit"
       disabled={!isFormValid}
-      class="bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white font-['Anton'] px-6 py-2 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[var(--primary)]"
+      class="bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white font-display px-6 py-2 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[var(--primary)]"
     >
       {isLoading ? "Subscribing..." : "Subscribe"}
     </button>

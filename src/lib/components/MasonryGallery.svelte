@@ -43,7 +43,7 @@
               >
                 <div class="text-center text-white p-4">
                   {#if item?.title}
-                    <h3 class="font-['Anton'] text-lg mb-2">
+                    <h3 class="font-display text-lg mb-2">
                       {item.title}
                     </h3>
                   {/if}

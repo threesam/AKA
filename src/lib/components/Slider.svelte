@@ -70,7 +70,7 @@
                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4"
                   >
                     <h3
-                      class="text-lg font-['Anton'] text-white mb-1 line-clamp-2 group-hover:text-[var(--primary)] transition-colors duration-200"
+                      class="text-lg font-display text-white mb-1 line-clamp-2 group-hover:text-[var(--primary)] transition-colors duration-200"
                     >
                       {item.title}
                     </h3>

@@ -67,7 +67,7 @@
             </div>
 
             <h3
-              class="text-3xl lg:text-4xl font-['Anton'] text-gray-900 dark:text-white mb-4"
+              class="text-3xl lg:text-4xl font-display text-gray-900 dark:text-white mb-4"
             >
               {project.title}
             </h3>
