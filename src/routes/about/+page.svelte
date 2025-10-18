@@ -1,6 +1,9 @@
 <script>
   import { blur } from "svelte/transition";
   import SEO from "$lib/components/SEO.svelte";
+  import Banner from "$lib/components/Banner.svelte";
+  import ParticleCanvas from "$lib/components/ParticleCanvas.svelte";
+  import BackButton from "$lib/components/BackButton.svelte";
   import PortableText from "$lib/components/PortableText.svelte";
   import { generateStructuredDataHTML } from "$lib/utils/structuredData";
 
@@ -24,64 +27,65 @@
   })}
 </svelte:head>
 
-<section class="">
-  <div class="container">
-    <h1 class="text-4xl! font-bold">About</h1>
-    <button
-      class={selected === "aka" ? "selected" : ""}
-      onclick={() => (selected = "aka")}>this site</button
-    >
-    <button
-      class={selected === "eleanor" ? "selected" : ""}
-      onclick={() => (selected = "eleanor")}>eleanor</button
-    >
-  </div>
+<div class="fixed inset-0 -z-10">
+  <ParticleCanvas />
+</div>
 
-  {#if selected === "aka"}
-    <div in:blur class="content">
-      <PortableText value={aka.excerpt} />
+<section class="py-8 bg-[var(--background)]/40 backdrop-blur-sm">
+  <div class="max-w-4xl mx-auto">
+    <!-- Go back button -->
+    <BackButton />
+
+    <div class="px-6">
+      <Banner
+        title="About"
+        description="Learn about Art Killing Apathy and Eleanor Goldfield"
+        position="left"
+      />
     </div>
-  {:else if selected === "eleanor"}
-    <div in:blur class="content">
-      <PortableText value={author.bio} />
+
+    <div class="content prose prose-lg">
+      <div class="mb-8">
+        <div class="flex gap-4 mb-6 px-6">
+          <button
+            class={selected === "aka" ? "selected" : ""}
+            onclick={() => (selected = "aka")}>About This Site</button
+          >
+          <button
+            class={selected === "eleanor" ? "selected" : ""}
+            onclick={() => (selected = "eleanor")}>About Eleanor</button
+          >
+        </div>
+
+        {#if selected === "aka"}
+          <div in:blur>
+            <PortableText value={aka.excerpt} />
+          </div>
+        {:else if selected === "eleanor"}
+          <div in:blur>
+            <PortableText value={author.bio} />
+          </div>
+        {/if}
+      </div>
     </div>
-  {/if}
+  </div>
 </section>
 
 <style>
-  .container {
-    padding: 0 var(--containerPadding);
-  }
-  section {
-    max-width: 40rem;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .content {
-    position: relative;
-  }
   button {
     background: none;
     border: 0.125rem solid transparent;
     border-bottom: 0.125rem solid var(--textColor);
     color: var(--textColor);
     font-weight: bold;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     transition: all 0.3s ease-in-out;
     box-shadow: none;
+    cursor: pointer;
   }
 
   .selected {
     transition: all 0.3s ease-in-out;
     border-bottom: 0.125rem solid var(--primary);
-    /* border-left: 0.125rem dashed var(--primary);
-		border-right: 0.125rem solid var(--primary); */
-  }
-
-  .content {
-    padding-right: 0;
-    padding-left: 0;
-    padding-top: 0.5rem;
   }
 </style>

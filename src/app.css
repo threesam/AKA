@@ -132,8 +132,15 @@ body::-webkit-scrollbar-thumb {
 
 .content p,
 .content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  max-width: 42rem;
+  margin: 0 auto;
+}
 .content ul {
-  max-width: 40rem;
+  max-width: 42rem;
   margin: 0 auto;
 }
 
@@ -155,7 +162,11 @@ body::-webkit-scrollbar-thumb {
   padding: var(--containerPadding);
 }
 
-.content h2 {
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
   padding: var(--containerPadding) var(--containerPadding) 0
     var(--containerPadding);
 }

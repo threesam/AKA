@@ -10,25 +10,28 @@
   description="Privacy policy for Art Killing Apathy - protecting your data while amplifying voices for social change"
 />
 
-<main>
-  <div class="fixed inset-0 -z-10">
-    <ParticleCanvas />
-  </div>
+<div class="fixed inset-0 -z-10">
+  <ParticleCanvas />
+</div>
 
-  <section class="max-w-4xl mx-auto px-6 py-8 bg-[var(--background)]/50">
+<section class="py-8 bg-[var(--background)]/40 backdrop-blur-sm">
+  <div class="max-w-4xl mx-auto">
     <!-- Go back button -->
     <BackButton />
 
-    <Banner
-      title="Privacy Policy"
-      description="Last updated: {new Date().toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })}"
-      position="left"
-    />
-    <div class="prose prose-lg max-w-none">
+    <div class="px-6">
+      <Banner
+        title="Privacy Policy"
+        description="Last updated: {new Date().toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}"
+        position="left"
+      />
+    </div>
+
+    <div class="content prose prose-lg">
       <div class="mb-8">
         <h2>Our Commitment to Privacy</h2>
         <p>
@@ -191,5 +194,5 @@
         </p>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
