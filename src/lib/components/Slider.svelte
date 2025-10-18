@@ -37,14 +37,16 @@
                 <!-- Image Section -->
                 <div class="relative aspect-square">
                   {#if item.image}
-                    <img
-                      src={item.image +
-                        "?auto=format&quality=90&h=350&w=350&crop=entropy"}
-                      alt={item.alt || item.title}
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    {#key item.image}
+                      <img
+                        src={item.image +
+                          "?auto=format&quality=90&h=350&w=350&crop=entropy"}
+                        alt={item.alt || item.title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    {/key}
                   {:else}
                     <div
                       class="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center"
