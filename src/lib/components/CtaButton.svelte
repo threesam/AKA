@@ -24,12 +24,13 @@
 
   const typeClasses = {
     primary:
-      "text-white border-2 bg-[var(--primary)] border-[var(--primary)] hover:text-[var(--primary)] hover:border-[var(--primary)] hover:bg-transparent",
+      "text-[var(--background)] border-2 bg-[var(--primary)] border-[var(--primary)] hover:text-[var(--primary)] hover:border-[var(--primary)] hover:bg-transparent",
     secondary:
-      "border-2 border-transparent text-white hover:text-[var(--primary)]",
+      "border-2 border-transparent text-[var(--textColor)] hover:text-[var(--primary)]",
   };
 
-  const disabledClasses = "opacity-50 cursor-not-allowed hover:text-white";
+  const disabledClasses =
+    "opacity-50 cursor-not-allowed hover:text-[var(--textColor)]";
 
   const baseClasses = `
     font-display font-weight-400 transition-colors duration-300 text-center text-decoration-none rounded-full
