@@ -63,8 +63,6 @@ export async function load({ params: { slug } }) {
 
   const post = await client.fetch(query, { slug });
 
-  console.log(post.body);
-
   return {
     post,
   };
