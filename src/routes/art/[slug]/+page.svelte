@@ -48,6 +48,8 @@
             class="absolute top-0 left-0 object-cover w-full h-full"
             loading="lazy"
             decoding="async"
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
           />
         </section>
       {/key}

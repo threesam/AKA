@@ -31,6 +31,8 @@
                     class="w-full h-full object-contain"
                     loading="lazy"
                     decoding="async"
+                    crossorigin="anonymous"
+                    referrerpolicy="no-referrer"
                   />
                 {:else}
                   <div

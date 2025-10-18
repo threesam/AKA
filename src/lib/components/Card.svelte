@@ -32,6 +32,8 @@
           loading="lazy"
           class="w-full h-full object-cover"
           decoding="async"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
         />
       {:else}
         <div
@@ -103,6 +105,8 @@
           class="w-full h-full object-cover"
           loading="lazy"
           decoding="async"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
         />
       {:else}
         <div

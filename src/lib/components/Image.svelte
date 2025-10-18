@@ -36,6 +36,8 @@
     loading="lazy"
     decoding="async"
     data-loaded={loaded}
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
     class="brightness-90 relative transition-opacity duration-[1200ms] ease-out w-full h-full data-[loaded=true]:opacity-100"
   />
   {#if caption}

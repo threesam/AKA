@@ -23,6 +23,8 @@
               class="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer"
             />
           {:else}
             <div

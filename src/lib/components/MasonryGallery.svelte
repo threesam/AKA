@@ -19,6 +19,8 @@
                   class="max-h-[28vh] object-contain"
                   loading="lazy"
                   decoding="async"
+                  crossorigin="anonymous"
+                  referrerpolicy="no-referrer"
                 />
               {:else}
                 <div
