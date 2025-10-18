@@ -9,7 +9,7 @@
     <Link
       href="/"
       variant="default"
-      class="p-3 inline-flex items-center font-light gap-2 bg-[var(--background)]/50 backdrop-blur-md rounded-3xl"
+      class="py-3 px-6 inline-flex items-center font-light gap-2 bg-[var(--background)]/50 backdrop-blur-md rounded-3xl"
     >
       <svg
         class="w-5 h-5"
