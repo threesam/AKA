@@ -19,9 +19,30 @@ export async function load() {
 
     const words = /* groq */ `*[_type == "post"]{title, "title": body[0].children[0].text}`;
 
+    const articles = /* groq */ `*[_type == 'post' && ('articles' in categories[]->slug.current)]|order(publishedAt desc){
+      "id": _id,
+      "slug": slug.current,
+      title,
+      "image": featuredMedia.asset->url,
+      "alt": featuredMedia.alt,
+      publishedAt
+    }`;
+
+    // Pull poetry and spoken word for slider
+    const poetryAndSpokenWord = /* groq */ `*[_type == 'post' && ('poetry-and-spoken-word' in categories[]->slug.current)]|order(publishedAt desc){
+      "id": _id,
+      "slug": slug.current,
+      title,
+      "image": featuredMedia.asset->url,
+      "alt": featuredMedia.alt,
+      publishedAt
+    }`;
+
     const query = `{
       "settings": ${siteSettings},
-      "words": ${words}
+      "words": ${words},
+      "articles": ${articles},
+      "poetryAndSpokenWord": ${poetryAndSpokenWord}
     }`;
 
     const data = await client.fetch(query);
@@ -32,12 +53,16 @@ export async function load() {
         data.words && data.settings?.wordCloud?.uselessWords
           ? transform(data.words, data.settings.wordCloud.uselessWords)
           : [],
+      articles: data.articles,
+      poetryAndSpokenWord: data.poetryAndSpokenWord,
     };
   } catch (error) {
     console.error("Error loading layout data:", error);
     return {
       settings: { wordCloud: { uselessWords: [] } },
       words: [],
+      articles: [],
+      poetryAndSpokenWord: [],
     };
   }
 }

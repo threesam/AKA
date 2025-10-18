@@ -1,16 +1,16 @@
 <script>
   let { data } = $props();
-  const { post } = $derived(data);
+  const { post, articles, poetryAndSpokenWord } = $derived(data);
 
   import { format, parseISO } from "date-fns";
-  import serializers from "$lib/components/serializers";
   import SEO from "$lib/components/SEO.svelte";
+  import Slider from "$lib/components/Slider.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
   import Banner from "$lib/components/Banner.svelte";
   import ArticleHero from "$lib/components/ArticleHero.svelte";
   import BackButton from "$lib/components/BackButton.svelte";
   import { PortableText } from "@portabletext/svelte";
-
+  import { randomSort } from "$lib/utils";
   // Check if post has poem tag for special styling
   const isPoem = $derived(post?.tags?.includes("poem"));
 </script>
@@ -55,7 +55,7 @@
         <PortableText value={post.body} />
       </div>
     </section>
-    <div class="mt-8 py-8 border-t border-[var(--lineColor)]">
+    <div class="mt-8 py-8 border-t border-b border-[var(--lineColor)]">
       {#if post.cta}
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -85,5 +85,23 @@
         </div>
       {/if}
     </div>
+  </div>
+{/if}
+
+{#if isPoem && poetryAndSpokenWord.length > 0}
+  <div class="mt-16">
+    <Banner title="Other Poetry and Spoken Word" />
+    <Slider
+      items={randomSort(
+        poetryAndSpokenWord.filter((item) => item.slug !== post.slug)
+      )}
+    />
+  </div>
+{:else if articles.length > 0}
+  <div class="mt-16">
+    <Banner title="Other Articles" />
+    <Slider
+      items={randomSort(articles.filter((item) => item.slug !== post.slug))}
+    />
   </div>
 {/if}
