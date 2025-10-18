@@ -3,6 +3,7 @@
   import SEO from "$lib/components/SEO.svelte";
   import { PortableText } from "@portabletext/svelte";
   import serializers from "$lib/components/serializers";
+  import { generateStructuredDataHTML } from "$lib/utils/structuredData";
 
   let { data } = $props();
   let selected = $state("aka");
@@ -14,6 +15,15 @@
   description="Information about ArtKillingApathy and Eleanor Goldfield"
   {image}
 />
+
+<svelte:head>
+  {@html generateStructuredDataHTML("webpage", {
+    title: "About",
+    description: "Information about ArtKillingApathy and Eleanor Goldfield",
+    image: image,
+    url: "/about",
+  })}
+</svelte:head>
 
 <section class="">
   <div class="container">

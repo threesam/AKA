@@ -1,8 +1,9 @@
-<!-- <script>
+<script>
   let { data } = $props();
   const { settings, press } = data;
 
   import SEO from "$lib/components/SEO.svelte";
+  import { generateStructuredDataHTML } from "$lib/utils/structuredData";
 </script>
 
 <SEO
@@ -10,6 +11,15 @@
   description="Press coverage and media appearances featuring Eleanor Goldfield"
   {...settings}
 />
+
+<svelte:head>
+  {@html generateStructuredDataHTML("webpage", {
+    title: "Press",
+    description:
+      "Press coverage and media appearances featuring Eleanor Goldfield",
+    url: "/press",
+  })}
+</svelte:head>
 
 <main class="press-page">
   <header class="press-header">
@@ -490,6 +500,7 @@
     </a>
   </div>
 </main>
+-->
 
 <style>
   .press-page {
@@ -678,4 +689,4 @@
   .press-content > iframe:first-of-type {
     margin-top: 0;
   }
-</style> -->
+</style>

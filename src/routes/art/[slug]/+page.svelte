@@ -6,6 +6,7 @@
   import SEO from "$lib/components/SEO.svelte";
   import Slider from "$lib/components/Slider.svelte";
   import CtaButton from "$lib/components/CtaButton.svelte";
+  import { generateStructuredDataHTML } from "$lib/utils/structuredData";
   import Banner from "$lib/components/Banner.svelte";
   import ArticleHero from "$lib/components/ArticleHero.svelte";
   import BackButton from "$lib/components/BackButton.svelte";
@@ -14,6 +15,22 @@
   // Check if post has poem tag for special styling
   const isPoem = $derived(post?.tags?.includes("poem"));
 </script>
+
+<svelte:head>
+  {#if post}
+    {@html generateStructuredDataHTML("article", {
+      title: post.title,
+      description: post.description,
+      image: post.image,
+      alt: post.alt,
+      publishedAt: post.publishedAt,
+      author: post.author,
+      tags: post.tags,
+      category: post.category,
+      url: `/art/${post.slug}`,
+    })}
+  {/if}
+</svelte:head>
 
 {#if post}
   <SEO {...post} />

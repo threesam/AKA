@@ -12,6 +12,7 @@
 
   import SEO from "$lib/components/SEO.svelte";
   import MasonryGallery from "$lib/components/MasonryGallery.svelte";
+  import { generateStructuredDataHTML } from "$lib/utils/structuredData";
   import Card from "$lib/components/Card.svelte";
   import Video from "$lib/components/Video.svelte";
   import Banner from "$lib/components/Banner.svelte";
@@ -84,6 +85,15 @@
 </script>
 
 <SEO {...settings} />
+
+<svelte:head>
+  {@html generateStructuredDataHTML("website", {
+    title: settings?.title || "Art Killing Apathy",
+    description:
+      settings?.description ||
+      "A platform dedicated to exploring the intersection of art, activism, and social change",
+  })}
+</svelte:head>
 
 <HeroGeo transformedWords={data.words} />
 
