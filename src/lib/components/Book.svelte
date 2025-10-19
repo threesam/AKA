@@ -99,7 +99,12 @@
                 </CtaButton>
               {/if}
 
-              <CtaButton type="secondary" size="lg" href="/art/{book.slug}">
+              <CtaButton
+                type="secondary"
+                size="lg"
+                href="/art/{book.slug}"
+                data-sveltekit-preload-data="tap"
+              >
                 Learn More
               </CtaButton>
             </div>

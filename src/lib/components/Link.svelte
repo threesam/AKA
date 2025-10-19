@@ -37,6 +37,7 @@
   rel={external ? "noopener noreferrer" : undefined}
   target={external ? "_blank" : undefined}
   class="{baseClasses} {variantClasses} {sizeClasses} {className}"
+  data-sveltekit-preload-data={external ? undefined : "tap"}
 >
   {@render children()}
 </a>

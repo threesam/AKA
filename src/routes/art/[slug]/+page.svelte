@@ -71,8 +71,10 @@
             <p>
               {format(parseISO(post.publishedAt), "yyyy-MM-dd")}<br />
               by
-              <a href="/about" class="text-[var(--primary)] hover:underline"
-                >{post.author}</a
+              <a
+                href="/about"
+                class="text-[var(--primary)] hover:underline"
+                data-sveltekit-preload-data="tap">{post.author}</a
               >
             </p>
           </div>
@@ -97,7 +99,12 @@
           </CtaButton>
 
           {#if post.cta.secondary && post.slug}
-            <CtaButton type="secondary" size="lg" href="/art/{post.slug}">
+            <CtaButton
+              type="secondary"
+              size="lg"
+              href="/art/{post.slug}"
+              data-sveltekit-preload-data="tap"
+            >
               Learn More
             </CtaButton>
           {/if}

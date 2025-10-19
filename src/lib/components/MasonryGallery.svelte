@@ -10,6 +10,7 @@
           <a
             href={item?.href || "#"}
             class="flex-none group relative snap-start snap-always"
+            data-sveltekit-preload-data="tap"
           >
             <div class="relative">
               {#if item.image}

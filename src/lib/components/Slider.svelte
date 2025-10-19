@@ -33,6 +33,7 @@
               <a
                 href="/art/{item.slug}"
                 class="relative bg-[var(--headerBackground)] rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+                data-sveltekit-preload-data="tap"
               >
                 <!-- Image Section -->
                 <div class="relative aspect-square">

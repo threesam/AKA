@@ -47,6 +47,7 @@
           justice. Learn more about <a
             href="/about"
             class="text-[var(--primary)] hover:underline"
+            data-sveltekit-preload-data="tap"
             >Art Killing Apathy and Eleanor Goldfield</a
           >.
         </p>
@@ -102,12 +103,14 @@
           <a
             href="/privacy"
             class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+            data-sveltekit-preload-data="tap"
           >
             Privacy Policy
           </a>
           <a
             href="/terms"
             class="hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+            data-sveltekit-preload-data="tap"
           >
             Terms of Use
           </a>

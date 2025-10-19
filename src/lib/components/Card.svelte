@@ -82,7 +82,12 @@
           {/if}
 
           {#if product?.slug}
-            <CtaButton type="secondary" size="lg" href="/art/{product.slug}">
+            <CtaButton
+              type="secondary"
+              size="lg"
+              href="/art/{product.slug}"
+              data-sveltekit-preload-data="tap"
+            >
               {secondaryCtaText}
             </CtaButton>
           {/if}
@@ -152,7 +157,12 @@
         {/if}
 
         {#if product?.slug}
-          <CtaButton type="secondary" size="md" href="/art/{product.slug}">
+          <CtaButton
+            type="secondary"
+            size="md"
+            href="/art/{product.slug}"
+            data-sveltekit-preload-data="tap"
+          >
             {secondaryCtaText}
           </CtaButton>
         {/if}

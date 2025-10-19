@@ -68,7 +68,12 @@
 
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <CtaButton type="primary" size="lg" href="/">Go Home</CtaButton>
+        <CtaButton
+          type="primary"
+          size="lg"
+          href="/"
+          data-sveltekit-preload-data="tap">Go Home</CtaButton
+        >
         <CtaButton type="secondary" size="lg" onclick={() => history.back()}>
           Go Back
         </CtaButton>

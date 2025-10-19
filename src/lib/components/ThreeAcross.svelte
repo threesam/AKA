@@ -79,6 +79,7 @@
                     type="secondary"
                     size="md"
                     href="/art/{podcast.slug}"
+                    data-sveltekit-preload-data="tap"
                   >
                     Learn More
                   </CtaButton>
