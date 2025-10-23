@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { scale } from "svelte/transition";
+  import { fade, scale } from "svelte/transition";
   import { PUBLIC_DEPLOY_HOOK } from "$env/static/public";
 
   // Deploy hook state
@@ -79,6 +79,7 @@
   {#if showConfirm}
     <div
       class="fixed inset-0 bg-black/20 backdrop-blur-sm z-50"
+      transition:fade={{ duration: 300 }}
       onclick={cancelDeploy}
       role="button"
       tabindex="0"
@@ -98,7 +99,7 @@
     {:else}
       <div
         class="bg-[var(--cardBg)] border-2 border-[var(--lineColor)] rounded-lg shadow-xl p-4 min-w-[200px]"
-        in:scale={{ duration: 200, start: 0.8, opacity: 0 }}
+        in:scale={{ duration: 300, start: 0.8, opacity: 0 }}
       >
         <p class="text-lg text-[var(--textColor)] mb-3">
           Are you sure you want to refresh?
