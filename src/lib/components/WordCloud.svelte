@@ -2,7 +2,6 @@
   import { onMount, onDestroy } from "svelte";
   import { fade } from "svelte/transition";
   import WordCloud from "wordcloud";
-  import { darkMode } from "../utils/darkMode";
 
   // Props using Svelte 5 runes
   let {
@@ -19,8 +18,14 @@
   let wordCloudInstance = $state(null);
   let isInitialized = $state(false);
 
-  // Derived state
-  let isDark = $derived($darkMode);
+  // Dark mode detection using CSS media query
+  let isDark = $state(false);
+
+  function updateDarkMode() {
+    if (typeof window !== "undefined") {
+      isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+  }
 
   // Resize observer for responsive behavior
   let resizeObserver = $state(null);
@@ -79,6 +84,13 @@
     }
   });
 
+  // React to dark mode changes
+  $effect(() => {
+    if (isDark !== undefined && isInitialized) {
+      initializeWordCloud();
+    }
+  });
+
   // Handle words changes
   $effect(() => {
     if (words.length > 0) {
@@ -87,6 +99,16 @@
   });
 
   onMount(() => {
+    // Initialize dark mode detection
+    updateDarkMode();
+
+    // Listen for dark mode changes
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e) => {
+      isDark = e.matches;
+    };
+    mediaQuery.addEventListener("change", handleChange);
+
     // Set up resize observer
     resizeObserver = new ResizeObserver(() => {
       if (isInitialized) {
@@ -100,6 +122,11 @@
 
     // Initial setup
     initializeWordCloud();
+
+    // Cleanup listener
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
   });
 
   onDestroy(() => {

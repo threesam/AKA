@@ -263,18 +263,20 @@ hr {
   color: inherit;
 }
 
-/* themes */
-.dark {
-  --primary: var(--red);
-  --secondary: var(--pink);
-  --cardBg: var(--darkestGrey);
-  --background: var(--black);
-  --secondaryBg: var(--darkerGrey);
-  --textColor: var(--lightestGrey);
-  --textColorInverted: black;
-  --buttonTextColor: var(--black);
-  --headerBackground: var(--darkestGrey);
-  --headerTextColor: var(--white);
-  --footerBackground: var(--darkestGrey);
-  --footerBackgroundFade: var(--black);
+/* Dark mode theme - Pure CSS using prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: var(--red);
+    --secondary: var(--pink);
+    --cardBg: var(--darkestGrey);
+    --background: var(--black);
+    --secondaryBg: var(--darkerGrey);
+    --textColor: var(--lightestGrey);
+    --textColorInverted: black;
+    --buttonTextColor: var(--black);
+    --headerBackground: var(--darkestGrey);
+    --headerTextColor: var(--white);
+    --footerBackground: var(--darkestGrey);
+    --footerBackgroundFade: var(--black);
+  }
 }

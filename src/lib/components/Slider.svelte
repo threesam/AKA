@@ -25,7 +25,7 @@
             const startIndex = pairIndex * 2;
             const pair = items.slice(startIndex, startIndex + 2);
             return { pair, pairIndex };
-          } ) as { pair, pairIndex }}
+          } ) as { pair }}
           <li
             class="w-80 flex-shrink-0 flex flex-col snap-start snap-always gap-4 pl-4 last:pr-4"
           >
@@ -52,10 +52,10 @@
                     {/key}
                   {:else}
                     <div
-                      class="w-full h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center"
+                      class="w-full h-full bg-[var(--headerBackground)] flex items-center justify-center"
                     >
                       <svg
-                        class="w-16 h-16 text-gray-400"
+                        class="w-16 h-16 text-[var(--textColor)]"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
