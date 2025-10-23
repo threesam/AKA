@@ -3,7 +3,7 @@
   const {
     settings,
     page,
-    photojournalism,
+    photography,
     categories,
     articles,
     poetryAndSpokenWord,
@@ -64,8 +64,8 @@
   );
 
   // Find categories for banners
-  const photojournalismCategory = $derived(
-    categories.find((cat) => cat.slug === "photojournalism")
+  const photographyCategory = $derived(
+    categories.find((cat) => cat.slug === "photography")
   );
   const musicCategory = $derived(
     categories.find((cat) => cat.slug === "music")
@@ -99,15 +99,16 @@
 
 <StickyNav />
 
-<section id="photojournalism" class="py-16">
+<!-- Photography Section -->
+<section id="photography" class="py-16">
   <Banner
-    title={photojournalismCategory?.title}
-    description={photojournalismCategory?.description}
+    title={photographyCategory?.title}
+    description={photographyCategory?.description}
   />
-  <!-- Photojournalism Masonry Gallery (first section) -->
-  {#if photojournalism?.length}
+  <!-- photography Masonry Gallery (first section) -->
+  {#if photography?.length}
     <MasonryGallery
-      items={photojournalism.map((p) => ({
+      items={photography.map((p) => ({
         image: p.image,
         alt: p.alt,
         title: p.title,
@@ -228,7 +229,7 @@
   {/if}
 </section>
 
-<!-- Poetry and Spoken Word Section -->
+<!-- Poetry -->
 <section id="poetry-and-spoken-word" class="pb-32">
   <Banner
     title={poetryCategory?.title}
@@ -288,7 +289,7 @@
   {/if}
 </section>
 
-<!-- Paradigm Lost Section -->
+<!-- Book -->
 <section id="book" class="pb-32">
   <Banner
     title="Paradigm Lost"

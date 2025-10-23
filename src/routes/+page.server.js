@@ -1,8 +1,8 @@
 import { client } from "$lib/utils/sanity";
 
 export async function load() {
-  // Pull photojournalism-tagged posts for homepage masonry
-  const photojournalism = /* groq */ `*[_type == 'post' && 'photojournalism' in categories[]->slug.current]|order(publishedAt desc)[0...24]{
+  // Pull photography-tagged posts for homepage masonry
+  const photography = /* groq */ `*[_type == 'post' && 'photography' in categories[]->slug.current]|order(publishedAt desc)[0...24]{
     "id": _id,
     "slug": slug.current,
     title,
@@ -50,7 +50,7 @@ export async function load() {
 
   const query = `{
     "categories": ${categories},
-    "photojournalism": ${photojournalism},
+    "photography": ${photography},
     "articles": ${articles},
     "poetryAndSpokenWord": ${poetryAndSpokenWord},
     "page": ${page}
