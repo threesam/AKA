@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from "svelte";
   import { fade, scale } from "svelte/transition";
   import { PUBLIC_DEPLOY_HOOK } from "$env/static/public";
 
@@ -8,10 +7,36 @@
   let isDeploying = $state(false);
   let deployMessage = $state("");
   let deployResult = $state(null);
-  let isProd = $state(false);
 
-  onMount(() => {
-    isProd = process.env.NODE_ENV === "production";
+  // Password unlock state
+  let isUnlocked = $state(false);
+  let showPasswordPrompt = $state(false);
+  let passwordInput = $state("");
+  let passwordError = $state("");
+
+  // Check if already unlocked in this session
+  if (typeof window !== "undefined") {
+    isUnlocked = sessionStorage.getItem("deployUnlocked") === "true";
+  }
+
+  // Watch for keyboard shortcut changes
+  $effect(() => {
+    function handleKeyDown(e) {
+      console.log("handleKeyDown", e);
+      // Check for Cmd+Shift+E (Mac) or Ctrl+Shift+E (Windows/Linux)
+      if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === "e") {
+        e.preventDefault();
+        if (!isUnlocked) {
+          showPasswordPrompt = true;
+        }
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   });
 
   async function handleDeploy() {
@@ -72,9 +97,76 @@
     deployMessage = "";
     deployResult = null;
   }
+
+  function checkPassword() {
+    if (passwordInput === "radical") {
+      isUnlocked = true;
+      showPasswordPrompt = false;
+      passwordInput = "";
+      passwordError = "";
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("deployUnlocked", "true");
+      }
+    } else {
+      passwordError = "Incorrect password";
+      passwordInput = "";
+    }
+  }
+
+  function cancelPassword() {
+    showPasswordPrompt = false;
+    passwordInput = "";
+    passwordError = "";
+  }
 </script>
 
-{#if !isProd}
+{#if showPasswordPrompt}
+  <!-- Password Prompt Modal -->
+  <div
+    class="fixed inset-0 bg-[var(--background)]/80 backdrop-blur-sm z-50 flex items-center justify-center"
+    transition:fade={{ duration: 300 }}
+  >
+    <div
+      class="bg-[var(--cardBg)] border-2 border-[var(--lineColor)] rounded-lg shadow-xl p-6 min-w-[300px]"
+      transition:scale={{ duration: 300, start: 0.8, opacity: 0 }}
+    >
+      <h3 class="text-xl font-bold text-[var(--textColor)] mb-4">
+        Enter Password
+      </h3>
+      <input
+        type="password"
+        bind:value={passwordInput}
+        onkeydown={(e) => {
+          if (e.key === "Enter") checkPassword();
+          if (e.key === "Escape") cancelPassword();
+        }}
+        class="w-full px-3 py-2 border-2 border-[var(--lineColor)] rounded bg-[var(--background)] text-[var(--textColor)] focus:outline-none focus:border-[var(--primary)]"
+        placeholder="Password"
+      />
+      {#if passwordError}
+        <p class="text-red-600 dark:text-red-400 text-sm mt-2">
+          {passwordError}
+        </p>
+      {/if}
+      <div class="flex gap-2 mt-4">
+        <button
+          onclick={checkPassword}
+          class="bg-[var(--primary)] text-white px-4 py-2 rounded font-bold hover:opacity-90 transition-opacity"
+        >
+          Unlock
+        </button>
+        <button
+          onclick={cancelPassword}
+          class="bg-gray-300 dark:bg-gray-600 text-[var(--textColor)] px-4 py-2 rounded font-bold hover:opacity-90 transition-opacity"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+{/if}
+
+{#if isUnlocked}
   <!-- Clickable overlay -->
   {#if showConfirm}
     <div
