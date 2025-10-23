@@ -11,13 +11,17 @@
   <div class="w-full">
     <!-- Horizontal scroll container -->
     <div
-      class="flex overflow-x-scroll pb-4 snap-x snap-mandatory lg:snap-x-none lg:w-screen lg:pr-4"
+      class="flex overflow-x-scroll pb-4 snap-x snap-mandatory lg:snap-x-none lg:overflow-x-visible"
     >
-      <ul class="flex lg:grid lg:grid-cols-3">
+      <ul
+        class="flex lg:grid lg:grid-cols-3 max-w-7xl mx-auto px-4 lg:px-6 w-full lg:gap-6"
+      >
         {#each podcasts as podcast}
-          <li class="pl-4 max-lg:last:pr-4 snap-start snap-always">
+          <li
+            class=" max-lg:pl-4 max-lg:last:pr-4 snap-start snap-always lg:snap-none"
+          >
             <div
-              class="w-80 lg:w-auto flex-shrink-0 lg:flex-shrink flex flex-col rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+              class="w-80 lg:w-full flex-shrink-0 lg:flex-shrink flex flex-col rounded-3xl shadow-md transition-shadow duration-300 overflow-hidden"
             >
               <!-- Image Section -->
               <div
@@ -54,7 +58,7 @@
               </div>
 
               <!-- Content Section -->
-              <div class="py-6">
+              <div class="py-6 px-4 lg:px-6">
                 <h3
                   class="text-xl lg:text-2xl font-display text-gray-900 dark:text-white mb-3 lg:mb-6 line-clamp-2"
                 >

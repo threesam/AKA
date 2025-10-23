@@ -2,14 +2,14 @@
   import { onMount } from "svelte";
 
   let navLinks = [
-    { id: "photojournalism", label: "Photojournalism" },
-    { id: "articles", label: "Articles" },
-    { id: "substack", label: "Newsletter" },
-    { id: "music", label: "Music" },
+    { id: "photography", label: "Photography" },
     { id: "poetry-and-spoken-word", label: "Poetry" },
+    { id: "substack", label: "Newsletter" },
+    { id: "podcasts", label: "Podcasts" },
+    { id: "music", label: "Music" },
+    { id: "articles", label: "Articles" },
     { id: "film-video", label: "Film" },
     { id: "book", label: "Book" },
-    { id: "podcasts", label: "Podcasts" },
   ];
 
   let activeSection = $state("");

@@ -158,14 +158,14 @@
   </div>
 </section>
 
-<!-- Articles Section -->
-<section id="articles" class="pb-32">
+<!-- Poetry -->
+<section id="poetry-and-spoken-word" class="pb-32">
   <Banner
-    title={articleCategory?.title}
-    description={articleCategory?.description}
+    title={poetryCategory?.title}
+    description={poetryCategory?.description}
   />
-  {#if articles?.length}
-    <Slider items={articles} />
+  {#if poetryAndSpokenWord?.length}
+    <Slider items={poetryAndSpokenWord} />
   {/if}
 </section>
 
@@ -177,6 +177,17 @@
   />
   {#if substackProject}
     <Substack project={substackProject} />
+  {/if}
+</section>
+
+<!-- Podcasts Section -->
+<section id="podcasts" class="pb-32">
+  <Banner
+    title={podcastCategory?.title}
+    description={podcastCategory?.description}
+  />
+  {#if podcasts?.length}
+    <ThreeAcross {podcasts} />
   {/if}
 </section>
 
@@ -229,14 +240,14 @@
   {/if}
 </section>
 
-<!-- Poetry -->
-<section id="poetry-and-spoken-word" class="pb-32">
+<!-- Articles Section -->
+<section id="articles" class="pb-32">
   <Banner
-    title={poetryCategory?.title}
-    description={poetryCategory?.description}
+    title={articleCategory?.title}
+    description={articleCategory?.description}
   />
-  {#if poetryAndSpokenWord?.length}
-    <Slider items={poetryAndSpokenWord} />
+  {#if articles?.length}
+    <Slider items={articles} />
   {/if}
 </section>
 
@@ -306,16 +317,5 @@
         slug: paradigmLost.slug,
       }}
     />
-  {/if}
-</section>
-
-<!-- Podcasts Section -->
-<section id="podcasts" class="pb-32">
-  <Banner
-    title={podcastCategory?.title}
-    description={podcastCategory?.description}
-  />
-  {#if podcasts?.length}
-    <ThreeAcross {podcasts} />
   {/if}
 </section>
