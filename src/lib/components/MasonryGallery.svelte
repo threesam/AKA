@@ -5,8 +5,8 @@
 <div class="overflow-x-auto pb-2 snap-x snap-mandatory">
   <ul class="flex flex-col gap-4 min-w-max">
     {#each Array(3) as _, rowIndex}
-      <li class="flex pl-4 last:pr-4 gap-4">
-        {#each items.filter((_, idx) => idx % 3 === rowIndex) as item, idx}
+      <li class="flex pl-4 pr-4 gap-4 snap-start snap-always">
+        {#each items.filter((_, idx) => idx % 3 === rowIndex) as item}
           <a
             href={item?.href || "#"}
             class="flex-none group relative snap-start snap-always"
