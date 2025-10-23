@@ -3,6 +3,7 @@
 
   import { darkMode } from "$lib/utils/darkMode";
   import Footer from "$lib/components/Footer.svelte";
+  import DeployButton from "$lib/components/DeployButton.svelte";
 
   // Apply theme to body based on dark mode state
   $effect(() => {
@@ -26,3 +27,5 @@
 </main>
 
 <Footer transformedWords={data.words} />
+
+<DeployButton />
