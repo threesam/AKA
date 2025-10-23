@@ -1,7 +1,7 @@
 import { client } from "$lib/utils/sanity";
 import { transform } from "$lib/utils/transform";
 
-export const prerender = true;
+export const prerender = process.env.NODE_ENV === "production" ? true : false;
 
 export async function load() {
   try {
