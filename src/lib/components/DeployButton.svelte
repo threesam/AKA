@@ -78,7 +78,7 @@
   <!-- Clickable overlay -->
   {#if showConfirm}
     <div
-      class="fixed inset-0 bg-black/20 backdrop-blur-sm z-50"
+      class="fixed inset-0 bg-[var(--background)]/60 backdrop-blur-sm z-50"
       transition:fade={{ duration: 300 }}
       onclick={cancelDeploy}
       role="button"
