@@ -105,6 +105,10 @@ body {
   color: var(--textColor);
 }
 
+p {
+  font-weight: 500; /* medium - minimum font weight for all paragraphs */
+}
+
 /* scrollbar */
 body::-webkit-scrollbar {
   width: 1rem;

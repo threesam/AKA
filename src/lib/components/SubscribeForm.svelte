@@ -85,7 +85,10 @@
     </button>
   </form>
   {#if isSubmitted}
-    <h5 transition:slide class="text-sm text-gray-600 dark:text-gray-300 mt-2">
+    <h5
+      transition:slide
+      class="text-sm text=[var(--textColor)] dark:text-gray-300 mt-2"
+    >
       {message}
     </h5>
   {/if}

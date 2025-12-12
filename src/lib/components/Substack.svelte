@@ -74,7 +74,7 @@
               {project.title}
             </h3>
             <p
-              class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-lg"
+              class="text=[var(--textColor)] dark:text-gray-300 mb-8 leading-relaxed text-lg"
             >
               {project.description ||
                 "Stay updated with our latest thoughts and insights."}

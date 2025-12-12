@@ -20,7 +20,7 @@
   </h2>
   {#if description}
     <p
-      class="text-gray-600 dark:text-gray-300 max-w-xl text-lg lg:text-xl {textAlignment[
+      class="text=[var(--textColor)] dark:text-gray-300 max-w-xl text-lg lg:text-xl {textAlignment[
         position
       ]}"
     >

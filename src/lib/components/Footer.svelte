@@ -40,7 +40,7 @@
       <div>
         <Logo classes="w-auto" />
         <p
-          class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed max-w-md"
+          class="text=[var(--textColor)] dark:text-gray-300 mb-6 leading-relaxed max-w-md"
         >
           Amplifying voices for social change through art, journalism, and
           activism. Challenging apathy and inspiring action in the fight for
@@ -67,7 +67,7 @@
 
       <!-- Social & Contact -->
       <div>
-        <div class="text-gray-600 dark:text-gray-300">
+        <div class="text=[var(--textColor)] dark:text-gray-300">
           <!-- Newsletter Subscription -->
           <div
             class="bg-[var(--cardBg)] p-6 rounded-lg shadow-sm border border-[var(--lineColor)] mb-8"

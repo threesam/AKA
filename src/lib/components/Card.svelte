@@ -62,7 +62,9 @@
         >
           {product?.title || "Card"}
         </h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+        <p
+          class="text=[var(--textColor)] dark:text-gray-300 mb-8 leading-relaxed"
+        >
           {product?.description ||
             "Support our mission through this exclusive content."}
         </p>
@@ -137,7 +139,9 @@
       <h3 class="text-2xl font-display text-gray-900 dark:text-white mb-3">
         {product?.title || "Card"}
       </h3>
-      <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+      <p
+        class="text=[var(--textColor)] dark:text-gray-300 mb-6 leading-relaxed"
+      >
         {product?.description ||
           "Support our mission through this exclusive content."}
       </p>

@@ -99,7 +99,7 @@
           class="font-display px-4 py-2 rounded-full text-lg font-medium transition-all border-2 duration-200 {activeSection ===
           link.id
             ? 'text-[var(--primary)] border-[var(--primary)] shadow-md'
-            : 'text-gray-600 border-transparent dark:text-gray-300 hover:text-[var(--primary)]'}"
+            : 'text=[var(--textColor)] border-transparent dark:text-gray-300 hover:text-[var(--primary)]'}"
         >
           {link.label}
         </button>

@@ -67,7 +67,9 @@
     <section class="content mx-auto lg:px-6 py-8">
       <div class="prose prose-lg max-w-none {isPoem ? 'prose-poem' : ''}">
         {#if post.author}
-          <div class="max-w-2xl mx-auto mb-8 text-gray-600 dark:text-gray-300">
+          <div
+            class="max-w-2xl mx-auto mb-8 text=[var(--textColor)] dark:text-gray-300"
+          >
             <p>
               {format(parseISO(post.publishedAt), "yyyy-MM-dd")}<br />
               by

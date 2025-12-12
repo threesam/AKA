@@ -79,7 +79,7 @@
               {book.title}
             </h3>
             <p
-              class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-lg"
+              class="text=[var(--textColor)] dark:text-gray-300 mb-8 leading-relaxed text-lg"
             >
               {book.description ||
                 "Discover the insights and perspectives within this compelling read."}

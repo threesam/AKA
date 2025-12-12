@@ -61,7 +61,7 @@
     <!-- Error Message -->
     <div class="mb-12">
       <p
-        class="text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8"
+        class="text-lg lg:text-xl text=[var(--textColor)] dark:text-gray-300 leading-relaxed mb-8"
       >
         {getErrorMessage(status)}
       </p>
