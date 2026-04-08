@@ -8,8 +8,8 @@ const config = {
     cssCodeSplit: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ["svelte"],
+        manualChunks(id) {
+          if (id.includes("node_modules/svelte")) return "vendor";
         },
       },
     },

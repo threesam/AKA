@@ -1,6 +1,6 @@
 <script>
   import { fade, scale } from "svelte/transition";
-  import { PUBLIC_DEPLOY_HOOK } from "$env/static/public";
+  import { env } from "$env/dynamic/public";
 
   // Deploy hook state
   let showConfirm = $state(false);
@@ -47,7 +47,7 @@
   }
 
   async function confirmDeploy() {
-    if (!PUBLIC_DEPLOY_HOOK) {
+    if (!env.PUBLIC_DEPLOY_HOOK) {
       deployMessage = "Deploy hook not configured";
       deployResult = { success: false, message: "Deploy hook not configured" };
       showConfirm = false;
@@ -59,7 +59,7 @@
     deployResult = null;
 
     try {
-      const response = await fetch(PUBLIC_DEPLOY_HOOK, {
+      const response = await fetch(env.PUBLIC_DEPLOY_HOOK, {
         method: "POST",
       });
 
