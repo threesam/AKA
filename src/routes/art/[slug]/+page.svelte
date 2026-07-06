@@ -96,6 +96,8 @@
             href={post.cta.url}
             target={post.cta.external ? "_blank" : null}
             rel={post.cta.external ? "noopener noreferrer" : null}
+            data-umami-event="cta-article-click"
+            data-umami-event-item={post.slug}
           >
             {post.cta.text}
           </CtaButton>

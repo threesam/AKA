@@ -4,6 +4,8 @@
     href="https://x.com/radicaleleanor"
     aria-label="x"
     class="flex items-center justify-center w-12 h-12 text=[var(--textColor)] dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
+    data-umami-event="social-click"
+    data-umami-event-network="x"
   >
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
       <path
@@ -17,6 +19,8 @@
     href="https://instagram.com/radicaleleanor"
     aria-label="Instagram"
     class="flex items-center justify-center w-12 h-12 text=[var(--textColor)] dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
+    data-umami-event="social-click"
+    data-umami-event-network="instagram"
   >
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
       <path
@@ -30,6 +34,8 @@
     href="https://linkedin.com/in/eleanorgoldfield"
     aria-label="LinkedIn"
     class="flex items-center justify-center w-12 h-12 text=[var(--textColor)] dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
+    data-umami-event="social-click"
+    data-umami-event-network="linkedin"
   >
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
       <path

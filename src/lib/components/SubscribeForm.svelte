@@ -42,6 +42,7 @@
         message = "Already Subscribed!";
       } else if (response.status === 200) {
         message = "Thanks for Subscribing!";
+        window.umami?.track("newsletter-subscribe");
       } else {
         message = "Something went wrong. Please try again.";
       }

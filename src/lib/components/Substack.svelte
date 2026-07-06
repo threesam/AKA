@@ -89,6 +89,8 @@
                   href={project.cta.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-umami-event="cta-primary-click"
+                  data-umami-event-item={project.slug}
                 >
                   Subscribe Now
                 </CtaButton>

@@ -78,6 +78,8 @@
               href={product.url}
               target="_blank"
               rel="noopener noreferrer"
+              data-umami-event="cta-primary-click"
+              data-umami-event-item={product.slug}
             >
               {primaryCtaText}
             </CtaButton>
@@ -155,6 +157,8 @@
             href={product.url}
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event="cta-primary-click"
+            data-umami-event-item={product.slug}
           >
             {primaryCtaText}
           </CtaButton>

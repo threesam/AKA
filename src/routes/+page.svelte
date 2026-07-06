@@ -146,6 +146,8 @@
         <a
           href="mailto:eleanor@artkillingpathy.com?subject=Collaboration Inquiry"
           class="inline-block py-4 text-[var(--primary)] rounded-lg font-light text-lg hover:underline transition-all duration-300"
+          data-umami-event="mailto-click"
+          data-umami-event-source="homepage-collab"
         >
           eleanor@artkillingpathy.com
         </a>

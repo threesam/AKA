@@ -46,6 +46,7 @@
     {rel}
     class={baseClasses}
     class:pointer-events-none={disabled}
+    {...$$restProps}
   >
     <slot />
   </a>
@@ -55,6 +56,7 @@
     {disabled}
     class={baseClasses}
     class:cursor-not-allowed={disabled}
+    {...$$restProps}
   >
     <slot />
   </button>

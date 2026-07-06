@@ -58,6 +58,8 @@
             <a
               href="mailto:eleanor@artkillingapathy.com?subject=From Website"
               class="text-[var(--primary)] hover:underline text-sm"
+              data-umami-event="mailto-click"
+              data-umami-event-source="footer"
             >
               eleanor@artkillingapathy.com
             </a>
