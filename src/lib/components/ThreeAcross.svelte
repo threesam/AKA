@@ -74,6 +74,8 @@
                       href={podcast.cta.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-umami-event="cta-primary-click"
+                      data-umami-event-item={podcast.slug}
                     >
                       Listen Now
                     </CtaButton>

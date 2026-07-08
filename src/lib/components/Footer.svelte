@@ -119,6 +119,7 @@
           <span class="text-[var(--textColor)]">
             Site by <a
               href="https://sixtom.com"
+              data-umami-event="sixtom-click"
               class="hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors"
               >SIXTOM</a
             >

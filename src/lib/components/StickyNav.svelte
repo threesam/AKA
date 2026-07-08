@@ -96,6 +96,8 @@
         <button
           bind:this={buttonRefs[link.id]}
           onclick={() => scrollToSection(link.id)}
+          data-umami-event="nav-click"
+          data-umami-event-section={link.id}
           class="font-display px-4 py-2 rounded-full text-lg font-medium transition-all border-2 duration-200 {activeSection ===
           link.id
             ? 'text-[var(--primary)] border-[var(--primary)] shadow-md'

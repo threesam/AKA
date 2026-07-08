@@ -11,6 +11,7 @@
     type={value.secondary ? "secondary" : "primary"}
     target={value.external ? "_blank" : null}
     rel={value.external ? "noopener noreferrer" : null}
+    data-umami-event="cta-body-click"
   >
     {value.text || value.title || ""}
   </CtaButton>
