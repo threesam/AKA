@@ -126,6 +126,8 @@
           To exercise these rights, please contact us at
           <a
             href="mailto:eleanor@artkillingapathy.com"
+            data-umami-event="mailto-click"
+            data-umami-event-source="privacy"
             class="text-red-600 dark:text-red-400 underline hover:text-red-700 dark:hover:text-red-300"
             >eleanor@artkillingapathy.com</a
           >
@@ -171,6 +173,8 @@
         <p>
           Email: <a
             href="mailto:eleanor@artkillingapathy.com"
+            data-umami-event="mailto-click"
+            data-umami-event-source="privacy"
             class="text-red-600 dark:text-red-400 underline hover:text-red-700 dark:hover:text-red-300"
             >eleanor@artkillingapathy.com</a
           ><br />
