@@ -144,12 +144,12 @@
           Ready to collaborate?
         </p>
         <a
-          href="mailto:eleanor@artkillingpathy.com?subject=Collaboration Inquiry"
+          href="mailto:eleanor@artkillingapathy.com?subject=Collaboration Inquiry"
           class="inline-block py-4 text-[var(--primary)] rounded-lg font-light text-lg hover:underline transition-all duration-300"
           data-umami-event="mailto-click"
           data-umami-event-source="homepage-collab"
         >
-          eleanor@artkillingpathy.com
+          eleanor@artkillingapathy.com
         </a>
         <p class="text-sm mt-4">
           Include your project idea, timeline, and how you envision our
