@@ -5,11 +5,10 @@ const SITE_URL = "https://artkillingapathy.com";
 // Static routes that should always be included
 const STATIC_ROUTES = [
   { url: "/", priority: "1.0" },
-  { url: "/art/", priority: "0.9" },
-  { url: "/about/", priority: "0.8" },
-  { url: "/press/", priority: "0.8" },
-  { url: "/privacy/", priority: "0.5" },
-  { url: "/terms/", priority: "0.5" },
+  { url: "/about", priority: "0.8" },
+  { url: "/press", priority: "0.8" },
+  { url: "/privacy", priority: "0.5" },
+  { url: "/terms", priority: "0.5" },
 ];
 
 // Generate sitemap XML
@@ -56,7 +55,7 @@ export async function GET() {
 
     // Generate URLs for posts
     const postUrls = posts.map((post) => ({
-      url: `/art/${post.slug}/`,
+      url: `/art/${post.slug}`,
       priority: "0.8",
     }));
 

@@ -3,7 +3,7 @@
   <a
     href="https://x.com/radicaleleanor"
     aria-label="x"
-    class="flex items-center justify-center w-12 h-12 text=[var(--textColor)] dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
+    class="flex items-center justify-center w-12 h-12 text-[var(--textColor)] dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
     data-umami-event="social-click"
     data-umami-event-network="x"
   >
@@ -18,7 +18,7 @@
   <a
     href="https://instagram.com/radicaleleanor"
     aria-label="Instagram"
-    class="flex items-center justify-center w-12 h-12 text=[var(--textColor)] dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
+    class="flex items-center justify-center w-12 h-12 text-[var(--textColor)] dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
     data-umami-event="social-click"
     data-umami-event-network="instagram"
   >
@@ -33,7 +33,7 @@
   <a
     href="https://linkedin.com/in/eleanorgoldfield"
     aria-label="LinkedIn"
-    class="flex items-center justify-center w-12 h-12 text=[var(--textColor)] dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
+    class="flex items-center justify-center w-12 h-12 text-[var(--textColor)] dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-all duration-300 hover:scale-110"
     data-umami-event="social-click"
     data-umami-event-network="linkedin"
   >

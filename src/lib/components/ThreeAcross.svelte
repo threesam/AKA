@@ -16,7 +16,7 @@
       <ul
         class="flex lg:grid lg:grid-cols-3 max-w-7xl mx-auto px-4 lg:px-6 w-full lg:gap-6"
       >
-        {#each podcasts as podcast}
+        {#each podcasts as podcast, i (i)}
           <li
             class=" max-lg:pl-4 max-lg:last:pr-4 snap-start snap-always lg:snap-none"
           >
@@ -35,7 +35,6 @@
                     class="w-full h-full object-contain"
                     loading="lazy"
                     decoding="async"
-                    crossorigin="anonymous"
                     referrerpolicy="no-referrer"
                   />
                 {:else}
@@ -87,7 +86,7 @@
                     href="/art/{podcast.slug}"
                     data-sveltekit-preload-data="tap"
                   >
-                    Learn More
+                    Learn More<span class="sr-only"> about {podcast.title}</span>
                   </CtaButton>
                 </div>
               </div>

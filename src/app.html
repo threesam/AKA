@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -47,7 +47,10 @@
       rel="preload"
       href="https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <noscript>
       <link
@@ -67,7 +70,23 @@
       href="%sveltekit.assets%/favicon.svg"
       color="#000000"
     />
-    <script defer src="https://analytics.sixtom.com/script.js" data-website-id="d536e00d-7223-4797-ba02-511bd16c4a08" data-domains="artkillingapathy.com"></script>
+    <!-- ?test ejects this browser from umami, ?test=0 rejoins -->
+    <script>
+      try {
+        var q = new URLSearchParams(location.search);
+        if (q.has("test")) {
+          q.get("test") === "0"
+            ? localStorage.removeItem("umami.disabled")
+            : localStorage.setItem("umami.disabled", "1");
+        }
+      } catch (e) {}
+    </script>
+    <script
+      defer
+      src="https://analytics.sixtom.com/script.js"
+      data-website-id="d536e00d-7223-4797-ba02-511bd16c4a08"
+      data-domains="artkillingapathy.com"
+    ></script>
     %sveltekit.head%
   </head>
   <body class="scroll-smooth">

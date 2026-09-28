@@ -39,7 +39,7 @@
   <title>{status} - {getErrorTitle(status)}</title>
 </svelte:head>
 
-<main class="relative min-h-screen flex flex-col items-center justify-center">
+<div class="relative min-h-screen flex flex-col items-center justify-center">
   <ParticleCanvas />
 
   <!-- Error Content -->
@@ -61,7 +61,7 @@
     <!-- Error Message -->
     <div class="mb-12">
       <p
-        class="text-lg lg:text-xl text=[var(--textColor)] dark:text-gray-300 leading-relaxed mb-8"
+        class="text-lg lg:text-xl text-[var(--textColor)] dark:text-gray-300 leading-relaxed mb-8"
       >
         {getErrorMessage(status)}
       </p>
@@ -104,4 +104,4 @@
       If this problem persists, please contact support.
     </p>
   </div>
-</main>
+</div>

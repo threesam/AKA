@@ -40,7 +40,7 @@
 
       <!-- GEO-optimized Description -->
       <p
-        class="text-lg md:text-xl text=[var(--textColor)] mb-12 leading-relaxed max-w-3xl mx-auto"
+        class="text-lg md:text-xl text-[var(--textColor)] mb-12 leading-relaxed max-w-3xl mx-auto"
       >
         {description}
       </p>
@@ -53,7 +53,7 @@
           <h3 class="text-xl font-display text-[var(--textColor)] mb-3">
             Radical Art
           </h3>
-          <p class="text=[var(--textColor)] text-sm">
+          <p class="text-[var(--textColor)] text-sm">
             Traditional and modern mediums with political messaging for
             liberation and justice
           </p>
@@ -65,7 +65,7 @@
           <h3 class="text-xl font-display text-[var(--textColor)] mb-3">
             Creative Community
           </h3>
-          <p class="text=[var(--textColor)] text-sm">
+          <p class="text-[var(--textColor)] text-sm">
             Building connections through creative storytelling that challenges
             official narratives
           </p>
@@ -77,7 +77,7 @@
           <h3 class="text-xl font-display text-[var(--textColor)] mb-3">
             Tactical Creativity
           </h3>
-          <p class="text=[var(--textColor)] text-sm">
+          <p class="text-[var(--textColor)] text-sm">
             Questioning systemic programming through joyful, creative, and
             radical expression
           </p>

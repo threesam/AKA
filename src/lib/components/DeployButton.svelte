@@ -22,7 +22,6 @@
   // Watch for keyboard shortcut changes
   $effect(() => {
     function handleKeyDown(e) {
-      console.log("handleKeyDown", e);
       // Check for Cmd+Shift+E (Mac) or Ctrl+Shift+E (Windows/Linux)
       if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === "e") {
         e.preventDefault();

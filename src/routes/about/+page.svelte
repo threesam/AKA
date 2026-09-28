@@ -9,7 +9,7 @@
 
   let { data } = $props();
   let selected = $state("aka");
-  const { aka, image, author } = data.data;
+  const { aka, image, author } = $derived(data.data);
 </script>
 
 <SEO

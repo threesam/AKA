@@ -13,14 +13,7 @@ const client = createClient({
 const SITE_URL = "https://artkillingapathy.com";
 
 // Static routes that should always be included
-const STATIC_ROUTES = [
-  "/",
-  "/art/",
-  "/about/",
-  "/press/",
-  "/privacy/",
-  "/terms/",
-];
+const STATIC_ROUTES = ["/", "/about", "/press", "/privacy", "/terms"];
 
 // Generate sitemap XML
 function generateSitemap(urls) {
@@ -69,7 +62,7 @@ async function generateSitemapFile() {
     console.log(`📝 Found ${posts.length} posts`);
 
     // Generate URLs for posts
-    const postUrls = posts.map((post) => `/art/${post.slug}/`);
+    const postUrls = posts.map((post) => `/art/${post.slug}`);
 
     // Combine static routes and post URLs
     const allUrls = [...STATIC_ROUTES, ...postUrls];
@@ -82,7 +75,7 @@ async function generateSitemapFile() {
     writeFileSync(outputPath, sitemapXml, "utf8");
 
     console.log(
-      `✅ Sitemap generated successfully with ${allUrls.length} URLs`
+      `✅ Sitemap generated successfully with ${allUrls.length} URLs`,
     );
     console.log(`📁 Saved to: ${outputPath}`);
 

@@ -23,7 +23,6 @@
               class="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
-              crossorigin="anonymous"
               referrerpolicy="no-referrer"
             />
           {:else}
@@ -40,7 +39,7 @@
                     d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"
                   />
                 </svg>
-                <p class="text-orange-600 dark:text-orange-400 font-medium">
+                <p class="text-orange-700 dark:text-orange-400 font-medium">
                   Substack
                 </p>
               </div>
@@ -63,7 +62,7 @@
                 />
               </svg>
               <span
-                class="text-orange-600 dark:text-orange-400 font-semibold text-sm uppercase tracking-wide"
+                class="text-orange-700 dark:text-orange-400 font-semibold text-sm uppercase tracking-wide"
                 >Newsletter</span
               >
             </div>
@@ -74,7 +73,7 @@
               {project.title}
             </h3>
             <p
-              class="text=[var(--textColor)] dark:text-gray-300 mb-8 leading-relaxed text-lg"
+              class="text-[var(--textColor)] dark:text-gray-300 mb-8 leading-relaxed text-lg"
             >
               {project.description ||
                 "Stay updated with our latest thoughts and insights."}
@@ -102,14 +101,14 @@
                 href="/art/{project.slug}"
                 data-sveltekit-preload-data="tap"
               >
-                Learn More
+                Learn More<span class="sr-only"> about {project.title}</span>
               </CtaButton>
             </div>
 
             <!-- Substack Features -->
             <div class="mt-8 pt-6 border-t border-[var(--lineColor)]">
               <div
-                class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-500 dark:text-gray-400"
+                class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-600 dark:text-gray-400"
               >
                 <div class="flex items-center">
                   <svg
