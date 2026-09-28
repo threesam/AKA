@@ -38,7 +38,9 @@
   --white: #fff;
 
   /* define colors' intentions */
-  --primary: var(--red);
+  /* --red darkened for light mode: #eb424b on --lightestGrey is 3.5:1, this is
+     4.65:1 (WCAG AA). Dark mode keeps --red (5:1 on black). */
+  --primary: #c8383f;
   --secondary: var(--purple);
   --danger: var(--trueRed);
   --background: var(--lightestGrey);

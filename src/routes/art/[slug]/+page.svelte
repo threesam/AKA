@@ -46,9 +46,8 @@
             src={post.image + "?auto=format&quality=90&h=600"}
             alt={post.alt || post.title || "Image"}
             class="absolute top-0 left-0 object-cover w-full h-full"
-            loading="lazy"
+            fetchpriority="high"
             decoding="async"
-            crossorigin="anonymous"
             referrerpolicy="no-referrer"
           />
         </section>
@@ -68,7 +67,7 @@
       <div class="prose prose-lg max-w-none {isPoem ? 'prose-poem' : ''}">
         {#if post.author}
           <div
-            class="max-w-2xl mx-auto mb-8 text=[var(--textColor)] dark:text-gray-300"
+            class="max-w-2xl mx-auto mb-8 text-[var(--textColor)] dark:text-gray-300"
           >
             <p>
               {format(parseISO(post.publishedAt), "yyyy-MM-dd")}<br />
@@ -109,7 +108,7 @@
               href="/art/{post.slug}"
               data-sveltekit-preload-data="tap"
             >
-              Learn More
+              Learn More<span class="sr-only"> about {post.title}</span>
             </CtaButton>
           {/if}
         </div>

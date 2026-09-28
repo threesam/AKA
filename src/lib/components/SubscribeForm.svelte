@@ -70,11 +70,13 @@
   </h3>
   <form onsubmit={handleSubmit} class="flex">
     <label for="email" class="flex-1">
+      <span class="sr-only">Email address</span>
       <input
         type="email"
         name="email"
         id="email"
         placeholder="enter email"
+        autocomplete="email"
         bind:value={email}
         disabled={isLoading}
         required
@@ -89,12 +91,12 @@
       {isLoading ? "Subscribing..." : "Subscribe"}
     </button>
   </form>
-  {#if isSubmitted}
-    <h5
-      transition:slide
-      class="text-sm text=[var(--textColor)] dark:text-gray-300 mt-2"
-    >
-      {message}
-    </h5>
-  {/if}
+  <!-- Always-present live region so the result is announced. -->
+  <div role="status">
+    {#if isSubmitted}
+      <p transition:slide class="text-sm text-[var(--textColor)] dark:text-gray-300 mt-2">
+        {message}
+      </p>
+    {/if}
+  </div>
 </div>

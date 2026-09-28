@@ -33,7 +33,7 @@
     "opacity-50 cursor-not-allowed hover:text-[var(--textColor)]";
 
   const baseClasses = `
-    font-display font-weight-400 transition-colors duration-300 text-center text-decoration-none rounded-full
+    relative font-display font-weight-400 transition-colors duration-300 text-center text-decoration-none rounded-full
     ${sizeClasses[size]}
     ${disabled ? disabledClasses : typeClasses[type]}
   `.trim();

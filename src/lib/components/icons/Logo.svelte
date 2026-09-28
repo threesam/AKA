@@ -10,7 +10,6 @@
     alt="full logo for art killing apathy"
     fetchpriority="high"
     loading="eager"
-    crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
   <!-- Light mode logo -->
@@ -20,7 +19,6 @@
     alt="full logo for art killing apathy"
     fetchpriority="high"
     loading="eager"
-    crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
 </div>

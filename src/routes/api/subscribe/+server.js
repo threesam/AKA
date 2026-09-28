@@ -1,4 +1,5 @@
 import client from "@mailchimp/mailchimp_marketing";
+import { json } from "@sveltejs/kit";
 import { env } from "$env/dynamic/private";
 
 client.setConfig({
@@ -6,41 +7,39 @@ client.setConfig({
   server: env.MAILCHIMP_SERVER_PREFIX,
 });
 
-export async function GET({ url }) {
-  const { searchParams } = new URL(url);
+// The old GET handler dumped the whole Mailchimp list (every subscriber's
+// email) to anyone passing ?i_will_allow_it — removed.
 
-  if (searchParams.get("i_will_allow_it")) {
-    const response = await client.lists.getListMembersInfo(
-      env.MAILCHIMP_LIST_ID
-    );
-
-    return new Response(JSON.stringify(response, null, 2));
-  }
-}
-
+// Double opt-in: new members land as "pending" until they confirm the email.
+// addListMember (not setListMember/PUT) so an existing subscriber is never
+// flipped back to "pending"; Mailchimp answers "Member Exists" instead, which
+// the form shows as "Already Subscribed!" (400).
 export async function POST({ request }) {
-  const { email } = await request.json();
-
-  let event;
-  // create member
+  let email;
   try {
-    event = await client.lists.setListMember(env.MAILCHIMP_LIST_ID, email, {
+    ({ email } = await request.json());
+  } catch {
+    return json({ error: "invalid body" }, { status: 422 });
+  }
+  if (typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return json({ error: "invalid email" }, { status: 422 });
+  }
+
+  try {
+    await client.lists.addListMember(env.MAILCHIMP_LIST_ID, {
+      email_address: email,
       status: "pending",
     });
+    return json({ ok: true });
   } catch (e) {
-    console.error(e);
-  }
-
-  if (!event) {
-    try {
-      event = await client.lists.addListMember(env.MAILCHIMP_LIST_ID, {
-        email_address: email,
-        status: "pending",
-      });
-    } catch (e) {
-      console.error(e);
+    if (e?.response?.body?.title === "Member Exists") {
+      return json({ error: "already subscribed" }, { status: 400 });
     }
+    console.error(
+      "subscribe:",
+      e?.status,
+      e?.response?.body?.title ?? e?.message,
+    );
+    return json({ error: "subscribe failed" }, { status: 502 });
   }
-
-  return new Response(JSON.stringify({ email, event }, null, 2));
 }

@@ -25,11 +25,11 @@
             const startIndex = pairIndex * 2;
             const pair = items.slice(startIndex, startIndex + 2);
             return { pair, pairIndex };
-          } ) as { pair }}
+          } ) as { pair, pairIndex } (pairIndex)}
           <li
             class="w-80 flex-shrink-0 flex flex-col snap-start snap-always gap-4 pl-4 last:pr-4"
           >
-            {#each pair as item}
+            {#each pair as item, i (i)}
               <a
                 href="/art/{item.slug}"
                 class="relative bg-[var(--headerBackground)] rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
@@ -46,7 +46,6 @@
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                         decoding="async"
-                        crossorigin="anonymous"
                         referrerpolicy="no-referrer"
                       />
                     {/key}

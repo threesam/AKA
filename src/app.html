@@ -70,6 +70,17 @@
       href="%sveltekit.assets%/favicon.svg"
       color="#000000"
     />
+    <!-- ?test ejects this browser from umami, ?test=0 rejoins -->
+    <script>
+      try {
+        var q = new URLSearchParams(location.search);
+        if (q.has("test")) {
+          q.get("test") === "0"
+            ? localStorage.removeItem("umami.disabled")
+            : localStorage.setItem("umami.disabled", "1");
+        }
+      } catch (e) {}
+    </script>
     <script
       defer
       src="https://analytics.sixtom.com/script.js"

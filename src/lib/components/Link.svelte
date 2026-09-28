@@ -13,7 +13,7 @@
       "text-current hover:text-[var(--primary)] underline decoration-[var(--primary)] decoration-2 underline-offset-4 hover:underline-offset-2 transition-all duration-200",
     primary: "text-primary hover:text-primary/80 font-medium",
     secondary:
-      "text=[var(--textColor)] hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200",
+      "text-[var(--textColor)] hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200",
     underline:
       "text-current hover:text-current underline hover:no-underline decoration-2 underline-offset-4",
     button:
@@ -28,8 +28,8 @@
 
   const baseClasses =
     "focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 rounded-sm";
-  const variantClasses = variants[variant] || variants.default;
-  const sizeClasses = sizes[size] || sizes.md;
+  const variantClasses = $derived(variants[variant] || variants.default);
+  const sizeClasses = $derived(sizes[size] || sizes.md);
 </script>
 
 <a

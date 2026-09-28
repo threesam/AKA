@@ -6,9 +6,9 @@
 
 <div class="overflow-x-auto pb-2 snap-x snap-mandatory">
   <ul class="flex flex-col gap-4 min-w-max">
-    {#each Array(ROWS) as _, rowIndex}
+    {#each Array(ROWS) as _, rowIndex (rowIndex)}
       <li class="flex pl-4 pr-4 gap-4 snap-start snap-always">
-        {#each items.filter((_, idx) => idx % ROWS === rowIndex) as item}
+        {#each items.filter((_, idx) => idx % ROWS === rowIndex) as item, i (i)}
           <a
             href={item?.href || "#"}
             class="flex-none group relative snap-start snap-always"
@@ -22,7 +22,6 @@
                   class="max-h-[35vh] object-contain"
                   loading="lazy"
                   decoding="async"
-                  crossorigin="anonymous"
                   referrerpolicy="no-referrer"
                 />
               {:else}
@@ -44,7 +43,7 @@
               {/if}
               <!-- Hover Overlay -->
               <div
-                class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 flex items-center justify-center"
               >
                 <div class="text-center text-white p-4">
                   {#if item?.title}

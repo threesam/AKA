@@ -28,7 +28,6 @@
               class="w-full h-full object-cover"
               loading="lazy"
               decoding="async"
-              crossorigin="anonymous"
               referrerpolicy="no-referrer"
             />
           {:else}
@@ -45,7 +44,7 @@
                     d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
                   />
                 </svg>
-                <p class="text-amber-600 dark:text-amber-400 font-medium">
+                <p class="text-amber-800 dark:text-amber-400 font-medium">
                   Book Cover
                 </p>
               </div>
@@ -68,7 +67,7 @@
                 />
               </svg>
               <span
-                class="text-amber-600 dark:text-amber-400 font-semibold text-sm uppercase tracking-wide"
+                class="text-amber-800 dark:text-amber-400 font-semibold text-sm uppercase tracking-wide"
                 >Book</span
               >
             </div>
@@ -79,7 +78,7 @@
               {book.title}
             </h3>
             <p
-              class="text=[var(--textColor)] dark:text-gray-300 mb-8 leading-relaxed text-lg"
+              class="text-[var(--textColor)] dark:text-gray-300 mb-8 leading-relaxed text-lg"
             >
               {book.description ||
                 "Discover the insights and perspectives within this compelling read."}
@@ -107,14 +106,14 @@
                 href="/art/{book.slug}"
                 data-sveltekit-preload-data="tap"
               >
-                Learn More
+                Learn More<span class="sr-only"> about {book.title}</span>
               </CtaButton>
             </div>
 
             <!-- Book Features -->
             <div class="mt-8 pt-6 border-t border-[var(--lineColor)]">
               <div
-                class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-500 dark:text-gray-400"
+                class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-gray-600 dark:text-gray-400"
               >
                 <div class="flex items-center">
                   <svg

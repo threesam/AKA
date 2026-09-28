@@ -31,8 +31,8 @@ export function generateStructuredData(type, data = {}) {
         dateModified: data.modifiedAt
           ? formatISO(new Date(data.modifiedAt))
           : data.publishedAt
-          ? formatISO(new Date(data.publishedAt))
-          : undefined,
+            ? formatISO(new Date(data.publishedAt))
+            : undefined,
         author: {
           "@type": "Person",
           name: data.author || "Art Killing Apathy",
@@ -175,5 +175,6 @@ export function generateStructuredDataHTML(type, data = {}) {
   const jsonLd = generateStructuredData(type, data);
   if (!jsonLd) return "";
 
-  return `<script type="application/ld+json">${jsonLd}</script>`;
+  // Escape "<" so CMS text containing "</script>" can't break out of the tag.
+  return `<script type="application/ld+json">${jsonLd.replace(/</g, "\\u003c")}</script>`;
 }

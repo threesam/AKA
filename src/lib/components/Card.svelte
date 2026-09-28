@@ -32,7 +32,6 @@
           loading="lazy"
           class="w-full h-full object-cover"
           decoding="async"
-          crossorigin="anonymous"
           referrerpolicy="no-referrer"
         />
       {:else}
@@ -63,7 +62,7 @@
           {product?.title || "Card"}
         </h3>
         <p
-          class="text=[var(--textColor)] dark:text-gray-300 mb-8 leading-relaxed"
+          class="text-[var(--textColor)] dark:text-gray-300 mb-8 leading-relaxed"
         >
           {product?.description ||
             "Support our mission through this exclusive content."}
@@ -92,7 +91,7 @@
               href="/art/{product.slug}"
               data-sveltekit-preload-data="tap"
             >
-              {secondaryCtaText}
+              {secondaryCtaText}<span class="sr-only"> about {product.title}</span>
             </CtaButton>
           {/if}
         </div>
@@ -114,7 +113,6 @@
           class="w-full h-full object-cover"
           loading="lazy"
           decoding="async"
-          crossorigin="anonymous"
           referrerpolicy="no-referrer"
         />
       {:else}
@@ -142,7 +140,7 @@
         {product?.title || "Card"}
       </h3>
       <p
-        class="text=[var(--textColor)] dark:text-gray-300 mb-6 leading-relaxed"
+        class="text-[var(--textColor)] dark:text-gray-300 mb-6 leading-relaxed"
       >
         {product?.description ||
           "Support our mission through this exclusive content."}
@@ -171,7 +169,7 @@
             href="/art/{product.slug}"
             data-sveltekit-preload-data="tap"
           >
-            {secondaryCtaText}
+            {secondaryCtaText}<span class="sr-only"> about {product.title}</span>
           </CtaButton>
         {/if}
       </div>

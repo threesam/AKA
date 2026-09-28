@@ -198,7 +198,7 @@
             href="mailto:eleanor@artkillingapathy.com"
             data-umami-event="mailto-click"
             data-umami-event-source="terms"
-            class="text-red-600 dark:text-red-400 underline hover:text-red-700 dark:hover:text-red-300"
+            class="text-red-700 dark:text-red-400 underline hover:text-red-800 dark:hover:text-red-300"
             >eleanor@artkillingapathy.com</a
           ><br />
           Subject: Terms of Use Inquiry
