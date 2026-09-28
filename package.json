@@ -8,7 +8,7 @@
     "build": "npm run generate:sitemap && vite build",
     "package": "svelte-kit package",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./jsconfig.json",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
     "lint": "prettier --check .",
     "format": "prettier --write .",
@@ -40,5 +40,8 @@
     "typescript": "6.0.3",
     "vite": "8.3.1",
     "wordcloud": "1.2.3"
+  },
+  "devDependencies": {
+    "prettier": "3.9.9"
   }
 }
