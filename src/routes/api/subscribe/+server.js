@@ -10,10 +10,12 @@ client.setConfig({
 // The old GET handler dumped the whole Mailchimp list (every subscriber's
 // email) to anyone passing ?i_will_allow_it — removed.
 
-// Double opt-in: new members land as "pending" until they confirm the email.
-// addListMember (not setListMember/PUT) so an existing subscriber is never
-// flipped back to "pending"; Mailchimp answers "Member Exists" instead, which
-// the form shows as "Already Subscribed!" (400).
+// Double opt-in, and the same answer for every valid email so the endpoint
+// can't be used to probe who is on the list.
+// - setListMember + status_if_new: new contacts land as "pending" (Mailchimp
+//   sends the confirmation); existing contacts keep their status, so a
+//   subscriber is never flipped back to pending.
+// - an unsubscribed contact asking again gets a fresh confirmation email.
 export async function POST({ request }) {
   let email;
   try {
@@ -26,15 +28,22 @@ export async function POST({ request }) {
   }
 
   try {
-    await client.lists.addListMember(env.MAILCHIMP_LIST_ID, {
-      email_address: email,
-      status: "pending",
-    });
+    // the API accepts the email in place of the MD5 subscriber hash
+    const member = await client.lists.setListMember(
+      env.MAILCHIMP_LIST_ID,
+      email,
+      {
+        email_address: email,
+        status_if_new: "pending",
+      },
+    );
+    if (member.status === "unsubscribed") {
+      await client.lists.updateListMember(env.MAILCHIMP_LIST_ID, email, {
+        status: "pending",
+      });
+    }
     return json({ ok: true });
   } catch (e) {
-    if (e?.response?.body?.title === "Member Exists") {
-      return json({ error: "already subscribed" }, { status: 400 });
-    }
     console.error(
       "subscribe:",
       e?.status,

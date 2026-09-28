@@ -38,9 +38,7 @@
         },
         body: JSON.stringify({ email }),
       });
-      if (response.status === 400) {
-        message = "Already Subscribed!";
-      } else if (response.status === 200) {
+      if (response.ok) {
         message = "Thanks for Subscribing!";
         try {
           window.umami?.track("newsletter-subscribe");
