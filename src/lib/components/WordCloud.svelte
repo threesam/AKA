@@ -1,5 +1,5 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
+  import { onMount, onDestroy, untrack } from "svelte";
   import { fade } from "svelte/transition";
   import WordCloud from "wordcloud";
 
@@ -77,25 +77,13 @@
     });
   }
 
-  // Handle theme changes
+  // Redraw when the theme or the word list changes — but only once the
+  // first (deferred) draw has happened; untrack keeps the first draw from
+  // retriggering these and drawing the cloud two more times.
   $effect(() => {
-    if (isInitialized) {
-      initializeWordCloud();
-    }
-  });
-
-  // React to dark mode changes
-  $effect(() => {
-    if (isDark !== undefined && isInitialized) {
-      initializeWordCloud();
-    }
-  });
-
-  // Handle words changes
-  $effect(() => {
-    if (words.length > 0) {
-      initializeWordCloud();
-    }
+    isDark;
+    words;
+    if (untrack(() => isInitialized)) initializeWordCloud();
   });
 
   onMount(() => {
@@ -120,12 +108,28 @@
       resizeObserver.observe(containerElement);
     }
 
-    // Initial setup
-    initializeWordCloud();
+    // ponytail: the layout runs wordcloud2 on the main thread (~8s of CPU on
+    // a throttled phone), so wait until the cloud is near the viewport and
+    // the browser is idle. Hero clouds start after load; the footer one only
+    // when scrolled to.
+    let idleId;
+    const idle = window.requestIdleCallback ?? ((cb) => setTimeout(cb, 1));
+    const cancelIdle = window.cancelIdleCallback ?? clearTimeout;
+    const visibility = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        visibility.disconnect();
+        idleId = idle(initializeWordCloud);
+      },
+      { rootMargin: "200px" },
+    );
+    if (containerElement) visibility.observe(containerElement);
 
     // Cleanup listener
     return () => {
       mediaQuery.removeEventListener("change", handleChange);
+      visibility.disconnect();
+      cancelIdle(idleId);
     };
   });
 
