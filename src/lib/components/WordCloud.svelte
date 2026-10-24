@@ -1,5 +1,5 @@
 <script>
-  import { onMount, onDestroy, untrack } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { fade } from "svelte/transition";
   import WordCloud from "wordcloud";
 
@@ -16,7 +16,6 @@
   let canvasElement = $state(null);
   let containerElement = $state(null);
   let wordCloudInstance = $state(null);
-  let isInitialized = $state(false);
 
   // Dark mode detection using CSS media query
   let isDark = $state(false);
@@ -72,18 +71,19 @@
         shape,
         ...restProps,
       });
-
-      isInitialized = true;
     });
   }
 
-  // Redraw when the theme or the word list changes — but only once the
-  // first (deferred) draw has happened; untrack keeps the first draw from
-  // retriggering these and drawing the cloud two more times.
+  // Plain (non-reactive) flag: set once the cloud has been near the
+  // viewport. Redraws wait for it, and reading it does not make the effect
+  // re-run, so the first draw happens once, from the idle callback.
+  let visible = false;
+
+  // Redraw when the theme or the word list changes, once visible.
   $effect(() => {
     isDark;
     words;
-    if (untrack(() => isInitialized)) initializeWordCloud();
+    if (visible) initializeWordCloud();
   });
 
   onMount(() => {
@@ -99,7 +99,7 @@
 
     // Set up resize observer
     resizeObserver = new ResizeObserver(() => {
-      if (isInitialized) {
+      if (visible) {
         initializeWordCloud();
       }
     });
@@ -119,6 +119,7 @@
       (entries) => {
         if (!entries.some((e) => e.isIntersecting)) return;
         visibility.disconnect();
+        visible = true;
         idleId = idle(initializeWordCloud);
       },
       { rootMargin: "200px" },
