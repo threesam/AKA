@@ -1,5 +1,5 @@
 <script>
-  import CtaButton from "$lib/components/CtaButton.svelte";
+  import CtaButton from "#lib/components/CtaButton.svelte";
 
   /**
    * product: Object with title, description, image, url, etc.

@@ -1,14 +1,14 @@
 <script>
   import { format, parseISO } from "date-fns";
-  import BackButton from "$lib/components/BackButton.svelte";
-  import Banner from "$lib/components/Banner.svelte";
-  import CtaButton from "$lib/components/CtaButton.svelte";
-  import { generateStructuredDataHTML } from "$lib/utils/structuredData";
-  import PortableText from "$lib/components/PortableText.svelte";
-  import { randomSort } from "$lib/utils";
+  import BackButton from "#lib/components/BackButton.svelte";
+  import Banner from "#lib/components/Banner.svelte";
+  import CtaButton from "#lib/components/CtaButton.svelte";
+  import { generateStructuredDataHTML } from "#lib/utils/structuredData.js";
+  import PortableText from "#lib/components/PortableText.svelte";
+  import { randomSort } from "#lib/utils/index.js";
   import { scale } from "svelte/transition";
-  import SEO from "$lib/components/SEO.svelte";
-  import Slider from "$lib/components/Slider.svelte";
+  import SEO from "#lib/components/SEO.svelte";
+  import Slider from "#lib/components/Slider.svelte";
 
   let { data } = $props();
   const { post, articles, poetryAndSpokenWord } = $derived(data);

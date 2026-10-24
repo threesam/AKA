@@ -8,7 +8,7 @@
 
   let WordCloud = $state(null);
   onMount(async () => {
-    const mod = await import("$lib/components/WordCloud.svelte");
+    const mod = await import("#lib/components/WordCloud.svelte");
     WordCloud = mod.default;
   });
 </script>

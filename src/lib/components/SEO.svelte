@@ -1,7 +1,7 @@
 <script>
   import SvelteSeo from "svelte-seo";
-  import { urlFor } from "$lib/utils/sanity";
-  import { page } from "$app/stores";
+  import { urlFor } from "#lib/utils/sanity.js";
+  import { page } from "$app/state";
 
   const SEO_IMAGE_WIDTH = 1200;
   const SEO_IMAGE_HEIGHT = 1200;
@@ -27,7 +27,7 @@
     openGraph={{
       title: title ?? "",
       description: description ?? "",
-      url: host + $page.url.pathname,
+      url: host + page.url.pathname,
       type: "article",
       article: {
         publishedTime: publishedAt ?? "",
@@ -67,7 +67,7 @@
     openGraph={{
       title: title ?? "",
       description: description ?? "",
-      url: host + $page.url.pathname,
+      url: host + page.url.pathname,
       type: "website",
       images: image
         ? [

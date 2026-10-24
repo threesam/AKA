@@ -1,4 +1,4 @@
-import { client } from "$lib/utils/sanity";
+import { client } from "#lib/utils/sanity.js";
 
 export async function load({ params: { slug } }) {
   const query = /* groq */ `*[_type == "post" && slug.current == $slug][0]{
