@@ -1,5 +1,5 @@
 <script>
-  import { browser } from "$app/environment";
+  import { browser } from "$app/env";
 
   const MAX_PARTICLES = 120;
   const MIN_PARTICLES = 100;

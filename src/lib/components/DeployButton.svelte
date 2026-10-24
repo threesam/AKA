@@ -1,6 +1,6 @@
 <script>
   import { fade, scale } from "svelte/transition";
-  import { PUBLIC_DEPLOY_HOOK } from "$env/static/public";
+  import { PUBLIC_DEPLOY_HOOK } from "$app/env/public";
 
   // Deploy hook state
   let showConfirm = $state(false);

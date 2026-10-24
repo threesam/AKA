@@ -1,5 +1,5 @@
-import { client } from "$lib/utils/sanity";
-import { transform } from "$lib/utils/transform";
+import { client } from "#lib/utils/sanity.js";
+import { transform } from "#lib/utils/transform.js";
 
 export const prerender = false;
 

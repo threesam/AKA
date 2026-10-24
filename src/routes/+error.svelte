@@ -1,7 +1,7 @@
 <script>
-  import ParticleCanvas from "$lib/components/ParticleCanvas.svelte";
-  import Banner from "$lib/components/Banner.svelte";
-  import CtaButton from "$lib/components/CtaButton.svelte";
+  import ParticleCanvas from "#lib/components/ParticleCanvas.svelte";
+  import Banner from "#lib/components/Banner.svelte";
+  import CtaButton from "#lib/components/CtaButton.svelte";
 
   let { error, status } = $props();
 

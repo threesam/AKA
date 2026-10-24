@@ -1,5 +1,5 @@
 <script>
-  import CtaButton from "$lib/components/CtaButton.svelte";
+  import CtaButton from "#lib/components/CtaButton.svelte";
 
   /**
    * book: Book object with title, description, image, etc.

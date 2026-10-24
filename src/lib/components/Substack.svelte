@@ -1,5 +1,5 @@
 <script>
-  import CtaButton from "$lib/components/CtaButton.svelte";
+  import CtaButton from "#lib/components/CtaButton.svelte";
 
   /**
    * project: Substack project object with title, description, image, etc.

@@ -1,4 +1,4 @@
-import { client } from "$lib/utils/sanity";
+import { client } from "#lib/utils/sanity.js";
 
 export async function load() {
   // Pull photography-tagged posts for homepage masonry

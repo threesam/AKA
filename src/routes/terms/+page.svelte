@@ -1,8 +1,8 @@
 <script>
-  import SEO from "$lib/components/SEO.svelte";
-  import Banner from "$lib/components/Banner.svelte";
-  import ParticleCanvas from "$lib/components/ParticleCanvas.svelte";
-  import BackButton from "$lib/components/BackButton.svelte";
+  import SEO from "#lib/components/SEO.svelte";
+  import Banner from "#lib/components/Banner.svelte";
+  import ParticleCanvas from "#lib/components/ParticleCanvas.svelte";
+  import BackButton from "#lib/components/BackButton.svelte";
 </script>
 
 <SEO

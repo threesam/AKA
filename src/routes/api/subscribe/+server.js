@@ -1,10 +1,13 @@
 import client from "@mailchimp/mailchimp_marketing";
-import { json } from "@sveltejs/kit";
-import { env } from "$env/dynamic/private";
+import {
+  MAILCHIMP_API_KEY,
+  MAILCHIMP_SERVER_PREFIX,
+  MAILCHIMP_LIST_ID,
+} from "$app/env/private";
 
 client.setConfig({
-  apiKey: env.MAILCHIMP_API_KEY,
-  server: env.MAILCHIMP_SERVER_PREFIX,
+  apiKey: MAILCHIMP_API_KEY,
+  server: MAILCHIMP_SERVER_PREFIX,
 });
 
 // The old GET handler dumped the whole Mailchimp list (every subscriber's
@@ -21,34 +24,31 @@ export async function POST({ request }) {
   try {
     ({ email } = await request.json());
   } catch {
-    return json({ error: "invalid body" }, { status: 422 });
+    return Response.json({ error: "invalid body" }, { status: 422 });
   }
   if (typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return json({ error: "invalid email" }, { status: 422 });
+    return Response.json({ error: "invalid email" }, { status: 422 });
   }
 
   try {
     // the API accepts the email in place of the MD5 subscriber hash
-    const member = await client.lists.setListMember(
-      env.MAILCHIMP_LIST_ID,
-      email,
-      {
-        email_address: email,
-        status_if_new: "pending",
-      },
-    );
+    const member = await client.lists.setListMember(MAILCHIMP_LIST_ID, email, {
+      email_address: email,
+      status_if_new: "pending",
+    });
+
     if (member.status === "unsubscribed") {
-      await client.lists.updateListMember(env.MAILCHIMP_LIST_ID, email, {
+      await client.lists.updateListMember(MAILCHIMP_LIST_ID, email, {
         status: "pending",
       });
     }
-    return json({ ok: true });
+    return Response.json({ ok: true });
   } catch (e) {
     console.error(
       "subscribe:",
       e?.status,
       e?.response?.body?.title ?? e?.message,
     );
-    return json({ error: "subscribe failed" }, { status: 502 });
+    return Response.json({ error: "subscribe failed" }, { status: 502 });
   }
 }

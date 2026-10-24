@@ -1,4 +1,4 @@
-// import { client } from "$lib/utils/sanity";
+// import { client } from "#lib/utils/sanity.js";
 
 // export async function load() {
 //   const siteSettings = /* groq */ `*[_type == "siteSettings"][0]{"image": featuredMedia.asset->url, "alt": featuredMedia.alt}`;
