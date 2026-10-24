@@ -2,8 +2,8 @@
   let { data } = $props();
   const { settings, press } = $derived(data);
 
-  import SEO from "$lib/components/SEO.svelte";
-  import { generateStructuredDataHTML } from "$lib/utils/structuredData";
+  import SEO from "#lib/components/SEO.svelte";
+  import { generateStructuredDataHTML } from "#lib/utils/structuredData.js";
 </script>
 
 <SEO

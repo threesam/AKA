@@ -1,3 +1,4 @@
+import adapter from "@sveltejs/adapter-netlify";
 import { sveltekit } from "@sveltejs/kit/vite";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -6,7 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 // default chunking already splits the runtime out.
 /** @type {import('vite').UserConfig} */
 const config = {
-  plugins: [sveltekit(), tailwindcss()],
+  plugins: [sveltekit({ adapter: adapter() }), tailwindcss()],
 };
 
 export default config;

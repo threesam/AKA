@@ -1,5 +1,5 @@
 <script>
-  import CtaButton from "$lib/components/CtaButton.svelte";
+  import CtaButton from "#lib/components/CtaButton.svelte";
 
   /**
    * podcasts: Array of podcast objects with title, description, image, etc.

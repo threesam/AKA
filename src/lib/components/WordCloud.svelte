@@ -16,7 +16,6 @@
   let canvasElement = $state(null);
   let containerElement = $state(null);
   let wordCloudInstance = $state(null);
-  let isInitialized = $state(false);
 
   // Dark mode detection using CSS media query
   let isDark = $state(false);
@@ -72,30 +71,19 @@
         shape,
         ...restProps,
       });
-
-      isInitialized = true;
     });
   }
 
-  // Handle theme changes
-  $effect(() => {
-    if (isInitialized) {
-      initializeWordCloud();
-    }
-  });
+  // Plain (non-reactive) flag: set once the cloud has been near the
+  // viewport. Redraws wait for it, and reading it does not make the effect
+  // re-run, so the first draw happens once, from the idle callback.
+  let visible = false;
 
-  // React to dark mode changes
+  // Redraw when the theme or the word list changes, once visible.
   $effect(() => {
-    if (isDark !== undefined && isInitialized) {
-      initializeWordCloud();
-    }
-  });
-
-  // Handle words changes
-  $effect(() => {
-    if (words.length > 0) {
-      initializeWordCloud();
-    }
+    isDark;
+    words;
+    if (visible) initializeWordCloud();
   });
 
   onMount(() => {
@@ -111,7 +99,7 @@
 
     // Set up resize observer
     resizeObserver = new ResizeObserver(() => {
-      if (isInitialized) {
+      if (visible) {
         initializeWordCloud();
       }
     });
@@ -120,12 +108,29 @@
       resizeObserver.observe(containerElement);
     }
 
-    // Initial setup
-    initializeWordCloud();
+    // ponytail: the layout runs wordcloud2 on the main thread (~8s of CPU on
+    // a throttled phone), so wait until the cloud is near the viewport and
+    // the browser is idle. Hero clouds start after load; the footer one only
+    // when scrolled to.
+    let idleId;
+    const idle = window.requestIdleCallback ?? ((cb) => setTimeout(cb, 1));
+    const cancelIdle = window.cancelIdleCallback ?? clearTimeout;
+    const visibility = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        visibility.disconnect();
+        visible = true;
+        idleId = idle(initializeWordCloud);
+      },
+      { rootMargin: "200px" },
+    );
+    if (containerElement) visibility.observe(containerElement);
 
     // Cleanup listener
     return () => {
       mediaQuery.removeEventListener("change", handleChange);
+      visibility.disconnect();
+      cancelIdle(idleId);
     };
   });
 

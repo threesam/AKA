@@ -1,11 +1,11 @@
 <script>
   import { blur } from "svelte/transition";
-  import SEO from "$lib/components/SEO.svelte";
-  import Banner from "$lib/components/Banner.svelte";
-  import ParticleCanvas from "$lib/components/ParticleCanvas.svelte";
-  import BackButton from "$lib/components/BackButton.svelte";
-  import PortableText from "$lib/components/PortableText.svelte";
-  import { generateStructuredDataHTML } from "$lib/utils/structuredData";
+  import SEO from "#lib/components/SEO.svelte";
+  import Banner from "#lib/components/Banner.svelte";
+  import ParticleCanvas from "#lib/components/ParticleCanvas.svelte";
+  import BackButton from "#lib/components/BackButton.svelte";
+  import PortableText from "#lib/components/PortableText.svelte";
+  import { generateStructuredDataHTML } from "#lib/utils/structuredData.js";
 
   let { data } = $props();
   let selected = $state("aka");

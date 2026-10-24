@@ -1,5 +1,5 @@
 <script>
-  import { urlFor } from "$lib/utils/sanity";
+  import { urlFor } from "#lib/utils/sanity.js";
 
   let { url, alt = "", caption, rounded = false } = $props();
 

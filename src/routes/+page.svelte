@@ -10,18 +10,18 @@
   } = $derived(data);
   const { content } = $derived(page);
 
-  import SEO from "$lib/components/SEO.svelte";
-  import MasonryGallery from "$lib/components/MasonryGallery.svelte";
-  import { generateStructuredDataHTML } from "$lib/utils/structuredData";
-  import Card from "$lib/components/Card.svelte";
-  import Video from "$lib/components/Video.svelte";
-  import Banner from "$lib/components/Banner.svelte";
-  import ThreeAcross from "$lib/components/ThreeAcross.svelte";
-  import Substack from "$lib/components/Substack.svelte";
-  import Book from "$lib/components/Book.svelte";
-  import HeroGeo from "$lib/components/HeroGeo.svelte";
-  import StickyNav from "$lib/components/StickyNav.svelte";
-  import Slider from "$lib/components/Slider.svelte";
+  import SEO from "#lib/components/SEO.svelte";
+  import MasonryGallery from "#lib/components/MasonryGallery.svelte";
+  import { generateStructuredDataHTML } from "#lib/utils/structuredData.js";
+  import Card from "#lib/components/Card.svelte";
+  import Video from "#lib/components/Video.svelte";
+  import Banner from "#lib/components/Banner.svelte";
+  import ThreeAcross from "#lib/components/ThreeAcross.svelte";
+  import Substack from "#lib/components/Substack.svelte";
+  import Book from "#lib/components/Book.svelte";
+  import HeroGeo from "#lib/components/HeroGeo.svelte";
+  import StickyNav from "#lib/components/StickyNav.svelte";
+  import Slider from "#lib/components/Slider.svelte";
 
   // Find No Solo project and vinyl
   const noSoloProject = $derived(
